@@ -1,4 +1,4 @@
-styles.css
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -217,4 +217,34 @@ body {
 
 .welcome-box h1 {
     color: #2196f3;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        height: auto; /* убираем фиксированную высоту */
+    }
+    .sidebar {
+        width: 100%;
+        order: 1; /* показываем сначала сайдбар */
+        margin-bottom: 20px;
+    }
+    .content {
+        width: 100%;
+        order: 2; /* контент ниже сайдбара */
+    }
+    .menu-button {
+        font-size: 1.2em; /* немного крупнее шрифт на мобильном */
+    }
+    .submenu-button {
+        font-size: 1em; /* можно немного увеличить шрифт */
+    }
+    .language-selector label, 
+    .language-selector select {
+        font-size: 1em;
+    }
+    .profile-photo {
+        width: 80px;
+        height: 80px; /* чуть больше на мобильных для удобства */
+    }
 }

@@ -1,0 +1,220 @@
+styles.css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.animated-header {
+    background: url('HeaderBackground.png') no-repeat center center, linear-gradient(90deg, #2196f3, #21cbf3);
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    position: relative;
+    overflow: hidden;
+    animation: gradientAnimation 6s infinite ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.header-text {
+    color: rgb(4, 172, 234);
+    font-size: 1.2em;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.animated-header::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #21cbf3;
+    bottom: 0;
+    left: -100%;
+    animation: underlineAnimation 3s linear infinite;
+}
+
+@keyframes underlineAnimation {
+    0% { left: -100%; }
+    50% { left: 0%; }
+    100% { left: 100%; }
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 20%;
+    background: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 2px solid #2196f3;
+}
+
+.menu-button {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    animation: bounceIn 0.6s ease-out, pulse 2s infinite;
+    font-weight: bold;
+}
+
+.menu-button:hover {
+    background: #1e88e5;
+}
+
+.menu-button:active, .submenu-button:active {
+    transform: scale(0.95);
+    background-color: #42a5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 rgba(33, 150, 243, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(33, 150, 243, 0.4);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.content {
+    width: 80%;
+    padding: 40px;
+    background: white;
+    line-height: 1.5;
+    overflow: auto;
+    font-size: 1em;
+}
+
+.menu-button,
+.submenu-button {
+    font-size: 1em;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.submenu {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submenu-button {
+    background-color: #e3f2fd;
+    color: #000;
+    border: 1px solid #90caf9;
+    padding: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    position: relative;
+    animation: bounceIn 0.6s ease-out;
+}
+
+.submenu-button:hover {
+    background-color: #bbdefb;
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.language-selector label {
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.language-selector select {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.welcome-box {
+    background: #f0f8ff;
+    border: 1px solid #a1d4f0;
+    border-radius: 10px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 0 10px rgba(33,150,243,0.2);
+}
+
+.welcome-box h1 {
+    color: #2196f3;
+}

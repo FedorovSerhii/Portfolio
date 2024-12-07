@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме Системного Администратора</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="animated-header">
+        <img src="HeaderPicture.png" alt="Profile Photo" class="header-photo">
+        <div class="header-text">Сергей Фёдоров – Системный Администратор</div>
+    </header>
+
+    <!-- Селектор языка -->
+    <div class="language-selector">
+        <label for="language-select">Choose Language:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="pl">Polski</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+        </select>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <img src="Avatar.png" alt="Profile Photo" class="profile-photo">
+            <nav>
+                <button class="menu-button" data-section="experience">Опыт работы</button>
+                <button class="menu-button" data-section="technologies">Технологии</button>
+                <div class="submenu" id="technologies-menu" style="display: none;">
+                    <button class="submenu-button" data-subsection="familiar">Технологии, с которыми знаком</button>
+                    <button class="submenu-button" data-subsection="proficient">Технологии, с которыми работаю постоянно</button>
+                </div>
+                <button class="menu-button" data-section="projects">Проекты</button>
+                <button class="menu-button" data-section="contacts">Контакты</button>
+                <button class="menu-button" data-section="education">Образование</button>
+            </nav>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="content" id="main-content">
+            <h1>Добро пожаловать!</h1>
+            <p>Выберите пункт меню, чтобы увидеть больше информации.</p>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

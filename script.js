@@ -113,15 +113,23 @@ projects: `
         },
         ru: {
             header: "Сергей Федоров – Системный Администратор",
-            welcome: `
-                <div class="welcome-box">
-                    <h1>Добро пожаловать!</h1>
-                    <p>Привет! Я Сергей, системный администратор с более 8 лет опыта в ИТ-инфраструктуре, сетях, видеонаблюдении и VoIP. Снизил простой на 20% и управлял более 50 серверами, повышая надежность и производительность. Легко адаптируюсь к новым технологиям (Nginx, Apache, Wireshark), обеспечивая долгосрочную масштабируемость.</p>
-                    <p>Контакт: <strong>${PHONE_NUMBER}</strong></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-                    <p>Изучите меню, чтобы узнать больше о моем опыте, проектах и навыках!</p>
-                </div>
-            `,
+   welcome: `
+    <div class="welcome-box">
+        <h1>Добро пожаловать!</h1>
+        <p>Здравствуйте! Меня зовут <strong>Сергей</strong>, я <strong>Системный Администратор</strong> с более чем <strong>8-летним опытом работы</strong> в <strong>ИТ-инфраструктуре, управлении сетями, системах видеонаблюдения (CCTV)</strong> и <strong>VoIP</strong>.</p>
+        <p>Я специализируюсь на проектировании и поддержке надежных, масштабируемых систем, обеспечивая максимальное время безотказной работы и безопасность критически важных систем. Вот мои ключевые достижения:</p>
+        <ul>
+            <li>Сократил время простоя на <strong>20%</strong>, оптимизировав рабочие процессы и повысив надежность системы.</li>
+            <li>Управлял и поддерживал более <strong>50 серверов</strong>, улучшая производительность и упрощая операции.</li>
+            <li>Овладел новейшими технологиями, такими как <strong>Nginx, Apache и Wireshark</strong>, чтобы гарантировать адаптируемость и масштабируемость.</li>
+        </ul>
+        <p>Я увлечен использованием современных инструментов и технологий для создания инновационных решений, которые дают измеримые результаты.</p>
+        <p><strong>Контакты:</strong> <span>${PHONE_NUMBER}</span></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Не стесняйтесь изучить меню, чтобы узнать больше о моем <strong>профессиональном опыте</strong>, <strong>проектах</strong> и <strong>ключевых навыках</strong>!</p>
+    </div>
+`,
+
             description: "Выберите пункт меню, чтобы увидеть больше информации.",
             experience: `
                 <h1>Опыт работы</h1>
@@ -207,15 +215,23 @@ projects: `
         },
         uk: {
             header: "Сергій Федоров – Системний Адміністратор",
-            welcome: `
-                <div class="welcome-box">
-                    <h1>Ласкаво просимо!</h1>
-                    <p>Привіт! Я Сергій, системний адміністратор з понад 8 роками досвіду в ІТ-інфраструктурі, мережах, відеоспостереженні та VoIP. Зменшив час простою на 20% та керував понад 50 серверами, підвищивши надійність та продуктивність. Швидко адаптуюсь до нових технологій (Nginx, Apache, Wireshark), забезпечуючи довгострокову масштабованість.</p>
-                    <p>Контакт: <strong>${PHONE_NUMBER}</strong></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-                    <p>Ознайомтеся з меню, щоб дізнатися більше про мій досвід, проєкти та навички!</p>
-                </div>
-            `,
+welcome: `
+    <div class="welcome-box">
+        <h1>Ласкаво просимо!</h1>
+        <p>Привіт! Мене звати <strong>Сергій</strong>, я <strong>Системний Адміністратор</strong> з більш ніж <strong>8-річним досвідом роботи</strong> у <strong>ІТ-інфраструктурі, управлінні мережами, системах відеоспостереження (CCTV)</strong> та <strong>VoIP</strong>.</p>
+        <p>Я спеціалізуюся на проєктуванні та підтримці надійних, масштабованих систем, забезпечуючи максимальний час безвідмовної роботи та безпеку критично важливих систем. Ось мої основні досягнення:</p>
+        <ul>
+            <li>Зменшив час простоїв на <strong>20%</strong>, оптимізувавши робочі процеси та підвищивши надійність системи.</li>
+            <li>Керував і підтримував понад <strong>50 серверів</strong>, покращуючи продуктивність та спрощуючи операції.</li>
+            <li>Опановував новітні технології, такі як <strong>Nginx, Apache та Wireshark</strong>, щоб забезпечити адаптивність та масштабованість.</li>
+        </ul>
+        <p>Я захоплений використанням сучасних інструментів та технологій для створення інноваційних рішень, що приносять вимірювані результати.</p>
+        <p><strong>Контакти:</strong> <span>${PHONE_NUMBER}</span></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Не соромтеся переглянути меню, щоб дізнатися більше про мій <strong>професійний досвід</strong>, <strong>проєкти</strong> та <strong>ключові навички</strong>!</p>
+    </div>
+`,
+
             description: "Виберіть пункт меню, щоб побачити більше інформації.",
             experience: `
                 <h1>Досвід роботи</h1>
@@ -301,15 +317,23 @@ projects: `
         },
         pl: {
             header: "Serhii Fedorov – Administrator Systemów",
-            welcome: `
-                <div class="welcome-box">
-                    <h1>Witamy!</h1>
-                    <p>Cześć! Jestem Serhii, administrator systemów z ponad 8-letnim doświadczeniem w infrastrukturze IT, sieciach, monitoringu wizyjnym i VoIP. Zredukowałem przestoje o 20% i zarządzałem ponad 50 serwerami, poprawiając niezawodność i wydajność. Szybko adaptuję się do nowych technologii (Nginx, Apache, Wireshark), zapewniając długoterminową skalowalność.</p>
-                    <p>Kontakt: <strong>${PHONE_NUMBER}</strong></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-                    <p>Zapoznaj się z menu, aby dowiedzieć się więcej o moim doświadczeniu, projektach i umiejętnościach!</p>
-                </div>
-            `,
+welcome: `
+    <div class="welcome-box">
+        <h1>Witamy!</h1>
+        <p>Cześć! Nazywam się <strong>Sergiej</strong>, jestem <strong>Administratorem Systemów</strong> z ponad <strong>8-letnim doświadczeniem</strong> w <strong>infrastrukturze IT, zarządzaniu sieciami, systemach CCTV</strong> oraz <strong>VoIP</strong>.</p>
+        <p>Specjalizuję się w projektowaniu i utrzymaniu niezawodnych, skalowalnych systemów, zapewniając maksymalny czas pracy i bezpieczeństwo kluczowych systemów. Oto moje główne osiągnięcia:</p>
+        <ul>
+            <li>Zredukowałem czas przestoju o <strong>20%</strong>, optymalizując procesy i poprawiając niezawodność systemu.</li>
+            <li>Zarządzałem i utrzymywałem ponad <strong>50 serwerów</strong>, poprawiając wydajność i usprawniając operacje.</li>
+            <li>Opanowałem nowoczesne technologie, takie jak <strong>Nginx, Apache i Wireshark</strong>, aby zapewnić adaptacyjność i skalowalność.</li>
+        </ul>
+        <p>Jestem pasjonatem korzystania z nowoczesnych narzędzi i technologii, aby tworzyć innowacyjne rozwiązania przynoszące wymierne rezultaty.</p>
+        <p><strong>Kontakt:</strong> <span>${PHONE_NUMBER}</span></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Zapraszam do zapoznania się z menu, aby dowiedzieć się więcej o moim <strong>doświadczeniu zawodowym</strong>, <strong>projektach</strong> i <strong>kluczowych umiejętnościach</strong>!</p>
+    </div>
+`,
+
             description: "Wybierz element menu, aby zobaczyć więcej informacji.",
             experience: `
                 <h1>Doświadczenie zawodowe</h1>

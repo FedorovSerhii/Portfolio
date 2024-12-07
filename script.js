@@ -100,6 +100,22 @@ projects: `
                   Bachelor's in Mechanical Engineering Technology (Kryvyi Rih National University)<br>
                   Technical college: Electromechanic
                 </p>
+                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Work Experience",
@@ -202,6 +218,22 @@ projects: `
                   Бакалавр по технологии машиностроения (Криворожский нац. университет)<br>
                   Техникум: электромеханик
                 </p>
+                                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Опыт работы",
@@ -304,6 +336,22 @@ welcome: `
                   Бакалавр з технології машинобудування (Криворізький нац. університет)<br>
                   Технікум: електромеханік
                 </p>
+                                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Досвід роботи",
@@ -406,6 +454,22 @@ welcome: `
                   Licencjat z technologii inżynierii mechanicznej (Kryvyi Rih National University)<br>
                   Technikum: Elektromechanik
                 </p>
+                                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Doświadczenie zawodowe",

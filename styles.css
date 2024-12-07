@@ -248,3 +248,27 @@ body {
         height: 80px; /* чуть больше на мобильных для удобства */
     }
 }
+.certificates {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.small-icons img {
+    width: 150px; /* Установите размер ярлычков */
+    height: 150px;
+    margin-right: 10px;
+}
+
+.certificates-row {
+    display: flex;
+    gap: 20px; /* Расстояние между сертификатами */
+}
+
+.certificates-row img {
+    width: 400px; /* Уменьшите размер сертификатов */
+    height: auto;
+    border: 1px solid #ccc; /* Добавьте рамку (опционально) */
+    border-radius: 5px; /* Округлите углы (опционально) */
+}
+

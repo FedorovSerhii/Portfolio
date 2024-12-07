@@ -7,29 +7,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // Переменная с номером телефона
     const PHONE_NUMBER = "+380968256607";
 
-    // Тексты для разных языков (без JSON, всё в коде)
+    // Тексты для разных языков
     const translations = {
         en: {
             header: "Sergey Fedorov – System Administrator",
             welcome: `
-                <div class="welcome-box">
-                    <h1>Welcome!</h1>
-                    <p>Hello! I'm Sergey, a System Administrator with over 8 years of experience in IT infrastructure, network management, CCTV, and VoIP. Proactively reduced downtime by 20% and managed over 50 servers, improving reliability and performance. Quick to adapt to emerging technologies (Nginx, Apache, Wireshark), ensuring long-term scalability.</p>
-                    <p>Contact: <strong>${PHONE_NUMBER}</strong></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-                    <p>Feel free to explore the menu to learn more about my professional experience, projects, and skills!</p>
-                </div>
-            `,
+            <div class="welcome-box">
+                <h1>Welcome!</h1>
+                <p>Hello! I'm <strong>Sergey</strong>, a <strong>System Administrator</strong> with over <strong>8 years of hands-on experience</strong> in <strong>IT infrastructure, network management, CCTV</strong>, and <strong>VoIP systems</strong>.</p>
+                <p>I specialize in designing and maintaining robust, scalable environments, ensuring maximum uptime and security for critical systems. Some of my key achievements include:</p>
+                <ul>
+                    <li>Reducing downtime by <strong>20%</strong>, optimizing workflows, and improving system reliability.</li>
+                    <li>Managing and maintaining <strong>over 50 servers</strong>, enhancing performance and streamlining operations.</li>
+                    <li>Staying proficient in emerging technologies such as <strong>Nginx, Apache, and Wireshark</strong> to ensure adaptability and scalability.</li>
+                </ul>
+                <p>I'm passionate about leveraging modern tools and trends to create innovative solutions that deliver measurable results.</p>
+                <p><strong>Contact:</strong> <span>${PHONE_NUMBER}</span></p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+                <p>Feel free to explore the menu to learn more about my <strong>professional experience</strong>, <strong>notable projects</strong>, and <strong>key technical skills</strong>!</p>
+            </div>
+        `,
+        
             description: "Choose a menu item to see more information.",
             experience: `
                 <h1>Work Experience</h1>
                 <p>
-                  Over 8 years of proven experience in system administration, network infrastructure, and video surveillance.
-                  Deployed and managed Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  Certified in MikroTik, integrated NextCloud+LDAP, implemented VoIP (FreePBX).
-                  Reduced downtime by 20%, managed over 50 servers, improved network stability and call quality.
+                  Over 8 years of experience in system administration, network infrastructure, and CCTV.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
+                  Reduced downtime by 20%, managed over 50 servers, improved reliability and performance.
                   Familiar with Nginx, Apache, Wireshark.
-                  Skilled with CCTV (Dahua/Hikvision), Android/iOS, electronics, Arduino (I2C).
                 </p>
             `,
             technologies: {
@@ -39,17 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
                       <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
                       <li>📦 Docker</li>
                       <li>🌐 Basic Networking & Access Control</li>
-                      <li>🎥 Dahua, Hikvision (installation, configuration)</li>
-                      <li>⚡ Basic electronics, Arduino, I2C</li>
-                      <li>📱 Android/iOS device handling</li>
+                      <li>🎥 Dahua, Hikvision</li>
+                      <li>⚡ Basic Electronics, Arduino, I2C</li>
+                      <li>📱 Android/iOS</li>
                       <li>🕸 Nginx, Apache, Wireshark</li>
-                      <li>🐍 Python (Netmiko - remote device configuration including MikroTik)</li>
+                      <li>🐍 Python (Netmiko - remote network device configuration including MikroTik)</li>
                     </ul>
                 `,
                 proficient: `
                     <h1>Technologies I Work With</h1>
                     <ul>
-                      <li>💻 Windows Server 2019, Active Directory</li>
+                      <li>💻 Windows Server 2019, AD</li>
                       <li>☁️ Hyper-V, ESXi</li>
                       <li>🔌 MikroTik (Certified)</li>
                       <li>📞 FreePBX (VoIP)</li>
@@ -57,14 +64,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     </ul>
                 `
             },
-            projects: `
-                <h1>Projects</h1>
-                <p>
-                  <strong>VoIP Telephony Gateway with Flask:</strong><br>
-                  Developed a Flask-based VoIP gateway with secure SMS viewing.
-                  Integrated solutions via ChatGPT for efficient development.
-                </p>
-            `,
+projects: `
+    <h1>Projects</h1>
+    <p>
+        <strong>Web Application for GSM Gateway Management Using Flask:</strong><br>
+        Developed a web-based application built with Flask to manage GSM gateways. The application includes an authentication system and an advanced administrative panel that enables administrators to:
+        <ul>
+            <li>Monitor installed SIM cards, including ICCID and GoIP ID details.</li>
+            <li>View incoming SMS messages and manage SMS-related services.</li>
+            <li>Track active phone calls across available lines.</li>
+            <li>Assign services to specific phone numbers and users dynamically.</li>
+        </ul>
+        <strong>Key Features:</strong>
+        <ul>
+            <li><strong>Authentication and Role Management:</strong> Secure login system with role-based access control.</li>
+            <li><strong>Administrative Panel:</strong> Detailed monitoring and management of SIM cards, services, and users.</li>
+            <li><strong>Customizable Service Assignments:</strong> Flexibility to assign services to users or phone numbers.</li>
+            <li><strong>Secure Operations:</strong> Includes CSRF protection, encrypted passwords, and HTTPS integration.</li>
+            <li><strong>Notifications and Logs:</strong> Real-time Telegram alerts and detailed event logging.</li>
+        </ul>
+        <strong>Technologies Used:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+        ChatGPT was utilized to optimize the development process and enhance the application's functionality.
+    </p>
+`,
+
             contacts: `
                 <h1>Contacts</h1>
                 <p>Phone: ${PHONE_NUMBER}</p>
@@ -75,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h1>Education</h1>
                 <p>
                   Bachelor's in Mechanical Engineering Technology (Kryvyi Rih National University)<br>
-                  Technical college in Electromechanics<br>
-                  Basic knowledge of manufacturing technology.
+                  Technical college: Electromechanic
                 </p>
             `,
             buttons: {
@@ -90,12 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         ru: {
-            header: "Сергей Фёдоров – Системный Администратор",
+            header: "Сергей Федоров – Системный Администратор",
             welcome: `
                 <div class="welcome-box">
                     <h1>Добро пожаловать!</h1>
-                    <p>Привет! Я Сергей, системный администратор с более 8 лет опыта в ИТ-инфраструктуре, сетях, видеонаблюдении и VoIP. Проактивно снизил простой на 20% и управлял парком из более 50 серверов, повышая надежность и производительность. Легко адаптируюсь к новым технологиям (Nginx, Apache, Wireshark), обеспечивая долгосрочную масштабируемость.</p>
-                    <p>Контакты: <strong>${PHONE_NUMBER}</strong></p>
+                    <p>Привет! Я Сергей, системный администратор с более 8 лет опыта в ИТ-инфраструктуре, сетях, видеонаблюдении и VoIP. Снизил простой на 20% и управлял более 50 серверами, повышая надежность и производительность. Легко адаптируюсь к новым технологиям (Nginx, Apache, Wireshark), обеспечивая долгосрочную масштабируемость.</p>
+                    <p>Контакт: <strong>${PHONE_NUMBER}</strong></p>
                     <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
                     <p>Изучите меню, чтобы узнать больше о моем опыте, проектах и навыках!</p>
                 </div>
@@ -104,16 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
             experience: `
                 <h1>Опыт работы</h1>
                 <p>
-                  Более 8 лет в системном администрировании, сетевой инфраструктуре и видеонаблюдении.
-                  Настройка Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  Сертификат MikroTik, интеграция NextCloud+LDAP, внедрение VoIP (FreePBX).
-                  Снизил простой на 20%, управлял более 50 серверами, улучшил стабильность сети и качество связи.
-                  Знаком с Nginx, Apache, Wireshark для анализа и оптимизации.
-                  Опыт с CCTV (Dahua/Hikvision), Android/iOS, электроникой, Arduino (I2C).
-
-                  Дополнительный опыт:
-                  Использование Python (библиотека Netmiko) для удаленной конфигурации сетевого оборудования.
-                  Конфигурирование и оптимизация оборудования Aruba, Ubiquiti, настройка mesh-сетей для расширения зоны беспроводного покрытия.
+                  Более 8 лет опыта в системном администрировании, сетевой инфраструктуре и видеонаблюдении.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (сертифицирован), NextCloud+LDAP, VoIP (FreePBX).
+                  Снизил простой на 20%, управлял более 50 серверами, улучшив надежность и производительность.
+                  Знаком с Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -123,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
                       <li>📦 Docker</li>
                       <li>🌐 Базовые сети и контроль доступа</li>
-                      <li>🎥 Dahua, Hikvision (установка, настройка)</li>
+                      <li>🎥 Dahua, Hikvision</li>
                       <li>⚡ Базовая электроника, Arduino, I2C</li>
                       <li>📱 Android/iOS</li>
                       <li>🕸 Nginx, Apache, Wireshark</li>
@@ -142,17 +159,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 `
             },
             projects: `
-                <h1>Проекты</h1>
-                <p>
-                  <strong>VoIP-шлюз на Flask:</strong><br>
-                  Разработал VoIP-шлюз на Flask с безопасным просмотром SMS.
-                  Использовал ChatGPT для повышения эффективности разработки.
-                </p>
-                <p>
-                  <strong>VoIP-шлюз с веб-интерфейсом для администратора:</strong><br>
-                  Создал интеграцию VoIP-шлюза с веб-сайтом, предоставив администратору удобную панель для просмотра всех входящих SMS, а также отслеживания всех совершаемых звонков, включая их инициаторов. Это повысило прозрачность и контроль над коммуникационными процессами.
-                </p>
-            `,
+            <h1>Проекты</h1>
+            <p>
+                <strong>Веб-приложение для управления GSM-шлюзом на Flask:</strong><br>
+                Разработано веб-приложение на Flask для управления GSM-шлюзами. Приложение включает систему авторизации и расширенную административную панель, которая позволяет администраторам:
+                <ul>
+                    <li>Отслеживать установленные SIM-карты, включая ICCID и GoIP ID.</li>
+                    <li>Просматривать входящие SMS-сообщения и управлять связанными сервисами.</li>
+                    <li>Мониторить активные звонки по доступным линиям.</li>
+                    <li>Назначать услуги конкретным пользователям и номерам телефонов.</li>
+                </ul>
+                <strong>Основные функции:</strong>
+                <ul>
+                    <li><strong>Авторизация и управление ролями:</strong> Безопасная система входа с контролем доступа по ролям.</li>
+                    <li><strong>Административная панель:</strong> Детальный мониторинг и управление SIM-картами, сервисами и пользователями.</li>
+                    <li><strong>Гибкое назначение услуг:</strong> Возможность назначать услуги пользователям или номерам телефонов.</li>
+                    <li><strong>Безопасные операции:</strong> Использование защиты CSRF, шифрование паролей и интеграция HTTPS.</li>
+                    <li><strong>Уведомления и логи:</strong> Уведомления в Telegram в реальном времени и детальное логирование событий.</li>
+                </ul>
+                <strong>Используемые технологии:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT использовался для оптимизации процесса разработки и улучшения функциональности приложения.
+            </p>
+        `,
+        
             contacts: `
                 <h1>Контакты</h1>
                 <p>Телефон: ${PHONE_NUMBER}</p>
@@ -163,8 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h1>Образование</h1>
                 <p>
                   Бакалавр по технологии машиностроения (Криворожский нац. университет)<br>
-                  Техникум: электромеханик<br>
-                  Базовые знания в машиностроении.
+                  Техникум: электромеханик
                 </p>
             `,
             buttons: {
@@ -182,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
             welcome: `
                 <div class="welcome-box">
                     <h1>Ласкаво просимо!</h1>
-                    <p>Привіт! Я Сергій, системний адміністратор з понад 8 роками досвіду в ІТ-інфраструктурі, мережах, відеоспостереженні та VoIP. Зменшив час простою на 20% та керував понад 50 серверами, підвищивши надійність та ефективність. Швидко адаптуюсь до нових технологій (Nginx, Apache, Wireshark), забезпечуючи довгострокову масштабованість.</p>
+                    <p>Привіт! Я Сергій, системний адміністратор з понад 8 роками досвіду в ІТ-інфраструктурі, мережах, відеоспостереженні та VoIP. Зменшив час простою на 20% та керував понад 50 серверами, підвищивши надійність та продуктивність. Швидко адаптуюсь до нових технологій (Nginx, Apache, Wireshark), забезпечуючи довгострокову масштабованість.</p>
                     <p>Контакт: <strong>${PHONE_NUMBER}</strong></p>
                     <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
                     <p>Ознайомтеся з меню, щоб дізнатися більше про мій досвід, проєкти та навички!</p>
@@ -192,11 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
             experience: `
                 <h1>Досвід роботи</h1>
                 <p>
-                  Понад 8 років досвіду в адмініструванні систем, мережевій інфраструктурі, відеоспостереженні.
-                  Налаштування Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  Сертифікат MikroTik, інтеграція NextCloud+LDAP, впровадження VoIP (FreePBX).
-                  Знизив час простою на 20%, керував понад 50 серверами, покращив стабільність мережі та якість зв'язку.
-                  Знайомий з Nginx, Apache, Wireshark для аналізу та оптимізації.
+                  Понад 8 років досвіду в адмініструванні систем, мережевій інфраструктурі та відеоспостереженні.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (сертифікований), NextCloud+LDAP, VoIP (FreePBX).
+                  Знизив час простою на 20%, керував понад 50 серверами, покращив надійність та продуктивність.
+                  Знайомий з Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -210,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <li>⚡ Базова електроніка, Arduino, I2C</li>
                       <li>📱 Android/iOS</li>
                       <li>🕸 Nginx, Apache, Wireshark</li>
-                      <li>🐍 Python (Netmiko - дистанційне налаштування мережевого обладнання, зокрема MikroTik)</li>
+                      <li>🐍 Python (Netmiko - дистанційне налаштування мережевого обладнання, включно з MikroTik)</li>
                     </ul>
                 `,
                 proficient: `
@@ -224,9 +252,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     </ul>
                 `
             },
-            projects: "<h1>Проекти</h1><p>VoIP-шлюз на Flask...</p>",
-            contacts: `<h1>Контакти</h1><p>Телефон: ${PHONE_NUMBER}</p>`,
-            education: "<h1>Освіта</h1><p>Бакалавр...</p>",
+            projects: `
+            <h1>Проєкти</h1>
+            <p>
+                <strong>Веб-застосунок для управління GSM-шлюзом на Flask:</strong><br>
+                Розроблено веб-застосунок на Flask для управління GSM-шлюзами. Застосунок включає систему авторизації та розширену адміністративну панель, яка дозволяє адміністраторам:
+                <ul>
+                    <li>Відстежувати встановлені SIM-карти, включаючи ICCID та GoIP ID.</li>
+                    <li>Переглядати вхідні SMS-повідомлення та керувати пов’язаними сервісами.</li>
+                    <li>Моніторити активні дзвінки на доступних лініях.</li>
+                    <li>Призначати послуги конкретним користувачам та номерам телефонів.</li>
+                </ul>
+                <strong>Основні функції:</strong>
+                <ul>
+                    <li><strong>Авторизація та управління ролями:</strong> Безпечна система входу з контролем доступу за ролями.</li>
+                    <li><strong>Адміністративна панель:</strong> Детальний моніторинг та управління SIM-картами, сервісами та користувачами.</li>
+                    <li><strong>Гнучке призначення послуг:</strong> Можливість призначати послуги користувачам або номерам телефонів.</li>
+                    <li><strong>Безпечні операції:</strong> Використання CSRF-захисту, шифрування паролів та інтеграція HTTPS.</li>
+                    <li><strong>Сповіщення та журнали:</strong> Реальні сповіщення у Telegram та детальне логування подій.</li>
+                </ul>
+                <strong>Використані технології:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT використовувався для оптимізації процесу розробки та покращення функціональності застосунку.
+            </p>
+        `,
+        
+            contacts: `
+                <h1>Контакти</h1>
+                <p>Телефон: ${PHONE_NUMBER}</p>
+                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+            `,
+            education: `
+                <h1>Освіта</h1>
+                <p>
+                  Бакалавр з технології машинобудування (Криворізький нац. університет)<br>
+                  Технікум: електромеханік
+                </p>
+            `,
             buttons: {
                 experience: "Досвід роботи",
                 technologies: "Технології",
@@ -238,11 +300,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         pl: {
-            header: "Siergiej Fiodorow – Administrator Systemów",
+            header: "Serhii Fedorov – Administrator Systemów",
             welcome: `
                 <div class="welcome-box">
                     <h1>Witamy!</h1>
-                    <p>Cześć! Jestem Siergiej, administrator systemów z ponad 8-letnim doświadczeniem w infrastrukturze IT, sieciach, monitoringu wizyjnym i VoIP. Zredukowałem przestoje o 20% i zarządzałem ponad 50 serwerami, poprawiając niezawodność i wydajność. Szybko adoptuję nowe technologie (Nginx, Apache, Wireshark) dla długoterminowej skalowalności.</p>
+                    <p>Cześć! Jestem Serhii, administrator systemów z ponad 8-letnim doświadczeniem w infrastrukturze IT, sieciach, monitoringu wizyjnym i VoIP. Zredukowałem przestoje o 20% i zarządzałem ponad 50 serwerami, poprawiając niezawodność i wydajność. Szybko adaptuję się do nowych technologii (Nginx, Apache, Wireshark), zapewniając długoterminową skalowalność.</p>
                     <p>Kontakt: <strong>${PHONE_NUMBER}</strong></p>
                     <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
                     <p>Zapoznaj się z menu, aby dowiedzieć się więcej o moim doświadczeniu, projektach i umiejętnościach!</p>
@@ -252,11 +314,11 @@ document.addEventListener("DOMContentLoaded", () => {
             experience: `
                 <h1>Doświadczenie zawodowe</h1>
                 <p>
-                  Ponad 8 lat w administracji systemami, infrastrukturą sieci, CCTV.
+                  Ponad 8 lat doświadczenia w administracji systemami, infrastrukturze sieciowej i monitoringu wizyjnym.
                   Windows Server 2019, AD, Hyper-V, ESXi, Docker.
                   MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Zredukowano przestoje o 20%, zarządzano >50 serwerami, poprawiono stabilność i jakość połączeń.
-                  Znajomość Nginx, Apache, Wireshark dla analizy i optymalizacji.
+                  Zredukowałem przestoje o 20%, zarządzałem ponad 50 serwerami, poprawiłem niezawodność i wydajność.
+                  Znajomość Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -284,16 +346,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     </ul>
                 `
             },
-            projects: `<h1>Projekty</h1><p>VoIP bramka Flask...</p>`,
-            contacts: `<h1>Kontakty</h1><p>Telefon: ${PHONE_NUMBER}</p>`,
+            projects: `
+            <h1>Projekty</h1>
+            <p>
+                <strong>Aplikacja internetowa do zarządzania bramką GSM na Flask:</strong><br>
+                Opracowano aplikację internetową na Flask do zarządzania bramkami GSM. Aplikacja zawiera system uwierzytelniania i zaawansowany panel administracyjny, który pozwala administratorom:
+                <ul>
+                    <li>Monitorować zainstalowane karty SIM, w tym ICCID i GoIP ID.</li>
+                    <li>Przeglądać przychodzące wiadomości SMS i zarządzać powiązanymi usługami.</li>
+                    <li>Śledzić aktywne połączenia telefoniczne na dostępnych liniach.</li>
+                    <li>Przypisywać usługi konkretnym użytkownikom i numerom telefonów.</li>
+                </ul>
+                <strong>Kluczowe funkcje:</strong>
+                <ul>
+                    <li><strong>Uwierzytelnianie i zarządzanie rolami:</strong> Bezpieczny system logowania z kontrolą dostępu opartą na rolach.</li>
+                    <li><strong>Panel administracyjny:</strong> Szczegółowy monitoring i zarządzanie kartami SIM, usługami i użytkownikami.</li>
+                    <li><strong>Elastyczne przypisywanie usług:</strong> Możliwość przypisywania usług użytkownikom lub numerom telefonów.</li>
+                    <li><strong>Bezpieczne operacje:</strong> Ochrona CSRF, szyfrowanie haseł i integracja HTTPS.</li>
+                    <li><strong>Powiadomienia i dzienniki:</strong> Powiadomienia w czasie rzeczywistym w Telegramie i szczegółowe logowanie zdarzeń.</li>
+                </ul>
+                <strong>Użyte technologie:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT był używany do optymalizacji procesu tworzenia i ulepszania funkcjonalności aplikacji.
+            </p>
+        `,
+        
+            contacts: `
+                <h1>Kontakty</h1>
+                <p>Telefon: ${PHONE_NUMBER}</p>
+                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+            `,
             education: `
-    <h1>Edukacja</h1>
-    <p>Licencjat z Technologii Inżynierii Mechanicznej - 
-        <a href="https://www.knu.edu.ua/fakultety/fakul-tet-mehanichnoi-inzhenerii-ta-transportu/struktura/kafedra-tehnolohii-mashynobuduvannya" target="_blank">
-        Kryvyi Rih National University</a>
-    </p>
-    <p>Technikum Elektromechaniczne - Kriworizki Technikum, Specjalność: Elektromechanik</p>
-`,
+                <h1>Edukacja</h1>
+                <p>
+                  Licencjat z technologii inżynierii mechanicznej (Kryvyi Rih National University)<br>
+                  Technikum: Elektromechanik
+                </p>
+            `,
             buttons: {
                 experience: "Doświadczenie zawodowe",
                 technologies: "Technologie",
@@ -322,8 +411,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   Über 8 Jahre in Systemadministration, Netzwerkinfrastruktur, Videoüberwachung.
                   Windows Server 2019, AD, Hyper-V, ESXi, Docker.
                   MikroTik (zert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Ausfallzeiten um 20% reduziert, >50 Server verwaltet, Stabilität und Qualität verbessert.
-                  Vertraut mit Nginx, Apache, Wireshark für Analyse und Optimierung.
+                  Ausfallzeiten um 20% reduziert, >50 Server verwaltet, Zuverlässigkeit und Leistung verbessert.
+                  Vertraut mit Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -337,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <li>⚡ Grundkenntnisse Elektronik, Arduino, I2C</li>
                       <li>📱 Android/iOS-Geräte</li>
                       <li>🕸 Nginx, Apache, Wireshark</li>
-                      <li>🐍 Python (Netmiko - Fernkonfiguration von Netzwerkgeräten einschließlich MikroTik)</li>
+                      <li>🐍 Python (Netmiko - Fernkonfiguration von Netzwerkgeräten, einschließlich MikroTik)</li>
                     </ul>
                 `,
                 proficient: `
@@ -351,7 +440,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     </ul>
                 `
             },
-            projects: `<h1>Projekte</h1><p>VoIP-Gateway mit Flask...</p>`,
+            projects: `
+            <h1>Projekte</h1>
+            <p>
+                <strong>Webanwendung zur Verwaltung eines GSM-Gateways mit Flask:</strong><br>
+                Entwicklung einer Webanwendung auf Basis von Flask zur Verwaltung von GSM-Gateways. Die Anwendung umfasst ein Authentifizierungssystem und ein erweitertes Administrationspanel, das Administratoren ermöglicht:
+                <ul>
+                    <li>Installierte SIM-Karten zu überwachen, einschließlich ICCID und GoIP-ID.</li>
+                    <li>Eingehende SMS-Nachrichten anzuzeigen und SMS-bezogene Dienste zu verwalten.</li>
+                    <li>Aktive Anrufe auf verfügbaren Leitungen zu verfolgen.</li>
+                    <li>Dienste dynamisch bestimmten Telefonnummern und Benutzern zuzuweisen.</li>
+                </ul>
+                <strong>Hauptmerkmale:</strong>
+                <ul>
+                    <li><strong>Authentifizierung und Rollenmanagement:</strong> Sicheres Login-System mit rollenbasierter Zugriffskontrolle.</li>
+                    <li><strong>Administrationspanel:</strong> Detaillierte Überwachung und Verwaltung von SIM-Karten, Diensten und Benutzern.</li>
+                    <li><strong>Anpassbare Dienstzuweisung:</strong> Flexibilität bei der Zuweisung von Diensten an Benutzer oder Telefonnummern.</li>
+                    <li><strong>Sichere Vorgänge:</strong> CSRF-Schutz, verschlüsselte Passwörter und HTTPS-Integration.</li>
+                    <li><strong>Benachrichtigungen und Protokolle:</strong> Echtzeit-Benachrichtigungen über Telegram und detaillierte Ereignisprotokollierung.</li>
+                </ul>
+                <strong>Verwendete Technologien:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT wurde verwendet, um den Entwicklungsprozess zu optimieren und die Funktionalität der Anwendung zu verbessern.
+            </p>
+        `,
+        
             contacts: `<h1>Kontakte</h1><p>Telefon: ${PHONE_NUMBER}</p>`,
             education: `<h1>Bildung</h1><p>Bachelor usw.</p>`,
             buttons: {
@@ -382,8 +494,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   Plus de 8 ans en administration système, infrastructure réseau, vidéosurveillance.
                   Windows Server 2019, AD, Hyper-V, ESXi, Docker.
                   MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Réduction du temps d'arrêt de 20%, gestion de +50 serveurs, amélioration stabilité & qualité.
-                  Connaissance de Nginx, Apache, Wireshark pour analyse et optimisation.
+                  Réduction du temps d'arrêt de 20%, gestion de +50 serveurs, amélioration de la fiabilité et des performances.
+                  Connaissance de Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -439,11 +551,11 @@ document.addEventListener("DOMContentLoaded", () => {
             experience: `
                 <h1>Experiencia Laboral</h1>
                 <p>
-                  Más de 8 años en administración de sistemas, infraestructura de redes, videovigilancia.
+                  Más de 8 años en administración de sistemas, infraestructura de redes y videovigilancia.
                   Windows Server 2019, AD, Hyper-V, ESXi, Docker.
                   MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Reducción del tiempo de inactividad en un 20%, gestión de +50 servidores, mejor calidad y estabilidad.
-                  Conocimientos de Nginx, Apache, Wireshark para análisis y optimización.
+                  Reducción del tiempo de inactividad en un 20%, gestión de más de 50 servidores, mejora de la fiabilidad y el rendimiento.
+                  Conocimientos de Nginx, Apache, Wireshark.
                 </p>
             `,
             technologies: {
@@ -485,7 +597,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     };
-
 
     // Обновление текста кнопок
     const updateButtons = (lang) => {

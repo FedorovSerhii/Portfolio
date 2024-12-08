@@ -100,10 +100,27 @@ export function getTranslations(
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
             education: `
-                <h1>Education</h1>
+<h1>Education</h1>
                 <p>
-                  Bachelor's in Mechanical Engineering Technology...
+                  Bachelor's in Mechanical Engineering Technology (Kryvyi Rih National University)<br>
+                  Technical college: Electromechanic
                 </p>
+                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Work Experience",
@@ -120,31 +137,52 @@ export function getTranslations(
             welcome: `
     <div class="welcome-box">
         <h1>Добро пожаловать!</h1>
-        <p>Здравствуйте! Меня зовут <strong>Сергей</strong>...</p>
-        ...
+        <p>Здравствуйте! Меня зовут <strong>Сергей</strong>, я <strong>Системный Администратор</strong> с более чем <strong>8-летним опытом работы</strong> в <strong>ИТ-инфраструктуре, управлении сетями, системах видеонаблюдения (CCTV)</strong> и <strong>VoIP</strong>.</p>
+        <p>Я специализируюсь на проектировании и поддержке надежных, масштабируемых систем, обеспечивая максимальное время безотказной работы и безопасность критически важных систем. Вот мои ключевые достижения:</p>
+        <ul>
+            <li>Сократил время простоя на <strong>20%</strong>, оптимизировав рабочие процессы и повысив надежность системы.</li>
+            <li>Управлял и поддерживал более <strong>50 серверов</strong>, улучшая производительность и упрощая операции.</li>
+            <li>Овладел новейшими технологиями, такими как <strong>Nginx, Apache и Wireshark</strong>, чтобы гарантировать адаптируемость и масштабируемость.</li>
+        </ul>
+        <p>Я увлечен использованием современных инструментов и технологий для создания инновационных решений, которые дают измеримые результаты.</p>
         <p><strong>Контакты:</strong> <span>${PHONE_NUMBER}</span></p>
         <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-        <p>Изучите меню...</p>
+        <p>Не стесняйтесь изучить меню, чтобы узнать больше о моем <strong>профессиональном опыте</strong>, <strong>проектах</strong> и <strong>ключевых навыках</strong>!</p>
     </div>
 `,
             description: "Выберите пункт меню, чтобы увидеть больше информации.",
             experience: `
                 <h1>Опыт работы</h1>
-                <p>Более 8 лет опыта...</p>
+                                <p>
+                  Более 8 лет опыта в системном администрировании, сетевой инфраструктуре и видеонаблюдении.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (сертифицирован), NextCloud+LDAP, VoIP (FreePBX).
+                  Снизил простой на 20%, управлял более 50 серверами, улучшив надежность и производительность.
+                  Знаком с Nginx, Apache, Wireshark.
+                </p>
             `,
             technologies: {
                 familiar: `
                     <h1>Технологии, с которыми знаком</h1>
                     <ul>
-                      <li>🐧 Linux...</li>
-                      ...
+                      <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
+                      <li>📦 Docker</li>
+                      <li>🌐 Базовые сети и контроль доступа</li>
+                      <li>🎥 Dahua, Hikvision</li>
+                      <li>⚡ Базовая электроника, Arduino, I2C</li>
+                      <li>📱 Android/iOS</li>
+                      <li>🕸 Nginx, Apache, Wireshark</li>
+                      <li>🐍 Python (Netmiko - удаленная настройка сетевого оборудования, включая MikroTik)</li>
                     </ul>
                 `,
                 proficient: `
                     <h1>Технологии, с которыми работаю постоянно</h1>
                     <ul>
                       <li>💻 Windows Server 2019, AD</li>
-                      ...
+                      <li>☁️ Hyper-V, ESXi</li>
+                      <li>🔌 MikroTik (сертифицирован)</li>
+                      <li>📞 FreePBX (VoIP)</li>
+                      <li>🔐 NextCloud + LDAP</li>
                     </ul>
                 `
             },
@@ -184,8 +222,27 @@ export function getTranslations(
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
             education: `
-                <h1>Образование</h1>
-                <p>Бакалавр...</p>
+               <h1>Образование</h1>
+                <p>
+                  Бакалавр по технологии машиностроения (Криворожский нац. университет)<br>
+                  Техникум: электромеханик
+                </p>
+                                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
             `,
             buttons: {
                 experience: "Опыт работы",
@@ -202,15 +259,48 @@ export function getTranslations(
             welcome: `
     <div class="welcome-box">
         <h1>Ласкаво просимо!</h1>
-        <p>Привіт! Мене звати <strong>Сергій</strong>...</p>
-        ...
+        <p>Привіт! Мене звати <strong>Сергій</strong>, я <strong>Системний Адміністратор</strong> з більш ніж <strong>8-річним досвідом роботи</strong> у <strong>ІТ-інфраструктурі, управлінні мережами, системах відеоспостереження (CCTV)</strong> та <strong>VoIP</strong>.</p>
+        <p>Я спеціалізуюся на проєктуванні та підтримці надійних, масштабованих систем, забезпечуючи максимальний час безвідмовної роботи та безпеку критично важливих систем. Ось мої основні досягнення:</p>
+        <ul>
+            <li>Зменшив час простоїв на <strong>20%</strong>, оптимізувавши робочі процеси та підвищивши надійність системи.</li>
+            <li>Керував і підтримував понад <strong>50 серверів</strong>, покращуючи продуктивність та спрощуючи операції.</li>
+            <li>Опановував новітні технології, такі як <strong>Nginx, Apache та Wireshark</strong>, щоб забезпечити адаптивність та масштабованість.</li>
+        </ul>
+        <p>Я захоплений використанням сучасних інструментів та технологій для створення інноваційних рішень, що приносять вимірювані результати.</p>
+        <p><strong>Контакти:</strong> <span>${PHONE_NUMBER}</span></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Не соромтеся переглянути меню, щоб дізнатися більше про мій <strong>професійний досвід</strong>, <strong>проєкти</strong> та <strong>ключові навички</strong>!</p>
     </div>
 `,
             description: "Виберіть пункт меню, щоб побачити більше інформації.",
-            experience: `<h1>Досвід роботи</h1><p>Понад 8 років...</p>`,
+            experience: `                <h1>Досвід роботи</h1>
+                <p>
+                  Понад 8 років досвіду в адмініструванні систем, мережевій інфраструктурі та відеоспостереженні.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (сертифікований), NextCloud+LDAP, VoIP (FreePBX).
+                  Знизив час простою на 20%, керував понад 50 серверами, покращив надійність та продуктивність.
+                  Знайомий з Nginx, Apache, Wireshark.
+                </p>`,
             technologies: {
-                familiar: `<h1>Технології, з якими знайомий</h1><ul>...</ul>`,
-                proficient: `<h1>Технології, з якими працюю</h1><ul>...</ul>`
+                familiar: `                    <h1>Технології, з якими знайомий</h1>
+                    <ul>
+                      <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
+                      <li>📦 Docker</li>
+                      <li>🌐 Базові мережі, контроль доступу</li>
+                      <li>🎥 Dahua, Hikvision</li>
+                      <li>⚡ Базова електроніка, Arduino, I2C</li>
+                      <li>📱 Android/iOS</li>
+                      <li>🕸 Nginx, Apache, Wireshark</li>
+                      <li>🐍 Python (Netmiko - дистанційне налаштування мережевого обладнання, включно з MikroTik)</li>
+                    </ul>`,
+                proficient: `                    <h1>Технології, з якими працюю</h1>
+                    <ul>
+                      <li>💻 Windows Server 2019, AD</li>
+                      <li>☁️ Hyper-V, ESXi</li>
+                      <li>🔌 MikroTik (сертифікований)</li>
+                      <li>📞 FreePBX (VoIP)</li>
+                      <li>🔐 NextCloud + LDAP</li>
+                    </ul>`
             },
             projects: `<h1>Проєкти</h1><p>
                 <strong>Веб-застосунок для управління GSM-шлюзом на Flask:</strong><br>
@@ -244,7 +334,26 @@ export function getTranslations(
                 <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
-            education: `<h1>Освіта</h1><p>Бакалавр...</p>`,
+            education: `                <p>
+                  Бакалавр з технології машинобудування (Криворізький нац. університет)<br>
+                  Технікум: електромеханік
+                </p>
+                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>`,
             buttons: {
                 experience: "Досвід роботи",
                 technologies: "Технології",
@@ -260,15 +369,47 @@ export function getTranslations(
             welcome: `
     <div class="welcome-box">
         <h1>Witamy!</h1>
-        <p>Cześć!...</p>
-        ...
+        <p>Cześć! Nazywam się <strong>Sergiej</strong>, jestem <strong>Administratorem Systemów</strong> z ponad <strong>8-letnim doświadczeniem</strong> w <strong>infrastrukturze IT, zarządzaniu sieciami, systemach CCTV</strong> oraz <strong>VoIP</strong>.</p>
+        <p>Specjalizuję się w projektowaniu i utrzymaniu niezawodnych, skalowalnych systemów, zapewniając maksymalny czas pracy i bezpieczeństwo kluczowych systemów. Oto moje główne osiągnięcia:</p>
+        <ul>
+            <li>Zredukowałem czas przestoju o <strong>20%</strong>, optymalizując procesy i poprawiając niezawodność systemu.</li>
+            <li>Zarządzałem i utrzymywałem ponad <strong>50 serwerów</strong>, poprawiając wydajność i usprawniając operacje.</li>
+            <li>Opanowałem nowoczesne technologie, takie jak <strong>Nginx, Apache i Wireshark</strong>, aby zapewnić adaptacyjność i skalowalność.</li>
+        </ul>
+        <p>Jestem pasjonatem korzystania z nowoczesnych narzędzi i technologii, aby tworzyć innowacyjne rozwiązania przynoszące wymierne rezultaty.</p>
+        <p><strong>Kontakt:</strong> <span>${PHONE_NUMBER}</span></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Zapraszam do zapoznania się z menu, aby dowiedzieć się więcej o moim <strong>doświadczeniu zawodowym</strong>, <strong>projektach</strong> i <strong>kluczowych umiejętnościach</strong>!</p>
     </div>
 `,
             description: "Wybierz element menu, aby zobaczyć więcej informacji.",
-            experience: `<h1>Doświadczenie zawodowe</h1><p>Ponad 8 lat...</p>`,
+            experience: `<h1>Doświadczenie zawodowe</h1>                <p>
+                  Ponad 8 lat doświadczenia w administracji systemami, infrastrukturze sieciowej i monitoringu wizyjnym.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
+                  Zredukowałem przestoje o 20%, zarządzałem ponad 50 serwerami, poprawiłem niezawodność i wydajność.
+                  Znajomość Nginx, Apache, Wireshark.
+                </p>`,
             technologies: {
-                familiar: `<h1>Technologie, które znam</h1><ul>...</ul>`,
-                proficient: `<h1>Technologie, z którymi pracuję</h1><ul>...</ul>`
+                familiar: `                    <h1>Technologie, które znam</h1>
+                    <ul>
+                      <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
+                      <li>📦 Docker</li>
+                      <li>🌐 Podstawy sieci, kontrola dostępu</li>
+                      <li>🎥 Dahua, Hikvision</li>
+                      <li>⚡ Podstawy elektroniki, Arduino, I2C</li>
+                      <li>📱 Android/iOS</li>
+                      <li>🕸 Nginx, Apache, Wireshark</li>
+                      <li>🐍 Python (Netmiko - zdalna konfiguracja urządzeń sieciowych, w tym MikroTik)</li>
+                    </ul>`,
+                proficient: `                    <h1>Technologie, z którymi pracuję</h1>
+                    <ul>
+                      <li>💻 Windows Server 2019, AD</li>
+                      <li>☁️ Hyper-V, ESXi</li>
+                      <li>🔌 MikroTik (certyfikowany)</li>
+                      <li>📞 FreePBX (VoIP)</li>
+                      <li>🔐 NextCloud + LDAP</li>
+                    </ul>`
             },
             projects: `<h1>Projekty</h1><p>
                 <strong>Aplikacja internetowa do zarządzania bramką GSM na Flask:</strong><br>
@@ -302,7 +443,27 @@ export function getTranslations(
                 <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
-            education: `<h1>Edukacja</h1><p>Licencjat...</p>`,
+            education: `                <h1>Edukacja</h1>
+                <p>
+                  Licencjat z technologii inżynierii mechanicznej (Kryvyi Rih National University)<br>
+                  Technikum: Elektromechanik
+                </p>
+                                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>`,
             buttons: {
                 experience: "Doświadczenie zawodowe",
                 technologies: "Technologie",
@@ -354,7 +515,8 @@ export function getTranslations(
                       <li>🔐 NextCloud + LDAP</li>
                     </ul>`
             },
-            projects: `<h1>Projekte</h1>            <p>
+            projects: `            <h1>Projekte</h1>
+            <p>
                 <strong>Webanwendung zur Verwaltung eines GSM-Gateways mit Flask:</strong><br>
                 Entwicklung einer Webanwendung auf Basis von Flask zur Verwaltung von GSM-Gateways. Die Anwendung umfasst ein Authentifizierungssystem und ein erweitertes Administrationspanel, das Administratoren ermöglicht:
                 <ul>
@@ -386,7 +548,13 @@ export function getTranslations(
                 <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
-            education: `<h1>Bildung</h1><p>Bachelor...</p>`,
+            education: `<h1>Bildung</h1>
+<p>
+  Bachelor in Maschinenbautechnik (Kryvyi Rih Nationaluniversität)<br>
+  Technisches Kolleg: Elektromechaniker
+</p>
+<p>
+`,
             buttons: {
                 experience: "Berufserfahrung",
                 technologies: "Technologien",

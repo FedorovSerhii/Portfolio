@@ -30,15 +30,43 @@ export function getTranslations(
         `,
             description: "Choose a menu item to see more information.",
             experience: `
-                <h1>Work Experience</h1>
-                <p>
-                  Over 8 years of experience in system administration, network infrastructure, and CCTV.
-                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Reduced downtime by 20%, managed over 50 servers, improved reliability and performance.
-                  Familiar with Nginx, Apache, Wireshark.
-                </p>
-            `,
+            <h1>Work Experience</h1>
+            <div>
+                <h2>System Administrator</h2>
+                <h3>FOA Kravchenko — Kryvyi Rih, Ukraine (2022–2024)</h3>
+                <ul>
+                    <li>🖥️ Deployed virtual servers on ESXi and managed Windows Server 2019 environments.</li>
+                    <li>🔒 Secured VPN connections and configured MikroTik routers for efficient network management.</li>
+                    <li>📹 Installed and maintained CCTV systems (Dahua, Hikvision) across multiple locations.</li>
+                    <li>📊 Reduced downtime by 20% and optimized server performance for critical operations.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Technical Support (Remote)</h2>
+                <h3>ISP HLink — Kryvyi Rih, Ukraine (2021–2022)</h3>
+                <ul>
+                    <li>📞 Provided remote technical support for ISP clients, resolving connectivity issues efficiently.</li>
+                    <li>🛠️ Administered remote desktops and diagnosed user issues to ensure reliability.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Automation Bot Developer</h2>
+                <p>📟 Created automation bots for MMORPGs, specializing in pixel-based image analysis and interface interaction.</p>
+                <ul>
+                    <li>🤖 Designed and implemented bots to optimize in-game processes and enhance efficiency.</li>
+                    <li>📈 Improved automation algorithms, ensuring accuracy and reliability of bot tasks.</li>
+                </ul>
+            </div>
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>💻 System Administration: Windows Server 2019, Active Directory, Docker, Hyper-V, ESXi.</li>
+                <li>🔗 Network Security: VPN, MikroTik (certified), Ubiquiti, Aruba access points.</li>
+                <li>🖥️ CCTV Management: Dahua and Hikvision installation and administration.</li>
+                <li>📂 Backup Solutions: NextCloud with LDAP integration.</li>
+                <li>📊 Familiarity with: Nginx, Apache, Wireshark, CentOS, Debian.</li>
+            </ul>
+        `,  
+        
             technologies: {
                 familiar: `
                     <h1>Technologies Familiar With</h1>
@@ -171,15 +199,43 @@ export function getTranslations(
 `,
             description: "Выберите пункт меню, чтобы увидеть больше информации.",
             experience: `
-                <h1>Опыт работы</h1>
-                                <p>
-                  Более 8 лет опыта в системном администрировании, сетевой инфраструктуре и видеонаблюдении.
-                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  MikroTik (сертифицирован), NextCloud+LDAP, VoIP (FreePBX).
-                  Снизил простой на 20%, управлял более 50 серверами, улучшив надежность и производительность.
-                  Знаком с Nginx, Apache, Wireshark.
-                </p>
-            `,
+            <h1>Опыт работы</h1>
+            <div>
+                <h2>Системный администратор</h2>
+                <h3>ФОА Кравченко — Кривой Рог, Украина (2022–2024)</h3>
+                <ul>
+                    <li>🖥️ Развернул виртуальные серверы на ESXi и управлял средой Windows Server 2019.</li>
+                    <li>🔒 Настроил VPN-соединения и маршрутизаторы MikroTik для эффективного управления сетью.</li>
+                    <li>📹 Установил и администрировал системы видеонаблюдения (Dahua, Hikvision) на различных объектах.</li>
+                    <li>📊 Сократил время простоя серверов на 20% и оптимизировал их производительность.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Техническая поддержка (удаленно)</h2>
+                <h3>ISP HLink — Кривой Рог, Украина (2021–2022)</h3>
+                <ul>
+                    <li>📞 Предоставлял удалённую техническую поддержку клиентам провайдера, решая проблемы с подключением.</li>
+                    <li>🛠️ Администрировал удалённые рабочие столы и диагностировал проблемы пользователей.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Разработчик автоматизации</h2>
+                <p>📟 Создание ботов для автоматизации процессов в MMORPG, включая анализ изображений и взаимодействие с интерфейсом.</p>
+                <ul>
+                    <li>🤖 Разработал и внедрил ботов для оптимизации игровых процессов.</li>
+                    <li>📈 Улучшил алгоритмы автоматизации, обеспечив точность выполнения задач.</li>
+                </ul>
+            </div>
+            <h2>Технические навыки</h2>
+            <ul>
+                <li>💻 Администрирование: Windows Server 2019, Active Directory, Docker, Hyper-V, ESXi.</li>
+                <li>🔗 Сетевые технологии: VPN, MikroTik (сертификат), Ubiquiti, Aruba.</li>
+                <li>🖥️ Видеонаблюдение: Установка и администрирование систем Dahua и Hikvision.</li>
+                <li>📂 Резервные копии: NextCloud с интеграцией LDAP.</li>
+                <li>📊 Знания: Nginx, Apache, Wireshark, CentOS, Debian.</li>
+            </ul>
+        `,
+        
             technologies: {
                 familiar: `
                     <h1>Технологии, с которыми знаком</h1>
@@ -311,14 +367,44 @@ export function getTranslations(
     </div>
 `,
             description: "Виберіть пункт меню, щоб побачити більше інформації.",
-            experience: `                <h1>Досвід роботи</h1>
-                <p>
-                  Понад 8 років досвіду в адмініструванні систем, мережевій інфраструктурі та відеоспостереженні.
-                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  MikroTik (сертифікований), NextCloud+LDAP, VoIP (FreePBX).
-                  Знизив час простою на 20%, керував понад 50 серверами, покращив надійність та продуктивність.
-                  Знайомий з Nginx, Apache, Wireshark.
-                </p>`,
+            experience: `
+            <h1>Досвід роботи</h1>
+            <div>
+                <h2>Системний адміністратор</h2>
+                <h3>ФОА Кравченко — Кривий Ріг, Україна (2022–2024)</h3>
+                <ul>
+                    <li>🖥️ Розгорнув віртуальні сервери на ESXi та керував середовищем Windows Server 2019.</li>
+                    <li>🔒 Налаштував VPN-з’єднання та маршрутизатори MikroTik для ефективного управління мережею.</li>
+                    <li>📹 Встановив і адміністрував системи відеоспостереження (Dahua, Hikvision) на різних об’єктах.</li>
+                    <li>📊 Скоротив час простою серверів на 20% та оптимізував їх продуктивність.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Технічна підтримка (віддалено)</h2>
+                <h3>ISP HLink — Кривий Ріг, Україна (2021–2022)</h3>
+                <ul>
+                    <li>📞 Надавав віддалену технічну підтримку клієнтам провайдера, вирішував проблеми з підключенням.</li>
+                    <li>🛠️ Адміністрував віддалені робочі столи та діагностував проблеми користувачів.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Розробник автоматизації</h2>
+                <p>📟 Розробка ботів для автоматизації процесів у MMORPG, включаючи аналіз зображень та роботу з інтерфейсом.</p>
+                <ul>
+                    <li>🤖 Створив і впровадив ботів для оптимізації ігрових процесів.</li>
+                    <li>📈 Покращив алгоритми автоматизації, забезпечивши точність виконання завдань.</li>
+                </ul>
+            </div>
+            <h2>Технічні навички</h2>
+            <ul>
+                <li>💻 Адміністрування: Windows Server 2019, Active Directory, Docker, Hyper-V, ESXi.</li>
+                <li>🔗 Мережеві технології: VPN, MikroTik (сертифікат), Ubiquiti, Aruba.</li>
+                <li>🖥️ Відеоспостереження: Встановлення та адміністрування систем Dahua та Hikvision.</li>
+                <li>📂 Резервне копіювання: NextCloud з інтеграцією LDAP.</li>
+                <li>📊 Знання: Nginx, Apache, Wireshark, CentOS, Debian.</li>
+            </ul>
+        `,
+        
             technologies: {
                 familiar: `                    <h1>Технології, з якими знайомий</h1>
                     <ul>
@@ -440,13 +526,44 @@ export function getTranslations(
     </div>
 `,
             description: "Wybierz element menu, aby zobaczyć więcej informacji.",
-            experience: `<h1>Doświadczenie zawodowe</h1>                <p>
-                  Ponad 8 lat doświadczenia w administracji systemami, infrastrukturze sieciowej i monitoringu wizyjnym.
-                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  MikroTik (cert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Zredukowałem przestoje o 20%, zarządzałem ponad 50 serwerami, poprawiłem niezawodność i wydajność.
-                  Znajomość Nginx, Apache, Wireshark.
-                </p>`,
+            experience: `
+            <h1>Doświadczenie zawodowe</h1>
+            <div>
+                <h2>Administrator systemów</h2>
+                <h3>FOA Kravchenko — Kryvyi Rih, Ukraina (2022–2024)</h3>
+                <ul>
+                    <li>🖥️ Wdrożenie serwerów wirtualnych na ESXi oraz zarządzanie środowiskiem Windows Server 2019.</li>
+                    <li>🔒 Konfiguracja połączeń VPN i routerów MikroTik dla efektywnego zarządzania siecią.</li>
+                    <li>📹 Instalacja i zarządzanie systemami monitoringu (Dahua, Hikvision) w różnych lokalizacjach.</li>
+                    <li>📊 Redukcja przestojów serwerów o 20% i optymalizacja ich wydajności.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Wsparcie techniczne (zdalne)</h2>
+                <h3>ISP HLink — Kryvyi Rih, Ukraina (2021–2022)</h3>
+                <ul>
+                    <li>📞 Zdalna pomoc techniczna dla klientów ISP, rozwiązywanie problemów z łącznością.</li>
+                    <li>🛠️ Administracja zdalnymi pulpitami oraz diagnostyka problemów użytkowników.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Programista automatyzacji</h2>
+                <p>📟 Tworzenie botów do automatyzacji procesów w MMORPG, w tym analiza obrazów i interakcja z interfejsem.</p>
+                <ul>
+                    <li>🤖 Projektowanie i implementacja botów do optymalizacji procesów w grze.</li>
+                    <li>📈 Ulepszenie algorytmów automatyzacji dla większej dokładności.</li>
+                </ul>
+            </div>
+            <h2>Umiejętności techniczne</h2>
+            <ul>
+                <li>💻 Administracja systemami: Windows Server 2019, Active Directory, Docker, Hyper-V, ESXi.</li>
+                <li>🔗 Bezpieczeństwo sieci: VPN, MikroTik (certyfikat), Ubiquiti, Aruba.</li>
+                <li>🖥️ Systemy monitoringu: Instalacja i zarządzanie systemami Dahua i Hikvision.</li>
+                <li>📂 Kopie zapasowe: NextCloud z integracją LDAP.</li>
+                <li>📊 Znajomość: Nginx, Apache, Wireshark, CentOS, Debian.</li>
+            </ul>
+        `,
+        
             technologies: {
                 familiar: `                    <h1>Technologie, które znam</h1>
                     <ul>
@@ -551,14 +668,44 @@ export function getTranslations(
 
 `,
             description: "Wählen Sie ein Menüelement aus, um weitere Informationen zu erhalten.",
-            experience: `                <h1>Berufserfahrung</h1>
-                <p>
-                  Über 8 Jahre in Systemadministration, Netzwerkinfrastruktur, Videoüberwachung.
-                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
-                  MikroTik (zert.), NextCloud+LDAP, VoIP (FreePBX).
-                  Ausfallzeiten um 20% reduziert, >50 Server verwaltet, Zuverlässigkeit und Leistung verbessert.
-                  Vertraut mit Nginx, Apache, Wireshark.
-                </p>`,
+            experience: `
+            <h1>Berufserfahrung</h1>
+            <div>
+                <h2>Systemadministrator</h2>
+                <h3>FOA Kravchenko — Kryvyi Rih, Ukraine (2022–2024)</h3>
+                <ul>
+                    <li>🖥️ Implementierte virtuelle Server mit ESXi und verwaltete Windows Server 2019.</li>
+                    <li>🔒 Einrichtung von VPN-Verbindungen und MikroTik-Routern für ein effizientes Netzwerkmanagement.</li>
+                    <li>📹 Installation und Verwaltung von Überwachungssystemen (Dahua, Hikvision) an verschiedenen Standorten.</li>
+                    <li>📊 Reduzierung von Ausfallzeiten um 20 % und Optimierung der Serverleistung.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Technischer Support (Remote)</h2>
+                <h3>ISP HLink — Kryvyi Rih, Ukraine (2021–2022)</h3>
+                <ul>
+                    <li>📞 Remote-Technischer Support für ISP-Kunden, Behebung von Verbindungsproblemen.</li>
+                    <li>🛠️ Verwaltung von Remote-Desktops und Problemdiagnose.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Automatisierungsentwickler</h2>
+                <p>📟 Erstellung von Bots zur Prozessautomatisierung in MMORPGs, einschließlich Bildanalyse und Schnittstelleninteraktion.</p>
+                <ul>
+                    <li>🤖 Entwicklung und Implementierung von Bots zur Optimierung von Spielprozessen.</li>
+                    <li>📈 Verbesserung der Automatisierungsalgorithmen für Genauigkeit und Zuverlässigkeit.</li>
+                </ul>
+            </div>
+            <h2>Technische Fähigkeiten</h2>
+            <ul>
+                <li>💻 Systemadministration: Windows Server 2019, Active Directory, Docker, Hyper-V, ESXi.</li>
+                <li>🔗 Netzwerksicherheit: VPN, MikroTik (zertifiziert), Ubiquiti, Aruba.</li>
+                <li>🖥️ Überwachungssysteme: Installation und Verwaltung von Dahua und Hikvision.</li>
+                <li>📂 Backups: NextCloud mit LDAP-Integration.</li>
+                <li>📊 Kenntnisse: Nginx, Apache, Wireshark, CentOS, Debian.</li>
+            </ul>
+        `,
+        
             technologies: {
                 familiar: `                    <h1>Technologien, mit denen ich vertraut bin</h1>
                     <ul>

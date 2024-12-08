@@ -66,10 +66,26 @@ export function getTranslations(
             },
             projects: `
                 <h1>Projects</h1>
-                <p>
-                    <strong>Web Application for GSM Gateway Management Using Flask:</strong><br>
-                    Developed a web-based application...
-                </p>
+    <p>
+        <strong>Web Application for GSM Gateway Management Using Flask:</strong><br>
+        Developed a web-based application built with Flask to manage GSM gateways. The application includes an authentication system and an advanced administrative panel that enables administrators to:
+        <ul>
+            <li>Monitor installed SIM cards, including ICCID and GoIP ID details.</li>
+            <li>View incoming SMS messages and manage SMS-related services.</li>
+            <li>Track active phone calls across available lines.</li>
+            <li>Assign services to specific phone numbers and users dynamically.</li>
+        </ul>
+        <strong>Key Features:</strong>
+        <ul>
+            <li><strong>Authentication and Role Management:</strong> Secure login system with role-based access control.</li>
+            <li><strong>Administrative Panel:</strong> Detailed monitoring and management of SIM cards, services, and users.</li>
+            <li><strong>Customizable Service Assignments:</strong> Flexibility to assign services to users or phone numbers.</li>
+            <li><strong>Secure Operations:</strong> Includes CSRF protection, encrypted passwords, and HTTPS integration.</li>
+            <li><strong>Notifications and Logs:</strong> Real-time Telegram alerts and detailed event logging.</li>
+        </ul>
+        <strong>Technologies Used:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+        ChatGPT was utilized to optimize the development process and enhance the application's functionality.
+    </p>
             `,
             contacts: `
                 <h1>Contacts</h1>
@@ -134,7 +150,26 @@ export function getTranslations(
             },
             projects: `
             <h1>Проекты</h1>
-            <p>Веб-приложение на Flask...</p>
+            <p>
+                <strong>Веб-приложение для управления GSM-шлюзом на Flask:</strong><br>
+                Разработано веб-приложение на Flask для управления GSM-шлюзами. Приложение включает систему авторизации и расширенную административную панель, которая позволяет администраторам:
+                <ul>
+                    <li>Отслеживать установленные SIM-карты, включая ICCID и GoIP ID.</li>
+                    <li>Просматривать входящие SMS-сообщения и управлять связанными сервисами.</li>
+                    <li>Мониторить активные звонки по доступным линиям.</li>
+                    <li>Назначать услуги конкретным пользователям и номерам телефонов.</li>
+                </ul>
+                <strong>Основные функции:</strong>
+                <ul>
+                    <li><strong>Авторизация и управление ролями:</strong> Безопасная система входа с контролем доступа по ролям.</li>
+                    <li><strong>Административная панель:</strong> Детальный мониторинг и управление SIM-картами, сервисами и пользователями.</li>
+                    <li><strong>Гибкое назначение услуг:</strong> Возможность назначать услуги пользователям или номерам телефонов.</li>
+                    <li><strong>Безопасные операции:</strong> Использование защиты CSRF, шифрование паролей и интеграция HTTPS.</li>
+                    <li><strong>Уведомления и логи:</strong> Уведомления в Telegram в реальном времени и детальное логирование событий.</li>
+                </ul>
+                <strong>Используемые технологии:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT использовался для оптимизации процесса разработки и улучшения функциональности приложения.
+            </p>
         `,
             contacts: `
                 <h1>Контакты</h1>
@@ -177,7 +212,26 @@ export function getTranslations(
                 familiar: `<h1>Технології, з якими знайомий</h1><ul>...</ul>`,
                 proficient: `<h1>Технології, з якими працюю</h1><ul>...</ul>`
             },
-            projects: `<h1>Проєкти</h1><p>Веб-застосунок на Flask...</p>`,
+            projects: `<h1>Проєкти</h1><p>
+                <strong>Веб-застосунок для управління GSM-шлюзом на Flask:</strong><br>
+                Розроблено веб-застосунок на Flask для управління GSM-шлюзами. Застосунок включає систему авторизації та розширену адміністративну панель, яка дозволяє адміністраторам:
+                <ul>
+                    <li>Відстежувати встановлені SIM-карти, включаючи ICCID та GoIP ID.</li>
+                    <li>Переглядати вхідні SMS-повідомлення та керувати пов’язаними сервісами.</li>
+                    <li>Моніторити активні дзвінки на доступних лініях.</li>
+                    <li>Призначати послуги конкретним користувачам та номерам телефонів.</li>
+                </ul>
+                <strong>Основні функції:</strong>
+                <ul>
+                    <li><strong>Авторизація та управління ролями:</strong> Безпечна система входу з контролем доступу за ролями.</li>
+                    <li><strong>Адміністративна панель:</strong> Детальний моніторинг та управління SIM-картами, сервісами та користувачами.</li>
+                    <li><strong>Гнучке призначення послуг:</strong> Можливість призначати послуги користувачам або номерам телефонів.</li>
+                    <li><strong>Безпечні операції:</strong> Використання CSRF-захисту, шифрування паролів та інтеграція HTTPS.</li>
+                    <li><strong>Сповіщення та журнали:</strong> Реальні сповіщення у Telegram та детальне логування подій.</li>
+                </ul>
+                <strong>Використані технології:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT використовувався для оптимізації процесу розробки та покращення функціональності застосунку.
+            </p>`,
             contacts: `
                 <h1>Контакти</h1>
                 <p>Телефон: ${PHONE_NUMBER}</p>
@@ -216,7 +270,26 @@ export function getTranslations(
                 familiar: `<h1>Technologie, które znam</h1><ul>...</ul>`,
                 proficient: `<h1>Technologie, z którymi pracuję</h1><ul>...</ul>`
             },
-            projects: `<h1>Projekty</h1><p>Aplikacja internetowa...</p>`,
+            projects: `<h1>Projekty</h1><p>
+                <strong>Aplikacja internetowa do zarządzania bramką GSM na Flask:</strong><br>
+                Opracowano aplikację internetową na Flask do zarządzania bramkami GSM. Aplikacja zawiera system uwierzytelniania i zaawansowany panel administracyjny, który pozwala administratorom:
+                <ul>
+                    <li>Monitorować zainstalowane karty SIM, w tym ICCID i GoIP ID.</li>
+                    <li>Przeglądać przychodzące wiadomości SMS i zarządzać powiązanymi usługami.</li>
+                    <li>Śledzić aktywne połączenia telefoniczne na dostępnych liniach.</li>
+                    <li>Przypisywać usługi konkretnym użytkownikom i numerom telefonów.</li>
+                </ul>
+                <strong>Kluczowe funkcje:</strong>
+                <ul>
+                    <li><strong>Uwierzytelnianie i zarządzanie rolami:</strong> Bezpieczny system logowania z kontrolą dostępu opartą na rolach.</li>
+                    <li><strong>Panel administracyjny:</strong> Szczegółowy monitoring i zarządzanie kartami SIM, usługami i użytkownikami.</li>
+                    <li><strong>Elastyczne przypisywanie usług:</strong> Możliwość przypisywania usług użytkownikom lub numerom telefonów.</li>
+                    <li><strong>Bezpieczne operacje:</strong> Ochrona CSRF, szyfrowanie haseł i integracja HTTPS.</li>
+                    <li><strong>Powiadomienia i dzienniki:</strong> Powiadomienia w czasie rzeczywistym w Telegramie i szczegółowe logowanie zdarzeń.</li>
+                </ul>
+                <strong>Użyte technologie:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT był używany do optymalizacji procesu tworzenia i ulepszania funkcjonalności aplikacji.
+            </p>`,
             contacts: `
                 <h1>Kontakty</h1>
                 <p>Telefon: ${PHONE_NUMBER}</p>
@@ -255,7 +328,26 @@ export function getTranslations(
                 familiar: `<h1>Technologien, mit denen ich vertraut bin</h1><ul>...</ul>`,
                 proficient: `<h1>Technologien, mit denen ich arbeite</h1><ul>...</ul>`
             },
-            projects: `<h1>Projekte</h1><p>Webanwendung für GSM...</p>`,
+            projects: `<h1>Projekte</h1>            <p>
+                <strong>Webanwendung zur Verwaltung eines GSM-Gateways mit Flask:</strong><br>
+                Entwicklung einer Webanwendung auf Basis von Flask zur Verwaltung von GSM-Gateways. Die Anwendung umfasst ein Authentifizierungssystem und ein erweitertes Administrationspanel, das Administratoren ermöglicht:
+                <ul>
+                    <li>Installierte SIM-Karten zu überwachen, einschließlich ICCID und GoIP-ID.</li>
+                    <li>Eingehende SMS-Nachrichten anzuzeigen und SMS-bezogene Dienste zu verwalten.</li>
+                    <li>Aktive Anrufe auf verfügbaren Leitungen zu verfolgen.</li>
+                    <li>Dienste dynamisch bestimmten Telefonnummern und Benutzern zuzuweisen.</li>
+                </ul>
+                <strong>Hauptmerkmale:</strong>
+                <ul>
+                    <li><strong>Authentifizierung und Rollenmanagement:</strong> Sicheres Login-System mit rollenbasierter Zugriffskontrolle.</li>
+                    <li><strong>Administrationspanel:</strong> Detaillierte Überwachung und Verwaltung von SIM-Karten, Diensten und Benutzern.</li>
+                    <li><strong>Anpassbare Dienstzuweisung:</strong> Flexibilität bei der Zuweisung von Diensten an Benutzer oder Telefonnummern.</li>
+                    <li><strong>Sichere Vorgänge:</strong> CSRF-Schutz, verschlüsselte Passwörter und HTTPS-Integration.</li>
+                    <li><strong>Benachrichtigungen und Protokolle:</strong> Echtzeit-Benachrichtigungen über Telegram und detaillierte Ereignisprotokollierung.</li>
+                </ul>
+                <strong>Verwendete Technologien:</strong> Flask, Flask-Admin, SQLAlchemy, Telegram API, SQLite.<br>
+                ChatGPT wurde verwendet, um den Entwicklungsprozess zu optimieren und die Funktionalität der Anwendung zu verbessern.
+            </p>`,
             contacts: `
                 <h1>Kontakte</h1>
                 <p>Telefon: ${PHONE_NUMBER}</p>

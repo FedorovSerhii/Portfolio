@@ -316,17 +316,43 @@ export function getTranslations(
         de: {
             header: "Sergej Fjodorow – Systemadministrator",
             welcome: `
-    <div class="welcome-box">
-        <h1>Willkommen!</h1>
-        <p>Hallo!...</p>
-        ...
-    </div>
+                <div class="welcome-box">
+                    <h1>Willkommen!</h1>
+                    <p>Hallo! Ich bin Sergej, Systemadministrator mit über 8 Jahren Erfahrung in IT-Infrastruktur, Netzwerken, Videoüberwachung und VoIP. Habe Ausfallzeiten um 20% reduziert und über 50 Server verwaltet, Zuverlässigkeit und Leistung gesteigert. Passe mich schnell neuen Technologien an (Nginx, Apache, Wireshark) für langfristige Skalierbarkeit.</p>
+                    <p>Kontakt: <strong>${PHONE_NUMBER}</strong></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+                    <p>Entdecken Sie das Menü, um mehr über meine Erfahrung, Projekte und Fähigkeiten zu erfahren!</p>
+                </div>
 `,
             description: "Wählen Sie ein Menüelement aus, um weitere Informationen zu erhalten.",
-            experience: `<h1>Berufserfahrung</h1><p>Über 8 Jahre...</p>`,
+            experience: `                <h1>Berufserfahrung</h1>
+                <p>
+                  Über 8 Jahre in Systemadministration, Netzwerkinfrastruktur, Videoüberwachung.
+                  Windows Server 2019, AD, Hyper-V, ESXi, Docker.
+                  MikroTik (zert.), NextCloud+LDAP, VoIP (FreePBX).
+                  Ausfallzeiten um 20% reduziert, >50 Server verwaltet, Zuverlässigkeit und Leistung verbessert.
+                  Vertraut mit Nginx, Apache, Wireshark.
+                </p>`,
             technologies: {
-                familiar: `<h1>Technologien, mit denen ich vertraut bin</h1><ul>...</ul>`,
-                proficient: `<h1>Technologien, mit denen ich arbeite</h1><ul>...</ul>`
+                familiar: `                    <h1>Technologien, mit denen ich vertraut bin</h1>
+                    <ul>
+                      <li>🐧 Linux (CentOS, Debian, Ubuntu)</li>
+                      <li>📦 Docker</li>
+                      <li>🌐 Grundlegende Netzwerke & Zugangskontrolle</li>
+                      <li>🎥 Dahua, Hikvision</li>
+                      <li>⚡ Grundkenntnisse Elektronik, Arduino, I2C</li>
+                      <li>📱 Android/iOS-Geräte</li>
+                      <li>🕸 Nginx, Apache, Wireshark</li>
+                      <li>🐍 Python (Netmiko - Fernkonfiguration von Netzwerkgeräten, einschließlich MikroTik)</li>
+                    </ul>`,
+                proficient: `                    <h1>Technologien, mit denen ich arbeite</h1>
+                    <ul>
+                      <li>💻 Windows Server 2019, AD</li>
+                      <li>☁️ Hyper-V, ESXi</li>
+                      <li>🔌 MikroTik (zert.)</li>
+                      <li>📞 FreePBX (VoIP)</li>
+                      <li>🔐 NextCloud + LDAP</li>
+                    </ul>`
             },
             projects: `<h1>Projekte</h1>            <p>
                 <strong>Webanwendung zur Verwaltung eines GSM-Gateways mit Flask:</strong><br>

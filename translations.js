@@ -605,16 +605,35 @@ export function getTranslations(
             },
             projects: `<h1>Projets</h1><p>Passerelle VoIP...</p>`,
             contacts: `
-                <h1>Contacts</h1>
-                <p>Téléphone: ${PHONE_NUMBER}</p>
-                <p><img src="static/images/telegram_icon.png" alt="Telegram" /> Telegram: <a href="https://t.me/${TELEGRAM_USERNAME}" target="_blank">${TELEGRAM_USERNAME}</a></p>
-                <p><img src="static/images/whatsapp_icon.png" alt="WhatsApp" /> WhatsApp: <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank">${WHATSAPP_NUMBER}</a></p>
-                <p><img src="static/images/signal_icon.png" alt="Signal" /> Signal: ${SIGNAL_NUMBER}</p>
-                <p><img src="static/images/instagram_icon.png" alt="Instagram" /> Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a></p>
-                <p><img src="static/images/vk_icon.png" alt="VK" /> VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a></p>
-                <p><img src="static/images/facebook_icon.png" alt="Facebook" /> Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a></p>
-                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+<h1>Contacts</h1>
+<p>Téléphone: ${PHONE_NUMBER}</p>
+<p>
+  <img src="static/images/telegram_icon.png" alt="Telegram" class="icon" />
+  Telegram: <a href="https://t.me/${TELEGRAM_USERNAME}" target="_blank">${TELEGRAM_USERNAME}</a>
+</p>
+<p>
+  <img src="static/images/whatsapp_icon.png" alt="WhatsApp" class="icon" />
+  WhatsApp: <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank">${WHATSAPP_NUMBER}</a>
+</p>
+<p>
+  <img src="static/images/signal_icon.png" alt="Signal" class="icon" />
+  Signal: ${SIGNAL_NUMBER}
+</p>
+<p>
+  <img src="static/images/instagram_icon.png" alt="Instagram" class="icon" />
+  Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a>
+</p>
+<p>
+  <img src="static/images/vk_icon.png" alt="VK" class="icon" />
+  VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a>
+</p>
+<p>
+  <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
+  Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
+</p>
+<p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+<p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+
             `,
             education: `<h1>Éducation</h1><p>Licence...</p>`,
             buttons: {

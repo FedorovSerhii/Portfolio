@@ -477,13 +477,21 @@ export function getTranslations(
         de: {
             header: "Sergej Fjodorow – Systemadministrator",
             welcome: `
-                <div class="welcome-box">
-                    <h1>Willkommen!</h1>
-                    <p>Hallo! Ich bin Sergej, Systemadministrator mit über 8 Jahren Erfahrung in IT-Infrastruktur, Netzwerken, Videoüberwachung und VoIP. Habe Ausfallzeiten um 20% reduziert und über 50 Server verwaltet, Zuverlässigkeit und Leistung gesteigert. Passe mich schnell neuen Technologien an (Nginx, Apache, Wireshark) für langfristige Skalierbarkeit.</p>
-                    <p>Kontakt: <strong>${PHONE_NUMBER}</strong></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
-                    <p>Entdecken Sie das Menü, um mehr über meine Erfahrung, Projekte und Fähigkeiten zu erfahren!</p>
-                </div>
+<div class="welcome-box">
+    <h1>Willkommen!</h1>
+    <p>Hallo! Ich bin <strong>Sergey</strong>, ein <strong>Systemadministrator</strong> mit über <strong>8 Jahren praktischer Erfahrung</strong> in <strong>IT-Infrastruktur, Netzwerkmanagement, Videoüberwachung</strong> und <strong>VoIP-Systemen</strong>.</p>
+    <p>Ich spezialisiere mich auf die Planung und Wartung von robusten, skalierbaren Umgebungen, um maximale Verfügbarkeit und Sicherheit für kritische Systeme zu gewährleisten. Zu meinen wichtigsten Erfolgen gehören:</p>
+    <ul>
+        <li>Reduzierung der Ausfallzeiten um <strong>20%</strong>, Optimierung von Arbeitsabläufen und Verbesserung der Systemzuverlässigkeit.</li>
+        <li>Verwaltung und Wartung von <strong>über 50 Servern</strong>, Steigerung der Leistung und Optimierung der Abläufe.</li>
+        <li>Bleiben auf dem neuesten Stand mit Technologien wie <strong>Nginx, Apache und Wireshark</strong>, um Anpassungsfähigkeit und Skalierbarkeit sicherzustellen.</li>
+    </ul>
+    <p>Ich bin begeistert davon, moderne Tools und Trends zu nutzen, um innovative Lösungen zu schaffen, die messbare Ergebnisse liefern.</p>
+    <p><strong>Kontakt:</strong> <span>${PHONE_NUMBER}</span></p>
+    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+    <p>Entdecken Sie gerne das Menü, um mehr über meine <strong>berufliche Erfahrung</strong>, <strong>bemerkenswerte Projekte</strong> und <strong>wichtige technische Fähigkeiten</strong> zu erfahren!</p>
+</div>
+
 `,
             description: "Wählen Sie ein Menüelement aus, um weitere Informationen zu erhalten.",
             experience: `                <h1>Berufserfahrung</h1>
@@ -553,7 +561,22 @@ export function getTranslations(
   Bachelor in Maschinenbautechnik (Kryvyi Rih Nationaluniversität)<br>
   Technisches Kolleg: Elektromechaniker
 </p>
-<p>
+                <p>
+                        <strong>Certificates:</strong>
+<div class="certificates">
+    <!-- Маленькие ярлычки -->
+    <div class="small-icons">
+        <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+        <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+    </div>
+
+    <!-- Уменьшенные сертификаты -->
+    <div class="certificates-row">
+        <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+        <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+    </div>
+</div>
+</p>
 `,
             buttons: {
                 experience: "Berufserfahrung",

@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerText = document.querySelector(".header-text");
 
     // Контактные данные
-    const PHONE_NUMBER = "Ask Me";
+    const PHONE_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const TELEGRAM_USERNAME = "@Medoedkoi";
-    const WHATSAPP_NUMBER = "Ask Me";
-    const SIGNAL_NUMBER = "Ask Me";
+    const WHATSAPP_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
+    const SIGNAL_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const INSTAGRAM_LINK = "See you soon";
     const VK_LINK = "Already Exist";
     const FACEBOOK_LINK = "See you soon";

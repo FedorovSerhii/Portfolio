@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const WHATSAPP_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const SIGNAL_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const INSTAGRAM_LINK = "See you soon";
-    const VK_LINK = "Already Exist";
+    const VK_LINK = "This no longer exists";
     const FACEBOOK_LINK = "See you soon";
 
     const translations = getTranslations(

@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerText = document.querySelector(".header-text");
 
     // Контактные данные
-    const PHONE_NUMBER = "+380968256607";
-    const TELEGRAM_USERNAME = "your_telegram_username";
-    const WHATSAPP_NUMBER = "+380968256607";
-    const SIGNAL_NUMBER = "+380968256607";
-    const INSTAGRAM_LINK = "https://instagram.com/your_username";
-    const VK_LINK = "https://vk.com/your_username";
-    const FACEBOOK_LINK = "https://facebook.com/your_username";
+    const PHONE_NUMBER = "Ask Me";
+    const TELEGRAM_USERNAME = "@Medoedkoi";
+    const WHATSAPP_NUMBER = "Ask Me";
+    const SIGNAL_NUMBER = "Ask Me";
+    const INSTAGRAM_LINK = "See you soon";
+    const VK_LINK = "Already Exist";
+    const FACEBOOK_LINK = "See you soon";
 
     const translations = getTranslations(
         PHONE_NUMBER,

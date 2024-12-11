@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Контактные данные
     const PHONE_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
-    const TELEGRAM_USERNAME = "@Medoedkoi";
+    const TELEGRAM_USERNAME = "<a href='https://t.me/Medoedkoi'>Click Me for Contact</a>";
     const WHATSAPP_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const SIGNAL_NUMBER = "<a href='mailto:seregafedorovua@gmail.com'>Ask Me</a>";
     const INSTAGRAM_LINK = "See you soon";

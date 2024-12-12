@@ -142,7 +142,7 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
 
             `,
@@ -311,7 +311,7 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
 
             `,
@@ -473,7 +473,7 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
 
             `,
@@ -614,7 +614,7 @@ export function getTranslations(
                 <p><img src="static/images/instagram_icon.png" alt="Instagram" /> Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a></p>
                 <p><img src="static/images/vk_icon.png" alt="VK" /> VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a></p>
                 <p><img src="static/images/facebook_icon.png" alt="Facebook" /> Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a></p>
-                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+                <p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
             education: `                <h1>Edukacja</h1>
@@ -757,7 +757,7 @@ export function getTranslations(
                 <p><img src="static/images/instagram_icon.png" alt="Instagram" /> Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a></p>
                 <p><img src="static/images/vk_icon.png" alt="VK" /> VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a></p>
                 <p><img src="static/images/facebook_icon.png" alt="Facebook" /> Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a></p>
-                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+                <p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
             education: `<h1>Bildung</h1>
@@ -835,7 +835,7 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
 
             `,
@@ -875,7 +875,7 @@ export function getTranslations(
                 <p><img src="static/images/instagram_icon.png" alt="Instagram" /> Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a></p>
                 <p><img src="static/images/vk_icon.png" alt="VK" /> VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a></p>
                 <p><img src="static/images/facebook_icon.png" alt="Facebook" /> Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a></p>
-                <p>Email: <a href="mailto:seregafedorovua@gmail.com">seregafedorovua@gmail.com</a></p>
+                <p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
             education: `<h1>Educación</h1><p>Licenciatura...</p>`,

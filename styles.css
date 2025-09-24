@@ -16,7 +16,7 @@ body {
     font-size: 1.5em;
     position: relative;
     overflow: hidden;
-    animation: gradientAnimation 6s infinite ease-in-out;
+    animation: gradientAnimation 12s infinite alternate ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +50,18 @@ body {
     bottom: 0;
     left: -100%;
     animation: underlineAnimation 3s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: center, 0% 50%;
+    }
+    50% {
+        background-position: center, 50% 50%;
+    }
+    100% {
+        background-position: center, 100% 50%;
+    }
 }
 
 @keyframes underlineAnimation {
@@ -91,12 +103,19 @@ body {
     width: 100%;
     text-align: left;
     position: relative;
-    animation: bounceIn 0.6s ease-out, pulse 2s infinite;
+    animation: bounceIn 0.6s ease-out;
     font-weight: bold;
 }
 
 .menu-button:hover {
     background: #1e88e5;
+}
+
+.menu-button.is-active,
+.submenu-button[aria-current="true"] {
+    background: #1565c0;
+    color: #fff;
+    box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.2);
 }
 
 .menu-button:active, .submenu-button:active {
@@ -105,16 +124,10 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 rgba(33, 150, 243, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
-    }
-    100% {
-        box-shadow: 0 0 0 rgba(33, 150, 243, 0.4);
-    }
+.menu-button:focus-visible,
+.submenu-button:focus-visible {
+    outline: 3px solid rgba(33, 150, 243, 0.6);
+    outline-offset: 2px;
 }
 
 @keyframes bounceIn {
@@ -152,7 +165,6 @@ body {
 }
 
 .submenu {
-    display: none;
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -178,7 +190,6 @@ body {
     text-align: left;
     border-radius: 5px;
     position: relative;
-    animation: bounceIn 0.6s ease-out;
 }
 
 .submenu-button:hover {
@@ -197,6 +208,21 @@ body {
 .language-selector label {
     margin-right: 10px;
     font-size: 1em;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animated-header,
+    .animated-header::after,
+    .menu-button,
+    .submenu,
+    .submenu-button {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 .language-selector select {

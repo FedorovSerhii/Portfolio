@@ -2,8 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sergey Fedorov, system administrator specialising in IT infrastructure, networking and CCTV solutions.">
+    <meta name="author" content="Sergey Fedorov">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sergey Fedorov – System Administrator">
+    <meta property="og:description" content="Portfolio of Sergey Fedorov, system administrator specialising in IT infrastructure, networking and CCTV solutions.">
+    <meta property="og:image" content="HeaderPicture.png">
+    <meta property="og:url" content="https://example.com/portfolio">
+    <meta property="og:locale" content="en_US">
+    <meta name="theme-color" content="#2196f3">
     <title>Резюме Системного Администратора</title>
+    <link rel="icon" type="image/png" href="Avatar.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +27,7 @@
     <!-- Селектор языка -->
     <div class="language-selector">
         <label for="language-select">Choose Language:</label>
-        <select id="language-select">
+        <select id="language-select" aria-label="Interface language">
             <option value="en">English</option>
             <option value="ru">Русский</option>
             <option value="uk">Українська</option>
@@ -30,21 +41,28 @@
         <!-- Боковая панель -->
         <aside class="sidebar">
             <img src="Avatar.png" alt="Profile Photo" class="profile-photo">
-            <nav>
-                <button class="menu-button" data-section="experience">Опыт работы</button>
-                <button class="menu-button" data-section="technologies">Технологии</button>
-                <div class="submenu" id="technologies-menu" style="display: none;">
-                    <button class="submenu-button" data-subsection="familiar">Технологии, с которыми знаком</button>
-                    <button class="submenu-button" data-subsection="proficient">Технологии, с которыми работаю постоянно</button>
+            <nav aria-label="Primary">
+                <button type="button" class="menu-button" data-section="experience">Опыт работы</button>
+                <button
+                    type="button"
+                    class="menu-button"
+                    data-section="technologies"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="technologies-menu"
+                >Технологии</button>
+                <div class="submenu" id="technologies-menu" role="group" hidden>
+                    <button type="button" class="submenu-button" data-subsection="familiar">Технологии, с которыми знаком</button>
+                    <button type="button" class="submenu-button" data-subsection="proficient">Технологии, с которыми работаю постоянно</button>
                 </div>
-                <button class="menu-button" data-section="projects">Проекты</button>
-                <button class="menu-button" data-section="contacts">Контакты</button>
-                <button class="menu-button" data-section="education">Образование</button>
+                <button type="button" class="menu-button" data-section="projects">Проекты</button>
+                <button type="button" class="menu-button" data-section="contacts">Контакты</button>
+                <button type="button" class="menu-button" data-section="education">Образование</button>
             </nav>
         </aside>
 
         <!-- Основной контент -->
-        <main class="content" id="main-content">
+        <main class="content" id="main-content" role="region" aria-live="polite" aria-label="Section content" tabindex="-1">
             <h1>Добро пожаловать!</h1>
             <p>Выберите пункт меню, чтобы увидеть больше информации.</p>
         </main>

@@ -12,6 +12,9 @@ export function getTranslations(
     return {
         en: {
             header: "Sergey Fedorov – System Administrator",
+            pageTitle: "Sergey Fedorov – System Administrator Portfolio",
+            metaDescription: "Explore Sergey Fedorov's portfolio: an experienced system administrator specialising in IT infrastructure, networking, CCTV and VoIP solutions.",
+            locale: "en_US",
             welcome: `
             <div class="welcome-box">
                 <h1>Welcome!</h1>
@@ -181,6 +184,9 @@ export function getTranslations(
         },
         ru: {
             header: "Сергей Федоров – Системный Администратор",
+            pageTitle: "Сергей Федоров – портфолио системного администратора",
+            metaDescription: "Портфолио Сергея Федорова: опытный системный администратор с 8+ годами практики в ИТ-инфраструктуре, сетях, видеонаблюдении и VoIP.",
+            locale: "ru_RU",
             welcome: `
     <div class="welcome-box">
         <h1>Добро пожаловать!</h1>
@@ -350,6 +356,9 @@ export function getTranslations(
         },
         uk: {
             header: "Сергій Федоров – Системний Адміністратор",
+            pageTitle: "Сергій Федоров – портфоліо системного адміністратора",
+            metaDescription: "Портфоліо Сергія Федорова: системний адміністратор з 8+ роками досвіду в ІТ-інфраструктурі, мережах, відеоспостереженні та VoIP.",
+            locale: "uk_UA",
             welcome: `
     <div class="welcome-box">
         <h1>Ласкаво просимо!</h1>
@@ -509,6 +518,9 @@ export function getTranslations(
         },
         pl: {
             header: "Serhii Fedorov – Administrator Systemów",
+            pageTitle: "Serhii Fedorov – portfolio administratora systemów",
+            metaDescription: "Portfolio Serhii Fedorova: administrator systemów z 8+ letnim doświadczeniem w infrastrukturze IT, sieciach, monitoringu CCTV i VoIP.",
+            locale: "pl_PL",
             welcome: `
     <div class="welcome-box">
         <h1>Witamy!</h1>
@@ -650,6 +662,9 @@ export function getTranslations(
         },
         de: {
             header: "Sergej Fjodorow – Systemadministrator",
+            pageTitle: "Sergej Fjodorow – Portfolio eines Systemadministrators",
+            metaDescription: "Portfolio von Sergej Fjodorow: Systemadministrator mit über 8 Jahren Erfahrung in IT-Infrastruktur, Netzwerken, Videoüberwachung und VoIP.",
+            locale: "de_DE",
             welcome: `
 <div class="welcome-box">
     <h1>Willkommen!</h1>

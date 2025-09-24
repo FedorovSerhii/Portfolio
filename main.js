@@ -7,13 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerText = document.querySelector(".header-text");
 
     // Контактные данные
-    const PHONE_NUMBER = "<a href='mailto:carport-chime6r@icloud.com'>Ask Me</a>";
-    const TELEGRAM_USERNAME = "<a href='https://t.me/Medoedkoi'>Click Me for Contact</a>";
-    const WHATSAPP_NUMBER = "<a href='mailto:carport-chime6r@icloud.com'>Ask Me</a>";
-    const SIGNAL_NUMBER = "<a href='mailto:carport-chime6r@icloud.com'>Ask Me</a>";
-    const INSTAGRAM_LINK = "See you soon";
-    const VK_LINK = "This no longer exists";
-    const FACEBOOK_LINK = "See you soon";
+    // Basic contact information (plain strings). These values are inserted
+    // into translation templates, so they should not contain HTML tags.
+    const PHONE_NUMBER = "+00000000000"; // Placeholder phone number
+    const TELEGRAM_USERNAME = "Medoedkoi";
+    const WHATSAPP_NUMBER = "+00000000000"; // Placeholder WhatsApp number
+    const SIGNAL_NUMBER = "+00000000000";  // Placeholder Signal number
+    const INSTAGRAM_LINK = "https://instagram.com/placeholder";
+    const VK_LINK = "https://vk.com/placeholder";
+    const FACEBOOK_LINK = "https://facebook.com/placeholder";
 
     const translations = getTranslations(
         PHONE_NUMBER,

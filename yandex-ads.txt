@@ -1,0 +1,32 @@
+# Title: Yandex Ads Block List
+# Description: Yandex ad delivery, click, exchange, and related telemetry domains
+# Homepage:
+# License: Unspecified
+# Last modified: 2026-03-20 05:01:41 UTC
+# Format: hosts
+# Entries: 18
+# URL:
+#
+# This is a custom personal-use list inspired by The Block List Project format.
+# Conservative scope: blocks Yandex ad hosts without blocking the whole yandex.ru domain.
+# Note: hosts format cannot block path-only endpoints such as yandex.ru/ads/... .
+#
+
+0.0.0.0 adfstat.yandex.ru
+0.0.0.0 adfox.ru
+0.0.0.0 adfox.yandex.ru
+0.0.0.0 ads.adfox.ru
+0.0.0.0 an.yandex.ru
+0.0.0.0 awaps.net
+0.0.0.0 awaps.yandex.net
+0.0.0.0 awaps.yandex.ru
+0.0.0.0 banners.adfox.net
+0.0.0.0 banners.adfox.ru
+0.0.0.0 bs.yandex.ru
+0.0.0.0 engine.awaps.net
+0.0.0.0 matchid.adfox.yandex.ru
+0.0.0.0 mc.yandex.ru
+0.0.0.0 mobile.yandexadexchange.net
+0.0.0.0 rq.adfox.ru
+0.0.0.0 yabs.yandex.ru
+0.0.0.0 yandexadexchange.net

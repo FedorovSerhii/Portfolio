@@ -808,21 +808,26 @@ export function getTranslations(
             }
         },
         fr: {
+            pageTitle: "Sergey Fedorov – portfolio d'administrateur systèmes",
+            metaDescription: "Découvrez le portfolio de Sergey Fedorov: administrateur systèmes expérimenté en infrastructure IT, réseaux, vidéosurveillance et VoIP.",
+            locale: "fr_FR",
             header: "Sergey Fedorov – Administrateur Systèmes",
             welcome: `
     <div class="welcome-box">
         <h1>Bienvenue!</h1>
-        <p>Bonjour!...</p>
-        ...
+        <p>Bonjour! Je suis Sergey, administrateur systèmes avec plus de 8 ans d'expérience en infrastructure IT, réseaux, vidéosurveillance et VoIP. J'ai réduit les temps d'arrêt de 20% et géré plus de 50 serveurs, en améliorant la fiabilité et les performances.</p>
+        <p>Contact: <strong>${PHONE_NUMBER}</strong></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Parcourez le menu pour en savoir plus sur mon expérience, mes projets et mes compétences.</p>
     </div>
 `,
             description: "Choisissez un élément du menu pour plus d'informations.",
-            experience: `<h1>Expérience Professionnelle</h1><p>Plus de 8 ans...</p>`,
+            experience: `<h1>Expérience Professionnelle</h1><p>Plus de 8 ans d'expérience en administration système, infrastructure réseau et vidéosurveillance. Déploiement et gestion de Windows Server 2019, Active Directory, Hyper-V, ESXi et Docker. Certification MikroTik, intégration NextCloud + LDAP et mise en place de solutions VoIP avec FreePBX. Réduction des temps d'arrêt de 20%, gestion de plus de 50 serveurs, amélioration de la stabilité réseau et de la qualité des appels.</p>`,
             technologies: {
-                familiar: `<h1>Technologies Connues</h1><ul>...</ul>`,
-                proficient: `<h1>Technologies Maîtrisées</h1><ul>...</ul>`
+                familiar: `<h1>Technologies Connues</h1><ul><li>Linux (CentOS, Debian, Ubuntu)</li><li>Docker</li><li>Réseaux de base et contrôle d'accès</li><li>Dahua, Hikvision (installation et configuration)</li><li>Électronique de base, Arduino, I2C</li><li>Gestion d'appareils Android/iOS</li></ul>`,
+                proficient: `<h1>Technologies Maîtrisées</h1><ul><li>Windows Server 2019, Active Directory</li><li>Hyper-V, ESXi</li><li>MikroTik (certifié)</li><li>FreePBX (VoIP)</li><li>NextCloud + LDAP</li></ul>`
             },
-            projects: `<h1>Projets</h1><p>Passerelle VoIP...</p>`,
+            projects: `<h1>Projets</h1><p><strong>Passerelle VoIP avec Flask:</strong><br>Développement d'une passerelle VoIP basée sur Flask avec affichage sécurisé des SMS. Utilisation d'outils d'IA pour accélérer le prototypage et améliorer l'efficacité du développement.</p>`,
             contacts: `
 <h1>Contacts</h1>
 <p>Téléphone: ${PHONE_NUMBER}</p>
@@ -854,7 +859,25 @@ export function getTranslations(
 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
 
             `,
-            education: `<h1>Éducation</h1><p>Licence...</p>`,
+            education: `
+<h1>Éducation</h1>
+<p>Licence en technologie de l'ingénierie mécanique (Université Nationale de Kryvyi Rih)<br>
+Collège technique: électromécanique<br>
+Connaissances de base en technologie de fabrication.</p>
+<section class="certificates-section" aria-label="Certificats">
+    <h2>Certificats</h2>
+    <div class="certificates">
+        <div class="small-icons">
+            <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+            <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+        </div>
+        <div class="certificates-row">
+            <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+            <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+        </div>
+    </div>
+</section>
+`,
             buttons: {
                 experience: "Expérience Professionnelle",
                 technologies: "Technologies",
@@ -866,21 +889,26 @@ export function getTranslations(
             }
         },
         es: {
+            pageTitle: "Sergey Fedorov – portfolio de administrador de sistemas",
+            metaDescription: "Explora el portfolio de Sergey Fedorov: administrador de sistemas con experiencia en infraestructura IT, redes, CCTV y VoIP.",
+            locale: "es_ES",
             header: "Sergey Fedorov – Administrador de Sistemas",
             welcome: `
     <div class="welcome-box">
         <h1>¡Bienvenido!</h1>
-        <p>¡Hola!...</p>
-        ...
+        <p>¡Hola! Soy Sergey, administrador de sistemas con más de 8 años de experiencia en infraestructura IT, redes, videovigilancia y VoIP. He reducido el tiempo de inactividad en un 20% y administrado más de 50 servidores, mejorando la fiabilidad y el rendimiento.</p>
+        <p>Contacto: <strong>${PHONE_NUMBER}</strong></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p>Explora el menú para conocer más sobre mi experiencia, proyectos y habilidades.</p>
     </div>
 `,
             description: "Elige un elemento del menú para ver más información.",
-            experience: `<h1>Experiencia Laboral</h1><p>Más de 8 años...</p>`,
+            experience: `<h1>Experiencia Laboral</h1><p>Más de 8 años de experiencia en administración de sistemas, infraestructura de redes y videovigilancia. Despliegue y gestión de Windows Server 2019, Active Directory, Hyper-V, ESXi y Docker. Certificación MikroTik, integración NextCloud + LDAP e implementación de VoIP con FreePBX. Reducción del tiempo de inactividad en un 20%, administración de más de 50 servidores y mejora de la estabilidad de red y la calidad de llamadas.</p>`,
             technologies: {
-                familiar: `<h1>Tecnologías Conocidas</h1><ul>...</ul>`,
-                proficient: `<h1>Tecnologías que manejo</h1><ul>...</ul>`
+                familiar: `<h1>Tecnologías Conocidas</h1><ul><li>Linux (CentOS, Debian, Ubuntu)</li><li>Docker</li><li>Redes básicas y control de acceso</li><li>Dahua, Hikvision (instalación y configuración)</li><li>Electrónica básica, Arduino, I2C</li><li>Gestión de dispositivos Android/iOS</li></ul>`,
+                proficient: `<h1>Tecnologías que manejo</h1><ul><li>Windows Server 2019, Active Directory</li><li>Hyper-V, ESXi</li><li>MikroTik (certificado)</li><li>FreePBX (VoIP)</li><li>NextCloud + LDAP</li></ul>`
             },
-            projects: `<h1>Proyectos</h1><p>Pasarela VoIP...</p>`,
+            projects: `<h1>Proyectos</h1><p><strong>Pasarela VoIP con Flask:</strong><br>Desarrollo de una pasarela VoIP basada en Flask con visualización segura de SMS. Uso de herramientas de IA para acelerar el prototipado y mejorar la eficiencia del desarrollo.</p>`,
             contacts: `
                 <h1>Contactos</h1>
                 <p>Teléfono: ${PHONE_NUMBER}</p>
@@ -893,7 +921,25 @@ export function getTranslations(
                 <p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
                 <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
             `,
-            education: `<h1>Educación</h1><p>Licenciatura...</p>`,
+            education: `
+<h1>Educación</h1>
+<p>Licenciatura en Tecnología de Ingeniería Mecánica (Universidad Nacional de Kryvyi Rih)<br>
+Colegio técnico: electromecánica<br>
+Conocimientos básicos de tecnología de fabricación.</p>
+<section class="certificates-section" aria-label="Certificados">
+    <h2>Certificados</h2>
+    <div class="certificates">
+        <div class="small-icons">
+            <img src="static/images/CyberEssentials.png" alt="Cyber Essentials" />
+            <img src="static/images/I2CS__1_.png" alt="Introduction to Cybersecurity" />
+        </div>
+        <div class="certificates-row">
+            <img src="static/images/MTCNA_Sert-EN.jpeg" alt="MTCNA Certificate EN" />
+            <img src="static/images/MTCTCE_Sert-EN.jpeg" alt="MTCTCE Certificate EN" />
+        </div>
+    </div>
+</section>
+`,
             buttons: {
                 experience: "Experiencia Laboral",
                 technologies: "Tecnologías",

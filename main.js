@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const technologiesMenu = document.getElementById("technologies-menu");
     const headerText = document.querySelector(".header-text");
     const technologiesButton = document.querySelector('[data-section="technologies"]');
+    const languageSelectorLabel = document.querySelector('label[for="language-select"]');
     const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
     const submenuButtons = Array.from(document.querySelectorAll(".submenu-button"));
     const metaDescriptionTag = document.querySelector('meta[name="description"]');
@@ -14,6 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const ogLocaleTag = document.querySelector('meta[property="og:locale"]');
     const htmlElement = document.documentElement;
     const languageStorageKey = "preferredLanguage";
+    const fallbackLanguage = "en";
+    const languageLabels = {
+        en: "Choose Language:",
+        ru: "Выберите язык:",
+        uk: "Оберіть мову:",
+        pl: "Wybierz język:",
+        de: "Sprache wählen:",
+        fr: "Choisir la langue:",
+        es: "Elegir idioma:"
+    };
 
     // Контактные данные
     // Basic contact information (plain strings). These values are inserted
@@ -36,8 +47,91 @@ document.addEventListener("DOMContentLoaded", () => {
         FACEBOOK_LINK
     );
 
+    const supportedLanguages = Array.from(languageSelector.options)
+        .map((option) => option.value)
+        .filter((lang) => Boolean(translations[lang]));
+
+    const isSupportedLanguage = (lang) => supportedLanguages.includes(lang);
+
+    const getStoredLanguage = () => {
+        try {
+            const storedLanguage = localStorage.getItem(languageStorageKey);
+            return isSupportedLanguage(storedLanguage) ? storedLanguage : null;
+        } catch {
+            return null;
+        }
+    };
+
+    const storeLanguage = (lang) => {
+        try {
+            localStorage.setItem(languageStorageKey, lang);
+        } catch {
+            // Some browsers block localStorage in strict privacy modes.
+        }
+    };
+
+    const hidePlaceholderContacts = () => {
+        const placeholderPatterns = [
+            "+00000000000",
+            "instagram.com/placeholder",
+            "vk.com/placeholder",
+            "facebook.com/placeholder"
+        ];
+
+        content.querySelectorAll("p").forEach((paragraph) => {
+            const text = paragraph.textContent || "";
+            const links = Array.from(paragraph.querySelectorAll("a"));
+            const hasPlaceholderText = placeholderPatterns.some((pattern) => text.includes(pattern));
+            const hasPlaceholderHref = links.some((link) => {
+                const href = link.getAttribute("href") || "";
+                return placeholderPatterns.some((pattern) => href.includes(pattern)) || href.includes("wa.me/+00000000000");
+            });
+
+            if (hasPlaceholderText || hasPlaceholderHref) {
+                paragraph.remove();
+            }
+        });
+    };
+
+    const enhanceRenderedContent = () => {
+        content.querySelectorAll('a[target="_blank"]').forEach((link) => {
+            const href = link.getAttribute("href") || "";
+            if (href.startsWith("https://wa.me/")) {
+                const normalizedNumber = href.replace("https://wa.me/", "").replace(/\D/g, "");
+                if (normalizedNumber) {
+                    link.setAttribute("href", `https://wa.me/${normalizedNumber}`);
+                }
+            }
+
+            link.setAttribute("rel", "noopener noreferrer");
+        });
+
+        content.querySelectorAll("img").forEach((image) => {
+            if (!image.hasAttribute("loading")) {
+                image.setAttribute("loading", "lazy");
+            }
+            image.setAttribute("decoding", "async");
+            if (image.closest("p") && !image.classList.contains("icon")) {
+                image.classList.add("icon");
+            }
+        });
+
+        hidePlaceholderContacts();
+    };
+
+    const renderContent = (html) => {
+        content.innerHTML = html;
+        enhanceRenderedContent();
+        content.focus();
+    };
+
     const updateDocumentMeta = (lang) => {
-        const { pageTitle, metaDescription, locale } = translations[lang];
+        const translation = translations[lang] || translations[fallbackLanguage];
+        const fallbackTranslation = translations[fallbackLanguage];
+        const pageTitle = translation.pageTitle || fallbackTranslation.pageTitle;
+        const metaDescription = translation.metaDescription || fallbackTranslation.metaDescription;
+        const locale = translation.locale || fallbackTranslation.locale;
+
         if (pageTitle) {
             document.title = pageTitle;
         }
@@ -65,6 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('[data-section="education"]').textContent = buttons.education;
         document.querySelector('[data-subsection="familiar"]').textContent = buttons.familiar;
         document.querySelector('[data-subsection="proficient"]').textContent = buttons.proficient;
+        if (languageSelectorLabel) {
+            languageSelectorLabel.textContent = languageLabels[lang] || languageLabels[fallbackLanguage];
+        }
     };
 
     const setActiveSection = (section) => {
@@ -85,27 +182,30 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const updateContent = (section, lang) => {
+        const translation = translations[lang] || translations[fallbackLanguage];
+
         if (section === "technologies") {
             technologiesMenu.hidden = false;
             technologiesButton.setAttribute("aria-expanded", "true");
-            content.innerHTML = translations[lang].welcome + `<p>${translations[lang].description}</p>`;
+            renderContent(`${translation.welcome}<p>${translation.description}</p>`);
             setActiveSection(section);
         } else {
             technologiesMenu.hidden = true;
             technologiesButton.setAttribute("aria-expanded", "false");
-            const text = translations[lang][section] || translations[lang].welcome;
-            content.innerHTML = text;
+            const text = translation[section] || translation.welcome;
+            renderContent(text);
             setActiveSection(section ?? null);
         }
-        content.focus();
     };
 
     const updateHeader = (lang) => {
-        headerText.textContent = translations[lang].header;
+        const translation = translations[lang] || translations[fallbackLanguage];
+        headerText.textContent = translation.header;
     };
 
     const updateSubmenu = (subsection, lang) => {
-        content.innerHTML = translations[lang].technologies[subsection];
+        const translation = translations[lang] || translations[fallbackLanguage];
+        renderContent(translation.technologies[subsection]);
         submenuButtons.forEach((button) => {
             const isActive = button.getAttribute("data-subsection") === subsection;
             if (isActive) {
@@ -117,26 +217,28 @@ document.addEventListener("DOMContentLoaded", () => {
         setActiveSection("technologies");
         technologiesMenu.hidden = false;
         technologiesButton.setAttribute("aria-expanded", "true");
-        content.focus();
     };
 
     const initializeLanguage = (lang) => {
-        updateButtons(lang);
-        updateHeader(lang);
-        updateContent("welcome", lang);
-        updateDocumentMeta(lang);
-        languageSelector.value = lang;
+        const activeLanguage = isSupportedLanguage(lang) ? lang : fallbackLanguage;
+
+        updateButtons(activeLanguage);
+        updateHeader(activeLanguage);
+        updateContent("welcome", activeLanguage);
+        updateDocumentMeta(activeLanguage);
+        languageSelector.value = activeLanguage;
+
+        return activeLanguage;
     };
 
     // Язык по умолчанию
-    const storedLanguage = localStorage.getItem(languageStorageKey);
-    const initialLanguage = storedLanguage && translations[storedLanguage] ? storedLanguage : "en";
+    const storedLanguage = getStoredLanguage();
+    const initialLanguage = storedLanguage || fallbackLanguage;
     initializeLanguage(initialLanguage);
 
     languageSelector.addEventListener("change", (event) => {
-        const selectedLang = event.target.value;
-        initializeLanguage(selectedLang);
-        localStorage.setItem(languageStorageKey, selectedLang);
+        const selectedLang = initializeLanguage(event.target.value);
+        storeLanguage(selectedLang);
     });
 
     document.querySelectorAll(".menu-button").forEach(button => {

@@ -3,10 +3,10 @@
 Personal portfolio site for showcasing the experience of Sergey Fedorov, a system administrator specialising in IT infrastructure, networking, CCTV and VoIP solutions.
 
 ## Features
-- Multilingual interface (English, Russian, Ukrainian, Polish, German) with persisted language preference.
+- Multilingual interface (English, Russian, Ukrainian, Polish, German, French, Spanish) with persisted language preference.
 - Accessible navigation with ARIA attributes, focus management and keyboard-friendly controls.
 - Structured content that highlights experience, projects, education and technology stacks.
-- Responsive layout optimised for desktop viewports.
+- Responsive layout optimised for desktop and mobile viewports.
 
 ## Getting started
 1. Clone the repository.
@@ -36,7 +36,7 @@ Then navigate to `http://localhost:8000` and explore the interface.
 
 ## Content management
 - Textual content is defined in `translations.js`. Each locale contains metadata (title, description) and section markup.
-- Contact placeholders remain hardcoded in `main.js`. Update them there before editing translation templates.
+- Contact values are configured in `main.js`. Placeholder phone/social values are hidden at render time so incomplete contact data is not shown publicly.
 - When adding a new section, extend the `buttons` dictionary and supply matching HTML snippets for every locale.
 
 ## Accessibility & UX notes

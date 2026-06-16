@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const htmlElement = document.documentElement;
     const languageStorageKey = "preferredLanguage";
     const fallbackLanguage = "en";
+    let currentSection = "welcome";
+    let currentSubsection = null;
     const languageLabels = {
         en: "Choose Language:",
         ru: "Выберите язык:",
@@ -111,8 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 image.setAttribute("loading", "lazy");
             }
             image.setAttribute("decoding", "async");
-            if (image.closest("p") && !image.classList.contains("icon")) {
+            const parentParagraph = image.closest("p");
+            if (parentParagraph) {
                 image.classList.add("icon");
+                parentParagraph.classList.add("contact-item");
             }
         });
 
@@ -152,13 +156,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateButtons = (lang) => {
         const buttons = translations[lang].buttons;
-        document.querySelector('[data-section="experience"]').textContent = buttons.experience;
-        document.querySelector('[data-section="technologies"]').textContent = buttons.technologies;
-        document.querySelector('[data-section="projects"]').textContent = buttons.projects;
-        document.querySelector('[data-section="contacts"]').textContent = buttons.contacts;
-        document.querySelector('[data-section="education"]').textContent = buttons.education;
-        document.querySelector('[data-subsection="familiar"]').textContent = buttons.familiar;
-        document.querySelector('[data-subsection="proficient"]').textContent = buttons.proficient;
+        const buttonLabels = [
+            ['[data-section="experience"]', buttons.experience],
+            ['[data-section="technologies"]', buttons.technologies],
+            ['[data-section="projects"]', buttons.projects],
+            ['[data-section="contacts"]', buttons.contacts],
+            ['[data-section="education"]', buttons.education],
+            ['[data-subsection="familiar"]', buttons.familiar],
+            ['[data-subsection="proficient"]', buttons.proficient]
+        ];
+
+        buttonLabels.forEach(([selector, label]) => {
+            const button = document.querySelector(selector);
+            if (button) {
+                button.textContent = label;
+                button.setAttribute("title", label);
+            }
+        });
         if (languageSelectorLabel) {
             languageSelectorLabel.textContent = languageLabels[lang] || languageLabels[fallbackLanguage];
         }
@@ -185,11 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const translation = translations[lang] || translations[fallbackLanguage];
 
         if (section === "technologies") {
+            currentSection = "technologies";
+            currentSubsection = null;
             technologiesMenu.hidden = false;
             technologiesButton.setAttribute("aria-expanded", "true");
             renderContent(`${translation.welcome}<p>${translation.description}</p>`);
             setActiveSection(section);
         } else {
+            currentSection = section || "welcome";
+            currentSubsection = null;
             technologiesMenu.hidden = true;
             technologiesButton.setAttribute("aria-expanded", "false");
             const text = translation[section] || translation.welcome;
@@ -205,6 +223,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateSubmenu = (subsection, lang) => {
         const translation = translations[lang] || translations[fallbackLanguage];
+
+        currentSection = "technologies";
+        currentSubsection = subsection;
         renderContent(translation.technologies[subsection]);
         submenuButtons.forEach((button) => {
             const isActive = button.getAttribute("data-subsection") === subsection;
@@ -224,7 +245,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateButtons(activeLanguage);
         updateHeader(activeLanguage);
-        updateContent("welcome", activeLanguage);
+        if (currentSubsection) {
+            updateSubmenu(currentSubsection, activeLanguage);
+        } else {
+            updateContent(currentSection, activeLanguage);
+        }
         updateDocumentMeta(activeLanguage);
         languageSelector.value = activeLanguage;
 

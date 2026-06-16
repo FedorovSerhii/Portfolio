@@ -1,10 +1,22 @@
 
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    color: #1f2933;
 }
 
 .animated-header {
@@ -21,6 +33,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .header-photo {
@@ -72,16 +85,22 @@ body {
 
 .container {
     display: flex;
-    height: calc(100vh - 60px);
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .sidebar {
-    width: 20%;
+    flex: 0 0 280px;
     background: #f4f4f4;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
+}
+
+.sidebar nav {
+    width: 100%;
 }
 
 .profile-photo {
@@ -145,7 +164,8 @@ body {
 }
 
 .content {
-    width: 80%;
+    flex: 1 1 auto;
+    min-width: 0;
     padding: 40px;
     background: white;
     line-height: 1.5;
@@ -159,9 +179,9 @@ body {
     padding: 10px 15px;
     text-align: left;
     width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
 }
 
 .submenu {
@@ -200,13 +220,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
     padding: 10px 20px;
     background-color: #f4f4f4;
     border-bottom: 1px solid #ddd;
 }
 
 .language-selector label {
-    margin-right: 10px;
     font-size: 1em;
 }
 
@@ -246,18 +267,32 @@ body {
 }
 
 @media (max-width: 600px) {
+    .animated-header {
+        padding: 14px;
+        font-size: 1.1em;
+    }
+
+    .header-text {
+        width: 100%;
+        font-size: 1em;
+        padding: 8px 12px;
+    }
+
     .container {
         flex-direction: column;
-        height: auto; /* убираем фиксированную высоту */
+        min-height: auto; /* убираем фиксированную высоту */
     }
     .sidebar {
         width: 100%;
+        flex-basis: auto;
         order: 1; /* показываем сначала сайдбар */
         margin-bottom: 20px;
+        padding: 16px;
     }
     .content {
         width: 100%;
         order: 2; /* контент ниже сайдбара */
+        padding: 24px 16px;
     }
     .menu-button {
         font-size: 1.2em; /* немного крупнее шрифт на мобильном */
@@ -280,19 +315,31 @@ body {
     gap: 20px;
 }
 
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.small-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .small-icons img {
-    width: 150px; /* Установите размер ярлычков */
-    height: 150px;
-    margin-right: 10px;
+    width: 120px; /* Установите размер ярлычков */
+    height: 120px;
+    object-fit: contain;
 }
 
 .certificates-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px; /* Расстояние между сертификатами */
 }
 
 .certificates-row img {
-    width: 400px; /* Уменьшите размер сертификатов */
+    width: min(100%, 400px); /* Уменьшите размер сертификатов */
     height: auto;
     border: 1px solid #ccc; /* Добавьте рамку (опционально) */
     border-radius: 5px; /* Округлите углы (опционально) */
@@ -300,6 +347,7 @@ body {
 .icon {
     width: 40px; /* Ширина иконки */
     height: 40px; /* Высота иконки */
+    object-fit: contain;
     vertical-align: middle; /* Центрирование иконки по вертикали с текстом */
     margin-right: 5px; /* Отступ справа для текста */
   }

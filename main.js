@@ -22,10 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         en: "Choose Language:",
         ru: "Выберите язык:",
         uk: "Оберіть мову:",
-        pl: "Wybierz język:",
-        de: "Sprache wählen:",
-        fr: "Choisir la langue:",
-        es: "Elegir idioma:"
+        pl: "Wybierz język:"
     };
 
     // Контактные данные

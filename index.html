@@ -22,13 +22,13 @@
     <!-- Шапка -->
     <header class="animated-header">
         <img src="HeaderPicture.png" alt="Sergey Fedorov" class="header-photo" width="160" height="148" decoding="async">
-        <div class="header-text">Сергей Фёдоров – Системный Администратор</div>
+        <div class="header-text">Sergey Fedorov – System Administrator</div>
     </header>
 
     <!-- Селектор языка -->
     <div class="language-selector">
         <label for="language-select">Choose Language:</label>
-        <select id="language-select" aria-label="Interface language">
+        <select id="language-select">
             <option value="en">English</option>
             <option value="ru">Русский</option>
             <option value="uk">Українська</option>
@@ -42,29 +42,29 @@
         <aside class="sidebar">
             <img src="Avatar.png" alt="Sergey Fedorov" class="profile-photo" width="421" height="448" loading="lazy" decoding="async">
             <nav aria-label="Primary">
-                <button type="button" class="menu-button" data-section="experience">Опыт работы</button>
-                <button
-                    type="button"
+                <a href="#experience" class="menu-button" data-section="experience">Work Experience</a>
+                <a
+                    href="#technologies"
+                    id="technologies-link"
                     class="menu-button"
                     data-section="technologies"
-                    aria-haspopup="true"
                     aria-expanded="false"
                     aria-controls="technologies-menu"
-                >Технологии</button>
-                <div class="submenu" id="technologies-menu" role="group" hidden>
-                    <button type="button" class="submenu-button" data-subsection="familiar">Технологии, с которыми знаком</button>
-                    <button type="button" class="submenu-button" data-subsection="proficient">Технологии, с которыми работаю постоянно</button>
+                >Technologies</a>
+                <div class="submenu" id="technologies-menu" role="group" aria-labelledby="technologies-link" hidden>
+                    <a href="#technologies/familiar" class="submenu-button" data-subsection="familiar">Technologies Familiar With</a>
+                    <a href="#technologies/proficient" class="submenu-button" data-subsection="proficient">Technologies I Work With</a>
                 </div>
-                <button type="button" class="menu-button" data-section="projects">Проекты</button>
-                <button type="button" class="menu-button" data-section="contacts">Контакты</button>
-                <button type="button" class="menu-button" data-section="education">Образование</button>
+                <a href="#projects" class="menu-button" data-section="projects">Projects</a>
+                <a href="#contacts" class="menu-button" data-section="contacts">Contacts</a>
+                <a href="#education" class="menu-button" data-section="education">Education</a>
             </nav>
         </aside>
 
         <!-- Основной контент -->
-        <main class="content" id="main-content" role="region" aria-live="polite" aria-label="Section content" tabindex="-1">
-            <h1>Добро пожаловать!</h1>
-            <p>Выберите пункт меню, чтобы увидеть больше информации.</p>
+        <main class="content" id="main-content" aria-live="polite" aria-labelledby="section-title" tabindex="-1">
+            <h1 id="section-title">Welcome!</h1>
+            <p>Explore my experience in IT infrastructure, networking, CCTV and VoIP systems.</p>
         </main>
     </div>
 

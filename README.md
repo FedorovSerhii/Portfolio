@@ -5,15 +5,16 @@ Personal portfolio site for showcasing the experience of Sergey Fedorov, a syste
 ## Features
 - English-first interface with Russian, Ukrainian, and Polish translations plus persisted language preference.
 - Accessible navigation with ARIA attributes, focus management and keyboard-friendly controls.
+- Shareable section links with native browser Back/Forward and new-tab support.
 - Structured content that highlights experience, projects, education and technology stacks.
 - Responsive layout optimised for desktop and mobile viewports.
 
 ## Getting started
 1. Clone the repository.
-2. Open `index.html` in a modern browser. All assets are static, no build step is required.
+2. Serve the repository over HTTP. All assets are static, no build step is required. ES module loading requires a server rather than opening `index.html` directly.
 
 ```bash
-# optional: serve the site locally
+# serve the site locally
 python3 -m http.server 8000
 ```
 
@@ -42,6 +43,8 @@ Then navigate to `http://localhost:8000` and explore the interface.
 ## Accessibility & UX notes
 - Navigation state uses `aria-current` and `aria-expanded` to describe context to assistive technologies.
 - The main content region receives focus after updates, enabling smooth keyboard navigation.
+- Initial loading and language changes preserve focus; activating a section link focuses its content.
+- Link directly to sections with `#experience`, `#projects`, `#contacts`, `#education`, `#technologies/familiar`, or `#technologies/proficient`. `#technologies` opens the daily-use technology list. An unknown section falls back to the welcome page.
 - Animations respect `prefers-reduced-motion` and can be extended in `styles.css`.
 
 ## License

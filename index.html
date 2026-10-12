@@ -4,69 +4,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Sergey Fedorov, system administrator specialising in IT infrastructure, networking and CCTV solutions.">
+    <meta name="description" content="Sergey Fedorov: system administration, backups with restore checks, Grafana monitoring, Linux, Docker and automation.">
     <meta name="author" content="Sergey Fedorov">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Sergey Fedorov – System Administrator Portfolio">
-    <meta property="og:description" content="Portfolio of Sergey Fedorov, system administrator specialising in IT infrastructure, networking and CCTV solutions.">
-    <meta property="og:image" content="https://fedorovserhii.github.io/Portfolio/HeaderPicture.png">
+    <meta property="og:title" content="Sergey Fedorov — System administration &amp; automation">
+    <meta property="og:description" content="Sergey Fedorov: system administration, backups with restore checks, Grafana monitoring, Linux, Docker and automation.">
     <meta property="og:url" content="https://fedorovserhii.github.io/Portfolio/">
     <meta property="og:locale" content="en_US">
-    <meta name="theme-color" content="#2196f3">
-    <title>Sergey Fedorov – System Administrator Portfolio</title>
+    <meta name="theme-color" content="#f5f1e9">
+    <title>Sergey Fedorov — System administration &amp; automation</title>
     <link rel="canonical" href="https://fedorovserhii.github.io/Portfolio/">
-    <link rel="icon" type="image/png" href="Avatar.png">
+    <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <!-- public-profile-jsonld:start -->
+    <script type="application/ld+json" id="profile-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://fedorovserhii.github.io/Portfolio/#person",
+  "name": "Sergey Fedorov",
+  "alternateName": [
+    "Сергей Фёдоров",
+    "Сергій Федоров",
+    "Serhii Fedorov"
+  ],
+  "url": "https://fedorovserhii.github.io/Portfolio/",
+  "jobTitle": "System Administrator",
+  "description": "System administration, IT infrastructure, networking, CCTV and VoIP. The portfolio also covers automation and AI tools.",
+  "email": "carport-chime6r@icloud.com",
+  "sameAs": [
+    "https://t.me/Medoedkoi",
+    "https://linkedin.com/in/serhii-fedorov-14b077205"
+  ],
+  "knowsAbout": [
+    "Infrastructure and systems: Linux, Docker, Windows Server 2019, Active Directory, Hyper-V and ESXi.",
+    "Networks, CCTV and VoIP: VPN, MikroTik, Dahua, Hikvision and FreePBX; NextCloud with LDAP integration.",
+    "n8n: Workflow automation and connecting services with n8n.",
+    "ChatGPT / Codex: AI tools for working with code, technical tasks and documentation, with review of their output.",
+    "Working with AI models: Preparing task context, comparing model responses and checking their limitations.",
+    "Agent systems: Working with task flows, tools and human review in agent systems."
+  ],
+  "subjectOf": [
+    {
+      "@type": "CreativeWork",
+      "url": "https://fedorovserhii.github.io/Portfolio/profile.json"
+    },
+    {
+      "@type": "CreativeWork",
+      "url": "https://fedorovserhii.github.io/Portfolio/profile.md"
+    },
+    {
+      "@type": "CreativeWork",
+      "url": "https://fedorovserhii.github.io/Portfolio/llms.txt"
+    }
+  ]
+}
+    </script>
+    <!-- public-profile-jsonld:end -->
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="animated-header">
-        <img src="HeaderPicture.png" alt="Sergey Fedorov" class="header-photo" width="160" height="148" decoding="async">
-        <div class="header-text">Sergey Fedorov – System Administrator</div>
+    <a id="skip-link" class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand-link" id="brand-home" href="#welcome" aria-label="Sergey Fedorov — Home">
+                <span class="brand-copy"><span class="header-text">Sergey Fedorov</span><span id="header-role">System Administrator</span></span>
+            </a>
+            <div class="language-selector">
+                <label class="visually-hidden" for="language-select">Choose Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                    <option value="pl">Polski</option>
+                </select>
+            </div>
+        </div>
     </header>
-
-    <!-- Селектор языка -->
-    <div class="language-selector">
-        <label for="language-select">Choose Language:</label>
-        <select id="language-select">
-            <option value="en">English</option>
-            <option value="ru">Русский</option>
-            <option value="uk">Українська</option>
-            <option value="pl">Polski</option>
-        </select>
+    <div class="navigation-shell">
+        <nav id="primary-navigation" aria-label="Main navigation">
+            <a href="#welcome" class="menu-button" data-section="welcome">About me</a>
+            <a href="#services" class="menu-button" data-section="services">Services</a>
+            <a href="#experience" class="menu-button" data-section="experience">Work Experience</a>
+            <a href="#technologies" id="technologies-link" class="menu-button" data-section="technologies" aria-expanded="false" aria-controls="technologies-menu">Technologies</a>
+            <a href="#projects" class="menu-button" data-section="projects">Projects</a>
+            <a href="#education" class="menu-button" data-section="education">Education</a>
+            <a href="#contacts" class="menu-button" data-section="contacts">Contacts</a>
+            <a href="#profile" class="menu-button" data-section="profile">Public profile</a>
+            <a href="#assistant" class="menu-button" data-section="assistant">Demo assistant</a>
+        </nav>
+        <div class="submenu" id="technologies-menu" role="group" aria-labelledby="technologies-link" hidden>
+            <a href="#technologies/familiar" class="submenu-button" data-subsection="familiar">Technologies Familiar With</a>
+            <a href="#technologies/proficient" class="submenu-button" data-subsection="proficient">Technologies I Work With</a>
+        </div>
     </div>
-
-    <!-- Основной контейнер -->
     <div class="container">
-        <!-- Боковая панель -->
-        <aside class="sidebar">
-            <img src="Avatar.png" alt="Sergey Fedorov" class="profile-photo" width="421" height="448" loading="lazy" decoding="async">
-            <nav aria-label="Primary">
-                <a href="#experience" class="menu-button" data-section="experience">Work Experience</a>
-                <a
-                    href="#technologies"
-                    id="technologies-link"
-                    class="menu-button"
-                    data-section="technologies"
-                    aria-expanded="false"
-                    aria-controls="technologies-menu"
-                >Technologies</a>
-                <div class="submenu" id="technologies-menu" role="group" aria-labelledby="technologies-link" hidden>
-                    <a href="#technologies/familiar" class="submenu-button" data-subsection="familiar">Technologies Familiar With</a>
-                    <a href="#technologies/proficient" class="submenu-button" data-subsection="proficient">Technologies I Work With</a>
-                </div>
-                <a href="#projects" class="menu-button" data-section="projects">Projects</a>
-                <a href="#contacts" class="menu-button" data-section="contacts">Contacts</a>
-                <a href="#education" class="menu-button" data-section="education">Education</a>
-            </nav>
-        </aside>
-
-        <!-- Основной контент -->
         <main class="content" id="main-content" aria-live="polite" aria-labelledby="section-title" tabindex="-1">
-            <h1 id="section-title">Welcome!</h1>
-            <p>Explore my experience in IT infrastructure, networking, CCTV and VoIP systems.</p>
+            <h1 id="section-title">Sergey Fedorov</h1>
+            <p>I work with infrastructure and automation.</p>
+            <p>I configure backups with restore checks and Grafana monitoring with messenger alerts. I also maintain Linux and Docker.</p>
+            <p><a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a> · <a href="https://t.me/Medoedkoi">Telegram</a> · <a href="https://linkedin.com/in/serhii-fedorov-14b077205">LinkedIn</a></p>
         </main>
     </div>
+    <footer class="site-footer">
+        <div class="footer-inner"><p id="footer-name">Sergey Fedorov</p>
+            <nav id="profile-file-navigation" aria-label="Profile files">
+                <a id="public-profile-label" href="#profile">Public profile</a>
+                <a href="profile.json">profile.json</a>
+                <a href="profile.md">profile.md</a>
+                <a href="llms.txt">llms.txt</a>
+            </nav>
+        </div>
+    </footer>
 
     <script type="module" src="main.js"></script>
 </body>

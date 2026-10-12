@@ -1,4 +1,9 @@
 // translations.js
+import { portfolioData } from './portfolio-data.js';
+
+const PUBLIC_EMAIL = portfolioData.contacts.email;
+const LINKEDIN_URL = portfolioData.contacts.linkedin.url;
+const LINKEDIN_LABEL = portfolioData.contacts.linkedin.label;
 
 export function getTranslations(
     PHONE_NUMBER,
@@ -27,7 +32,7 @@ export function getTranslations(
                 </ul>
                 <p>I'm passionate about leveraging modern tools and trends to create innovative solutions that deliver measurable results.</p>
                 <p><strong>Contact:</strong> <span>${PHONE_NUMBER}</span></p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+                <p><strong>LinkedIn:</strong> <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
                 <p>Feel free to explore the menu to learn more about my <strong>professional experience</strong>, <strong>notable projects</strong>, and <strong>key technical skills</strong>!</p>
             </div>
         `,
@@ -145,8 +150,8 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+<p>Email: <a href="mailto:${PUBLIC_EMAIL}">${PUBLIC_EMAIL}</a></p>
+<p>LinkedIn: <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
 
             `,
             education: `
@@ -199,7 +204,7 @@ export function getTranslations(
         </ul>
         <p>Я увлечен использованием современных инструментов и технологий для создания инновационных решений, которые дают измеримые результаты.</p>
         <p><strong>Контакты:</strong> <span>${PHONE_NUMBER}</span></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p><strong>LinkedIn:</strong> <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
         <p>Не стесняйтесь изучить меню, чтобы узнать больше о моем <strong>профессиональном опыте</strong>, <strong>проектах</strong> и <strong>ключевых навыках</strong>!</p>
     </div>
 `,
@@ -317,8 +322,8 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+<p>Email: <a href="mailto:${PUBLIC_EMAIL}">${PUBLIC_EMAIL}</a></p>
+<p>LinkedIn: <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
 
             `,
             education: `
@@ -371,7 +376,7 @@ export function getTranslations(
         </ul>
         <p>Я захоплений використанням сучасних інструментів та технологій для створення інноваційних рішень, що приносять вимірювані результати.</p>
         <p><strong>Контакти:</strong> <span>${PHONE_NUMBER}</span></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p><strong>LinkedIn:</strong> <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
         <p>Не соромтеся переглянути меню, щоб дізнатися більше про мій <strong>професійний досвід</strong>, <strong>проєкти</strong> та <strong>ключові навички</strong>!</p>
     </div>
 `,
@@ -482,11 +487,12 @@ export function getTranslations(
   <img src="static/images/facebook_icon.png" alt="Facebook" class="icon" />
   Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a>
 </p>
-<p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+<p>Email: <a href="mailto:${PUBLIC_EMAIL}">${PUBLIC_EMAIL}</a></p>
+<p>LinkedIn: <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
 
             `,
-            education: `                <p>
+            education: `                <h1>Освіта</h1>
+                <p>
                   Бакалавр з технології машинобудування (Криворізький нац. університет)<br>
                   Технікум: електромеханік
                 </p>
@@ -533,7 +539,7 @@ export function getTranslations(
         </ul>
         <p>Jestem pasjonatem korzystania z nowoczesnych narzędzi i technologii, aby tworzyć innowacyjne rozwiązania przynoszące wymierne rezultaty.</p>
         <p><strong>Kontakt:</strong> <span>${PHONE_NUMBER}</span></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+        <p><strong>LinkedIn:</strong> <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
         <p>Zapraszam do zapoznania się z menu, aby dowiedzieć się więcej o moim <strong>doświadczeniu zawodowym</strong>, <strong>projektach</strong> i <strong>kluczowych umiejętnościach</strong>!</p>
     </div>
 `,
@@ -626,8 +632,8 @@ export function getTranslations(
                 <p><img src="static/images/instagram_icon.png" alt="Instagram" /> Instagram: <a href="${INSTAGRAM_LINK}" target="_blank">${INSTAGRAM_LINK}</a></p>
                 <p><img src="static/images/vk_icon.png" alt="VK" /> VK: <a href="${VK_LINK}" target="_blank">${VK_LINK}</a></p>
                 <p><img src="static/images/facebook_icon.png" alt="Facebook" /> Facebook: <a href="${FACEBOOK_LINK}" target="_blank">${FACEBOOK_LINK}</a></p>
-                <p>Email: <a href="mailto:carport-chime6r@icloud.com">carport-chime6r@icloud.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/serhii-fedorov-14b077205" target="_blank">serhii-fedorov</a></p>
+                <p>Email: <a href="mailto:${PUBLIC_EMAIL}">${PUBLIC_EMAIL}</a></p>
+                <p>LinkedIn: <a href="${LINKEDIN_URL}" target="_blank">${LINKEDIN_LABEL}</a></p>
             `,
             education: `                <h1>Edukacja</h1>
                 <p>

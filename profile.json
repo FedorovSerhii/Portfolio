@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "defaultLanguage": "en",
+  "languages": [
+    "en",
+    "ru",
+    "uk",
+    "pl"
+  ],
+  "profiles": {
+    "en": {
+      "language": "en",
+      "name": "Sergey Fedorov",
+      "role": "System Administrator",
+      "summary": "System administration, IT infrastructure, networking, CCTV and VoIP. The portfolio also covers automation and AI tools.",
+      "url": "https://fedorovserhii.github.io/Portfolio/",
+      "contacts": {
+        "email": "carport-chime6r@icloud.com",
+        "telegram": {
+          "username": "Medoedkoi",
+          "url": "https://t.me/Medoedkoi"
+        },
+        "linkedin": {
+          "label": "serhii-fedorov",
+          "url": "https://linkedin.com/in/serhii-fedorov-14b077205"
+        }
+      },
+      "skills": [
+        {
+          "id": "infrastructure",
+          "title": "Infrastructure and systems",
+          "description": "Linux, Docker, Windows Server 2019, Active Directory, Hyper-V and ESXi."
+        },
+        {
+          "id": "networks",
+          "title": "Networks, CCTV and VoIP",
+          "description": "VPN, MikroTik, Dahua, Hikvision and FreePBX; NextCloud with LDAP integration."
+        },
+        {
+          "id": "n8n",
+          "title": "n8n",
+          "description": "Workflow automation and connecting services with n8n."
+        },
+        {
+          "id": "chatgpt-codex",
+          "title": "ChatGPT / Codex",
+          "description": "AI tools for working with code, technical tasks and documentation, with review of their output."
+        },
+        {
+          "id": "models",
+          "title": "Working with AI models",
+          "description": "Preparing task context, comparing model responses and checking their limitations."
+        },
+        {
+          "id": "agents",
+          "title": "Agent systems",
+          "description": "Working with task flows, tools and human review in agent systems."
+        }
+      ],
+      "services": [
+        {
+          "id": "backups",
+          "title": "Backups and restore checks",
+          "oneTime": "Configure backup jobs, retention and a test restore for the agreed data or application.",
+          "monthly": "Review backup results and storage use; perform agreed restore checks and maintain the configuration."
+        },
+        {
+          "id": "monitoring",
+          "title": "Grafana monitoring and notifications",
+          "oneTime": "Set up server and application monitoring in Grafana, alert rules and notifications to an agreed messenger.",
+          "monthly": "Review dashboards and alerts, adjust thresholds and check that messenger notifications are delivered."
+        },
+        {
+          "id": "linux-docker",
+          "title": "Linux and Docker maintenance",
+          "oneTime": "Review the agreed Linux host or Docker deployment, configure it and document the handover.",
+          "monthly": "Plan updates, inspect logs and resource use, and maintain the agreed services during agreed maintenance windows."
+        }
+      ],
+      "serviceTerms": "One-time setup and monthly maintenance are separate scopes. Tasks, access, maintenance windows and response times are agreed before work begins."
+    },
+    "ru": {
+      "language": "ru",
+      "name": "Сергей Фёдоров",
+      "role": "Системный администратор",
+      "summary": "Системное администрирование, IT-инфраструктура, сети, видеонаблюдение и VoIP. В портфолио также представлены автоматизация и инструменты ИИ.",
+      "url": "https://fedorovserhii.github.io/Portfolio/",
+      "contacts": {
+        "email": "carport-chime6r@icloud.com",
+        "telegram": {
+          "username": "Medoedkoi",
+          "url": "https://t.me/Medoedkoi"
+        },
+        "linkedin": {
+          "label": "serhii-fedorov",
+          "url": "https://linkedin.com/in/serhii-fedorov-14b077205"
+        }
+      },
+      "skills": [
+        {
+          "id": "infrastructure",
+          "title": "Инфраструктура и системы",
+          "description": "Linux, Docker, Windows Server 2019, Active Directory, Hyper-V и ESXi."
+        },
+        {
+          "id": "networks",
+          "title": "Сети, видеонаблюдение и VoIP",
+          "description": "VPN, MikroTik, Dahua, Hikvision и FreePBX; NextCloud с интеграцией LDAP."
+        },
+        {
+          "id": "n8n",
+          "title": "n8n",
+          "description": "Автоматизация рабочих процессов и соединение сервисов с помощью n8n."
+        },
+        {
+          "id": "chatgpt-codex",
+          "title": "ChatGPT / Codex",
+          "description": "Инструменты ИИ для работы с кодом, техническими задачами и документацией с проверкой результатов."
+        },
+        {
+          "id": "models",
+          "title": "Работа с моделями ИИ",
+          "description": "Подготовка контекста задачи, сравнение ответов моделей и проверка их ограничений."
+        },
+        {
+          "id": "agents",
+          "title": "Агентные системы",
+          "description": "Работа с последовательностями задач, инструментами и проверкой человеком в агентных системах."
+        }
+      ],
+      "services": [
+        {
+          "id": "backups",
+          "title": "Резервное копирование и проверка восстановления",
+          "oneTime": "Настроить задания резервного копирования, сроки хранения и тестовое восстановление согласованных данных или приложения.",
+          "monthly": "Проверять результаты копирования и использование хранилища; выполнять согласованные проверки восстановления и поддерживать настройки."
+        },
+        {
+          "id": "monitoring",
+          "title": "Мониторинг в Grafana и уведомления",
+          "oneTime": "Настроить мониторинг серверов и приложений в Grafana, правила оповещений и уведомления в согласованный мессенджер.",
+          "monthly": "Проверять панели и оповещения, корректировать пороги и проверять доставку уведомлений в мессенджер."
+        },
+        {
+          "id": "linux-docker",
+          "title": "Сопровождение Linux и Docker",
+          "oneTime": "Проверить согласованный Linux-сервер или развёртывание Docker, выполнить настройку и подготовить документацию для передачи.",
+          "monthly": "Планировать обновления, проверять журналы и использование ресурсов, сопровождать согласованные сервисы в согласованные окна обслуживания."
+        }
+      ],
+      "serviceTerms": "Разовая настройка и ежемесячное сопровождение — отдельные форматы работы. Задачи, доступ, окна обслуживания и сроки реакции согласуются до начала работ."
+    },
+    "uk": {
+      "language": "uk",
+      "name": "Сергій Федоров",
+      "role": "Системний адміністратор",
+      "summary": "Системне адміністрування, IT-інфраструктура, мережі, відеоспостереження та VoIP. У портфоліо також представлені автоматизація й інструменти ШІ.",
+      "url": "https://fedorovserhii.github.io/Portfolio/",
+      "contacts": {
+        "email": "carport-chime6r@icloud.com",
+        "telegram": {
+          "username": "Medoedkoi",
+          "url": "https://t.me/Medoedkoi"
+        },
+        "linkedin": {
+          "label": "serhii-fedorov",
+          "url": "https://linkedin.com/in/serhii-fedorov-14b077205"
+        }
+      },
+      "skills": [
+        {
+          "id": "infrastructure",
+          "title": "Інфраструктура та системи",
+          "description": "Linux, Docker, Windows Server 2019, Active Directory, Hyper-V та ESXi."
+        },
+        {
+          "id": "networks",
+          "title": "Мережі, відеоспостереження та VoIP",
+          "description": "VPN, MikroTik, Dahua, Hikvision та FreePBX; NextCloud з інтеграцією LDAP."
+        },
+        {
+          "id": "n8n",
+          "title": "n8n",
+          "description": "Автоматизація робочих процесів і поєднання сервісів за допомогою n8n."
+        },
+        {
+          "id": "chatgpt-codex",
+          "title": "ChatGPT / Codex",
+          "description": "Інструменти ШІ для роботи з кодом, технічними завданнями та документацією з перевіркою результатів."
+        },
+        {
+          "id": "models",
+          "title": "Робота з моделями ШІ",
+          "description": "Підготовка контексту завдання, порівняння відповідей моделей і перевірка їхніх обмежень."
+        },
+        {
+          "id": "agents",
+          "title": "Агентні системи",
+          "description": "Робота з послідовностями завдань, інструментами та перевіркою людиною в агентних системах."
+        }
+      ],
+      "services": [
+        {
+          "id": "backups",
+          "title": "Резервне копіювання та перевірка відновлення",
+          "oneTime": "Налаштувати завдання резервного копіювання, строки зберігання й тестове відновлення погоджених даних або застосунку.",
+          "monthly": "Перевіряти результати копіювання й використання сховища; виконувати погоджені перевірки відновлення та підтримувати налаштування."
+        },
+        {
+          "id": "monitoring",
+          "title": "Моніторинг у Grafana та сповіщення",
+          "oneTime": "Налаштувати моніторинг серверів і застосунків у Grafana, правила оповіщень та сповіщення в погоджений месенджер.",
+          "monthly": "Перевіряти панелі й оповіщення, коригувати пороги та перевіряти доставку сповіщень у месенджер."
+        },
+        {
+          "id": "linux-docker",
+          "title": "Супровід Linux і Docker",
+          "oneTime": "Перевірити погоджений Linux-сервер або розгортання Docker, виконати налаштування та підготувати документацію для передачі.",
+          "monthly": "Планувати оновлення, перевіряти журнали й використання ресурсів, супроводжувати погоджені сервіси в погоджені вікна обслуговування."
+        }
+      ],
+      "serviceTerms": "Разове налаштування та щомісячний супровід — окремі формати роботи. Завдання, доступ, вікна обслуговування та строки реагування погоджуються до початку робіт."
+    },
+    "pl": {
+      "language": "pl",
+      "name": "Serhii Fedorov",
+      "role": "Administrator systemów",
+      "summary": "Administracja systemami, infrastruktura IT, sieci, monitoring CCTV i VoIP. Portfolio obejmuje również automatyzację i narzędzia AI.",
+      "url": "https://fedorovserhii.github.io/Portfolio/",
+      "contacts": {
+        "email": "carport-chime6r@icloud.com",
+        "telegram": {
+          "username": "Medoedkoi",
+          "url": "https://t.me/Medoedkoi"
+        },
+        "linkedin": {
+          "label": "serhii-fedorov",
+          "url": "https://linkedin.com/in/serhii-fedorov-14b077205"
+        }
+      },
+      "skills": [
+        {
+          "id": "infrastructure",
+          "title": "Infrastruktura i systemy",
+          "description": "Linux, Docker, Windows Server 2019, Active Directory, Hyper-V i ESXi."
+        },
+        {
+          "id": "networks",
+          "title": "Sieci, CCTV i VoIP",
+          "description": "VPN, MikroTik, Dahua, Hikvision i FreePBX; NextCloud z integracją LDAP."
+        },
+        {
+          "id": "n8n",
+          "title": "n8n",
+          "description": "Automatyzacja procesów i łączenie usług za pomocą n8n."
+        },
+        {
+          "id": "chatgpt-codex",
+          "title": "ChatGPT / Codex",
+          "description": "Narzędzia AI do pracy z kodem, zadaniami technicznymi i dokumentacją, z weryfikacją wyników."
+        },
+        {
+          "id": "models",
+          "title": "Praca z modelami AI",
+          "description": "Przygotowanie kontekstu zadań, porównywanie odpowiedzi modeli i sprawdzanie ich ograniczeń."
+        },
+        {
+          "id": "agents",
+          "title": "Systemy agentowe",
+          "description": "Praca z przepływami zadań, narzędziami i weryfikacją przez człowieka w systemach agentowych."
+        }
+      ],
+      "services": [
+        {
+          "id": "backups",
+          "title": "Kopie zapasowe i kontrola odtwarzania",
+          "oneTime": "Konfiguracja zadań kopii zapasowych, retencji i testowego odtworzenia uzgodnionych danych lub aplikacji.",
+          "monthly": "Przegląd wyników kopii i wykorzystania miejsca; uzgodnione kontrole odtwarzania oraz utrzymanie konfiguracji."
+        },
+        {
+          "id": "monitoring",
+          "title": "Monitoring w Grafana i powiadomienia",
+          "oneTime": "Konfiguracja monitoringu serwerów i aplikacji w Grafana, reguł alertów i powiadomień do uzgodnionego komunikatora.",
+          "monthly": "Przegląd pulpitów i alertów, dostosowywanie progów oraz kontrola dostarczania powiadomień do komunikatora."
+        },
+        {
+          "id": "linux-docker",
+          "title": "Utrzymanie Linux i Docker",
+          "oneTime": "Przegląd uzgodnionego serwera Linux lub wdrożenia Docker, konfiguracja i dokumentacja przekazania.",
+          "monthly": "Planowanie aktualizacji, przegląd logów i zużycia zasobów oraz utrzymanie uzgodnionych usług w ustalonych oknach serwisowych."
+        }
+      ],
+      "serviceTerms": "Jednorazowa konfiguracja i miesięczne utrzymanie to osobne zakresy prac. Zadania, dostęp, okna serwisowe i czasy reakcji są uzgadniane przed rozpoczęciem pracy."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "sergey-fedorov-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:profile": "node scripts/generate-profile.mjs",
+    "check:profile": "node scripts/generate-profile.mjs --check"
+  }
+}

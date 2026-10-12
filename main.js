@@ -1,4 +1,9 @@
 import { getTranslations } from './translations.js';
+import { portfolioData, buildPersonJsonLd } from './portfolio-data.js';
+import { getAdditions } from './additions-translations.js';
+import { getLandingTranslations } from './landing-translations.js';
+import { renderAddedSkills, renderContacts, renderHomepage, renderProfile, renderServices } from './portfolio-content.js';
+import { createAssistant } from './assistant.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const content = document.getElementById("main-content");
@@ -18,6 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const fallbackLanguage = "en";
     let currentSection = "welcome";
     let currentSubsection = null;
+    let assistant = null;
+    let initialAssistantIntent = 'overview';
+    let currentContactIntent = 'overview';
+    const sections = new Set(["welcome", "experience", "technologies", "projects", "contacts", "education", "services", "profile", "assistant"]);
+
+    const getRoute = (hash) => {
+        const [section, subsection, ...extra] = hash.slice(1).split("/");
+        if (!sections.has(section) || extra.length > 0) {
+            return { section: "welcome", subsection: null };
+        }
+        if (section === "technologies") {
+            if (subsection && subsection !== "familiar" && subsection !== "proficient") {
+                return { section: "welcome", subsection: null };
+            }
+            return { section, subsection: subsection || "proficient" };
+        }
+        if (section === "assistant" || section === "contacts") {
+            if (subsection !== undefined && subsection !== "job" && subsection !== "service") {
+                return { section: "welcome", subsection: null };
+            }
+            return { section, subsection: null, intent: subsection || "overview" };
+        }
+        return subsection === undefined
+            ? { section, subsection: null }
+            : { section: "welcome", subsection: null };
+    };
     const languageLabels = {
         en: "Choose Language:",
         ru: "Выберите язык:",
@@ -29,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Basic contact information (plain strings). These values are inserted
     // into translation templates, so they should not contain HTML tags.
     const PHONE_NUMBER = "+00000000000"; // Placeholder phone number
-    const TELEGRAM_USERNAME = "Medoedkoi";
+    const TELEGRAM_USERNAME = portfolioData.contacts.telegram.username;
     const WHATSAPP_NUMBER = "+00000000000"; // Placeholder WhatsApp number
     const SIGNAL_NUMBER = "+00000000000";  // Placeholder Signal number
     const INSTAGRAM_LINK = "https://instagram.com/placeholder";
@@ -45,6 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
         VK_LINK,
         FACEBOOK_LINK
     );
+    Object.entries(translations).forEach(([language, translation]) => {
+        Object.assign(translation.buttons, getAdditions(language).nav);
+        translation.buttons.welcome = getLandingTranslations(language).home;
+    });
 
     const supportedLanguages = Array.from(languageSelector.options)
         .map((option) => option.value)
@@ -120,17 +155,34 @@ document.addEventListener("DOMContentLoaded", () => {
         hidePlaceholderContacts();
     };
 
-    const renderContent = (html) => {
-        content.innerHTML = html;
-        enhanceRenderedContent();
-        content.focus();
+    const renderContent = (html, focusContent, headingText) => {
+        if (html instanceof Node) {
+            // A language switch updates the mounted assistant in place.
+            if (!content.contains(html)) content.replaceChildren(html);
+        } else {
+            content.innerHTML = html;
+            // Legacy HTML may contain placeholder contacts. Never run this
+            // cleanup over visitor-authored text in the persistent demo DOM.
+            enhanceRenderedContent();
+        }
+        let heading = content.querySelector("h1");
+        if (!heading) {
+            heading = document.createElement("h1");
+            heading.textContent = headingText || translations[fallbackLanguage].header;
+            content.prepend(heading);
+        }
+        if (!heading.textContent.trim()) heading.textContent = headingText || translations[fallbackLanguage].header;
+        heading.id = "section-title";
+        if (focusContent) {
+            content.focus();
+        }
     };
 
     const updateDocumentMeta = (lang) => {
         const translation = translations[lang] || translations[fallbackLanguage];
         const fallbackTranslation = translations[fallbackLanguage];
-        const pageTitle = translation.pageTitle || fallbackTranslation.pageTitle;
-        const metaDescription = translation.metaDescription || fallbackTranslation.metaDescription;
+        const pageTitle = `${portfolioData.identity.name[lang]} — ${getLandingTranslations(lang).metaTitle}`;
+        const metaDescription = getLandingTranslations(lang).metaDescription;
         const locale = translation.locale || fallbackTranslation.locale;
 
         if (pageTitle) {
@@ -149,16 +201,22 @@ document.addEventListener("DOMContentLoaded", () => {
             ogLocaleTag.setAttribute("content", locale);
         }
         htmlElement.setAttribute("lang", lang);
+        const jsonLd = document.getElementById('profile-jsonld');
+        if (jsonLd) jsonLd.textContent = JSON.stringify(buildPersonJsonLd(portfolioData, lang));
     };
 
     const updateButtons = (lang) => {
         const buttons = translations[lang].buttons;
         const buttonLabels = [
+            ['[data-section="welcome"]', buttons.welcome],
             ['[data-section="experience"]', buttons.experience],
             ['[data-section="technologies"]', buttons.technologies],
             ['[data-section="projects"]', buttons.projects],
             ['[data-section="contacts"]', buttons.contacts],
             ['[data-section="education"]', buttons.education],
+            ['[data-section="services"]', buttons.services],
+            ['[data-section="profile"]', buttons.profile],
+            ['[data-section="assistant"]', buttons.assistant],
             ['[data-subsection="familiar"]', buttons.familiar],
             ['[data-subsection="proficient"]', buttons.proficient]
         ];
@@ -173,6 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (languageSelectorLabel) {
             languageSelectorLabel.textContent = languageLabels[lang] || languageLabels[fallbackLanguage];
         }
+        document.getElementById('public-profile-label').textContent = getAdditions(lang).profile;
+        document.getElementById('profile-file-navigation').setAttribute('aria-label', getAdditions(lang).profileFiles);
+        document.getElementById('primary-navigation').setAttribute('aria-label', getLandingTranslations(lang).navigation);
+        document.getElementById('skip-link').textContent = getLandingTranslations(lang).skip;
+        document.getElementById('brand-home').setAttribute('aria-label', `${portfolioData.identity.name[lang]} — ${getLandingTranslations(lang).homeLabel}`);
     };
 
     const setActiveSection = (section) => {
@@ -192,38 +255,58 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const updateContent = (section, lang) => {
+    const updateContent = (section, lang, focusContent = true, intent) => {
         const translation = translations[lang] || translations[fallbackLanguage];
 
         if (section === "technologies") {
-            currentSection = "technologies";
-            currentSubsection = null;
-            technologiesMenu.hidden = false;
-            technologiesButton.setAttribute("aria-expanded", "true");
-            renderContent(`${translation.welcome}<p>${translation.description}</p>`);
-            setActiveSection(section);
+            updateSubmenu("proficient", lang, focusContent);
         } else {
             currentSection = section || "welcome";
             currentSubsection = null;
+            content.dataset.section = currentSection;
             technologiesMenu.hidden = true;
             technologiesButton.setAttribute("aria-expanded", "false");
-            const text = translation[section] || translation.welcome;
-            renderContent(text);
+            let text;
+            if (section === 'assistant') {
+                if (!assistant) {
+                    assistant = createAssistant(lang);
+                    assistant.setIntent(intent ?? initialAssistantIntent);
+                } else {
+                    assistant.setLanguage(lang);
+                    if (intent !== undefined) assistant.setIntent(intent);
+                }
+                text = assistant.element;
+            } else if (section === 'services') {
+                text = renderServices(lang);
+            } else if (section === 'profile') {
+                text = renderProfile(lang);
+            } else if (section === 'contacts') {
+                if (intent !== undefined) currentContactIntent = intent;
+                text = renderContacts(lang, currentContactIntent);
+            } else if (section === 'welcome') {
+                text = renderHomepage(lang);
+            } else {
+                text = translation[section] || translation.welcome;
+            }
+            renderContent(text, focusContent, translation.buttons[section] || translation.header);
+            if (section === 'assistant') assistant.onMount();
             setActiveSection(section ?? null);
         }
     };
 
     const updateHeader = (lang) => {
-        const translation = translations[lang] || translations[fallbackLanguage];
-        headerText.textContent = translation.header;
+        headerText.textContent = portfolioData.identity.name[lang];
+        document.getElementById('header-role').textContent = portfolioData.identity.role[lang];
+        document.getElementById('footer-name').textContent = portfolioData.identity.name[lang];
     };
 
-    const updateSubmenu = (subsection, lang) => {
+    const updateSubmenu = (subsection, lang, focusContent = true) => {
         const translation = translations[lang] || translations[fallbackLanguage];
 
         currentSection = "technologies";
         currentSubsection = subsection;
-        renderContent(translation.technologies[subsection]);
+        content.dataset.section = currentSection;
+        renderContent(translation.technologies[subsection] + renderAddedSkills(lang), focusContent, translation.buttons[subsection]);
         submenuButtons.forEach((button) => {
             const isActive = button.getAttribute("data-subsection") === subsection;
             if (isActive) {
@@ -243,15 +326,31 @@ document.addEventListener("DOMContentLoaded", () => {
         updateButtons(activeLanguage);
         updateHeader(activeLanguage);
         if (currentSubsection) {
-            updateSubmenu(currentSubsection, activeLanguage);
+            updateSubmenu(currentSubsection, activeLanguage, false);
         } else {
-            updateContent(currentSection, activeLanguage);
+            updateContent(currentSection, activeLanguage, false);
         }
         updateDocumentMeta(activeLanguage);
         languageSelector.value = activeLanguage;
 
         return activeLanguage;
     };
+
+    const renderRoute = () => {
+        const route = getRoute(window.location.hash);
+        const lang = languageSelector.value;
+        if (route.subsection) {
+            updateSubmenu(route.subsection, lang);
+        } else {
+            updateContent(route.section, lang, true, route.intent);
+        }
+    };
+
+    const initialRoute = getRoute(window.location.hash);
+    currentSection = initialRoute.section;
+    currentSubsection = initialRoute.subsection;
+    initialAssistantIntent = initialRoute.intent || 'overview';
+    currentContactIntent = initialRoute.section === 'contacts' ? initialRoute.intent : 'overview';
 
     // Язык по умолчанию
     const storedLanguage = getStoredLanguage();
@@ -263,19 +362,25 @@ document.addEventListener("DOMContentLoaded", () => {
         storeLanguage(selectedLang);
     });
 
-    document.querySelectorAll(".menu-button").forEach(button => {
-        button.addEventListener("click", () => {
-            const section = button.getAttribute("data-section");
-            const selectedLang = languageSelector.value;
-            updateContent(section, selectedLang);
-        });
-    });
+    window.addEventListener("hashchange", renderRoute);
 
-    document.querySelectorAll(".submenu-button").forEach(button => {
-        button.addEventListener("click", () => {
-            const subsection = button.getAttribute("data-subsection");
-            const selectedLang = languageSelector.value;
-            updateSubmenu(subsection, selectedLang);
-        });
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        // Keep native link behavior for copied links, new tabs and history.
+        // Repeated activation still moves focus to the selected section.
+        if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+            return;
+        }
+        if (link.hash === '#main-content') {
+            event.preventDefault();
+            content.focus();
+            content.scrollIntoView({ block: 'start' });
+            return;
+        }
+        if (link.hash === window.location.hash) {
+            event.preventDefault();
+            renderRoute();
+        }
     });
 });

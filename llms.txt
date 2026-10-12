@@ -1,0 +1,19 @@
+# Sergey Fedorov
+
+> System administration, IT infrastructure, networking, CCTV and VoIP. The portfolio also covers automation and AI tools.
+
+## Public profile
+
+- [Visible profile](https://fedorovserhii.github.io/Portfolio/#profile): Profile facts, skills, service scopes and public contacts.
+- [JSON profile](https://fedorovserhii.github.io/Portfolio/profile.json): The same profile in English, Russian, Ukrainian and Polish.
+- [Markdown profile](https://fedorovserhii.github.io/Portfolio/profile.md): A readable copy of those profile facts in all four languages.
+
+## Portfolio sections
+
+- [Services](https://fedorovserhii.github.io/Portfolio/#services): One-time setup and monthly maintenance scopes.
+- [Technologies](https://fedorovserhii.github.io/Portfolio/#technologies/proficient): Published tools and technologies.
+- [Work experience](https://fedorovserhii.github.io/Portfolio/#experience)
+- [Projects](https://fedorovserhii.github.io/Portfolio/#projects)
+- [Education](https://fedorovserhii.github.io/Portfolio/#education)
+- [Public contacts](https://fedorovserhii.github.io/Portfolio/#contacts)
+- [Demo assistant](https://fedorovserhii.github.io/Portfolio/#assistant): Local preset replies; no connected language model or message sending.

@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sergey Fedorov: system administration, backups with restore checks, Grafana monitoring, Linux, Docker and automation.">
     <meta name="author" content="Sergey Fedorov">
@@ -11,7 +10,7 @@
     <meta property="og:description" content="Sergey Fedorov: system administration, backups with restore checks, Grafana monitoring, Linux, Docker and automation.">
     <meta property="og:url" content="https://fedorovserhii.github.io/Portfolio/">
     <meta property="og:locale" content="en_US">
-    <meta name="theme-color" content="#f5f1e9">
+    <meta name="theme-color" content="#1976d2">
     <title>Sergey Fedorov — System administration &amp; automation</title>
     <link rel="canonical" href="https://fedorovserhii.github.io/Portfolio/">
     <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
@@ -67,11 +66,12 @@
     <header class="site-header">
         <div class="site-header-inner">
             <a class="brand-link" id="brand-home" href="#welcome" aria-label="Sergey Fedorov — Home">
+                <img src="HeaderPicture.png" alt="" class="header-photo" width="56" height="56" decoding="async">
                 <span class="brand-copy"><span class="header-text">Sergey Fedorov</span><span id="header-role">System Administrator</span></span>
             </a>
             <div class="language-selector">
                 <label class="visually-hidden" for="language-select">Choose Language:</label>
-                <select id="language-select">
+                <select id="language-select" aria-label="Choose Language:">
                     <option value="en">English</option>
                     <option value="ru">Русский</option>
                     <option value="uk">Українська</option>
@@ -80,24 +80,30 @@
             </div>
         </div>
     </header>
-    <div class="navigation-shell">
-        <nav id="primary-navigation" aria-label="Main navigation">
-            <a href="#welcome" class="menu-button" data-section="welcome">About me</a>
-            <a href="#services" class="menu-button" data-section="services">Services</a>
-            <a href="#experience" class="menu-button" data-section="experience">Work Experience</a>
-            <a href="#technologies" id="technologies-link" class="menu-button" data-section="technologies" aria-expanded="false" aria-controls="technologies-menu">Technologies</a>
-            <a href="#projects" class="menu-button" data-section="projects">Projects</a>
-            <a href="#education" class="menu-button" data-section="education">Education</a>
-            <a href="#contacts" class="menu-button" data-section="contacts">Contacts</a>
-            <a href="#profile" class="menu-button" data-section="profile">Public profile</a>
-            <a href="#assistant" class="menu-button" data-section="assistant">Demo assistant</a>
-        </nav>
-        <div class="submenu" id="technologies-menu" role="group" aria-labelledby="technologies-link" hidden>
-            <a href="#technologies/familiar" class="submenu-button" data-subsection="familiar">Technologies Familiar With</a>
-            <a href="#technologies/proficient" class="submenu-button" data-subsection="proficient">Technologies I Work With</a>
-        </div>
-    </div>
     <div class="container">
+        <aside class="sidebar" aria-label="Portfolio navigation">
+            <div class="sidebar-profile">
+                <img src="Avatar.png" alt="Sergey Fedorov" class="profile-photo" width="100" height="100" loading="lazy" decoding="async">
+                <p class="sidebar-role">System Administrator</p>
+            </div>
+            <div class="navigation-shell">
+                <nav id="primary-navigation" aria-label="Main navigation">
+                    <a href="#welcome" class="menu-button" data-section="welcome">About me</a>
+                    <a href="#services" class="menu-button" data-section="services">Services</a>
+                    <a href="#experience" class="menu-button" data-section="experience">Work Experience</a>
+                    <a href="#technologies" id="technologies-link" class="menu-button" data-section="technologies" aria-expanded="false" aria-controls="technologies-menu">Technologies</a>
+                    <div class="submenu" id="technologies-menu" role="group" aria-labelledby="technologies-link" hidden>
+                        <a href="#technologies/familiar" class="submenu-button" data-subsection="familiar">Technologies Familiar With</a>
+                        <a href="#technologies/proficient" class="submenu-button" data-subsection="proficient">Technologies I Work With</a>
+                    </div>
+                    <a href="#projects" class="menu-button" data-section="projects">Projects</a>
+                    <a href="#education" class="menu-button" data-section="education">Education</a>
+                    <a href="#contacts" class="menu-button" data-section="contacts">Contacts</a>
+                    <a href="#profile" class="menu-button" data-section="profile">Public profile</a>
+                    <a href="#assistant" class="menu-button" data-section="assistant">Demo assistant</a>
+                </nav>
+            </div>
+        </aside>
         <main class="content" id="main-content" aria-live="polite" aria-labelledby="section-title" tabindex="-1">
             <h1 id="section-title">Sergey Fedorov</h1>
             <p>I work with infrastructure and automation.</p>
@@ -115,7 +121,6 @@
             </nav>
         </div>
     </footer>
-
     <script type="module" src="main.js"></script>
 </body>
 </html>

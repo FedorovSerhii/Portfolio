@@ -1,8 +1,9 @@
 import { buildPublicProfile, getLanguage } from './portfolio-data.js';
-import { getAdditions } from './additions-translations.js?v=live-20261019';
-import { renderServiceCards } from './portfolio-content.js?v=live-20261019';
+import { getAdditions } from './additions-translations.js?v=contact-20261019';
+import { renderServiceCards } from './portfolio-content.js?v=contact-20261019';
 import { ASSISTANT_LIMITS, classifyMessage, containsContactDetails } from './assistant-policy.js';
-import { createPortfolioApi, LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=live-20261019';
+import { createPortfolioApi, LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=contact-20261019';
+import { parseReplyContact } from './contact-policy.js?v=contact-20261019';
 
 export { ASSISTANT_LIMITS } from './assistant-policy.js';
 
@@ -18,6 +19,7 @@ export function createAssistant(initialLanguage = 'en') {
         feedback: '',
         offerFeedback: 'reviewRequired',
         reviewedProposal: null,
+        reviewedContact: null,
         consent: false,
         motionEnabled: true,
         hasWalked: false,
@@ -65,10 +67,16 @@ export function createAssistant(initialLanguage = 'en') {
                     <p id="offer-hint" class="muted"></p>
                     <label for="offer-proposal" id="offer-proposal-label"></label>
                     <textarea id="offer-proposal" rows="4" maxlength="${ASSISTANT_LIMITS.proposal}" aria-describedby="offer-hint offer-feedback" autocomplete="off"></textarea>
+                    <div id="offer-contact-field" ${live ? '' : 'hidden'}>
+                        <label for="offer-reply-contact" id="offer-contact-label"></label>
+                        <input id="offer-reply-contact" type="text" inputmode="email" maxlength="254" autocomplete="off" spellcheck="false" ${live ? 'required' : ''} aria-describedby="offer-contact-hint offer-feedback">
+                        <p id="offer-contact-hint" class="muted"></p>
+                    </div>
                     <button type="button" id="offer-review"></button>
                     <div id="offer-preview" hidden>
                         <h3 id="offer-preview-title"></h3>
                         <p id="offer-preview-text" class="offer-preview-text"></p>
+                        <p id="offer-preview-contact-row" ${live ? '' : 'hidden'}><strong id="offer-preview-contact-label"></strong> <span id="offer-preview-contact"></span></p>
                     </div>
                     <label class="consent-label" for="offer-consent">
                         <input type="checkbox" id="offer-consent" disabled aria-describedby="offer-nothing-sent">
@@ -114,6 +122,7 @@ export function createAssistant(initialLanguage = 'en') {
     const message = find('assistant-message');
     const history = find('assistant-history');
     const proposal = find('offer-proposal');
+    const replyContact = find('offer-reply-contact');
     const consent = find('offer-consent');
     const mascot = find('assistant-mascot');
     const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -173,9 +182,10 @@ export function createAssistant(initialLanguage = 'en') {
         element.querySelectorAll('[data-topic]').forEach(button => { button.disabled = state.chatBusy; });
         find('offer-review').disabled = state.offerBusy || state.deliveryState !== 'idle';
         proposal.disabled = state.deliveryState === 'sending';
+        replyContact.disabled = state.deliveryState === 'sending';
         consent.disabled = state.offerBusy || state.reviewedProposal === null || state.deliveryState !== 'idle';
         const canSend = live && !state.offerBusy && state.deliveryState === 'idle' && state.consent &&
-            state.reviewToken && state.reviewLanguage === state.language && state.reviewedProposal === proposal.value;
+            state.reviewToken && state.reviewLanguage === state.language && state.reviewedProposal === proposal.value && state.reviewedContact === replyContact.value;
         find('offer-send').disabled = !canSend;
         find('offer-send').setAttribute('aria-disabled', String(!canSend));
     }
@@ -196,12 +206,14 @@ export function createAssistant(initialLanguage = 'en') {
         state.idempotencyKey = null;
         if (state.deliveryState !== 'sending') state.deliveryState = 'idle';
         state.reviewedProposal = null;
+        state.reviewedContact = null;
         state.consent = false;
         state.offerFeedback = feedback;
         consent.checked = false;
         consent.disabled = true;
         find('offer-preview').hidden = true;
         find('offer-preview-text').textContent = '';
+        find('offer-preview-contact').textContent = '';
         renderFeedback();
     }
 
@@ -267,6 +279,9 @@ export function createAssistant(initialLanguage = 'en') {
             'offer-title': ui.offerTitle,
             'offer-hint': ui.offerHint,
             'offer-proposal-label': ui.proposalLabel,
+            'offer-contact-label': ui.replyContactLabel || '',
+            'offer-contact-hint': ui.replyContactHint || '',
+            'offer-preview-contact-label': ui.replyContactLabel || '',
             'offer-review': ui.review,
             'offer-preview-title': ui.previewTitle,
             'offer-consent-label': ui.consent,
@@ -342,8 +357,10 @@ export function createAssistant(initialLanguage = 'en') {
         state.history = [];
         message.value = '';
         proposal.value = '';
+        replyContact.value = '';
         message.removeAttribute('aria-invalid');
         proposal.removeAttribute('aria-invalid');
+        replyContact.removeAttribute('aria-invalid');
         invalidateReview('reviewRequired');
         state.feedback = 'cleared';
         renderHistory();
@@ -352,6 +369,10 @@ export function createAssistant(initialLanguage = 'en') {
     find('assistant-intent').addEventListener('change', (event) => setIntent(event.target.value));
     proposal.addEventListener('input', () => {
         proposal.removeAttribute('aria-invalid');
+        invalidateReview();
+    });
+    replyContact.addEventListener('input', () => {
+        replyContact.removeAttribute('aria-invalid');
         invalidateReview();
     });
     find('offer-review').addEventListener('click', async () => {
@@ -366,14 +387,23 @@ export function createAssistant(initialLanguage = 'en') {
             return;
         }
         if (live) {
+            const contact = parseReplyContact(replyContact.value);
+            if (contact.error) {
+                invalidateReview(contact.error);
+                replyContact.setAttribute('aria-invalid', 'true');
+                replyContact.focus();
+                return;
+            }
+            replyContact.value = contact.value;
+            replyContact.removeAttribute('aria-invalid');
             invalidateReview('reviewing');
             const version = state.reviewVersion;
-            const snapshot = { proposal: proposal.value, language: state.language, intent: state.intent };
+            const snapshot = { proposal: proposal.value, replyContact: replyContact.value, language: state.language, intent: state.intent };
             state.offerBusy = true;
             renderControls();
             try {
                 const review = await api.review(snapshot);
-                if (version !== state.reviewVersion || snapshot.proposal !== proposal.value || snapshot.language !== state.language || snapshot.intent !== state.intent) return;
+                if (version !== state.reviewVersion || snapshot.proposal !== proposal.value || snapshot.replyContact !== replyContact.value || snapshot.language !== state.language || snapshot.intent !== state.intent) return;
                 state.reviewToken = review.reviewToken;
                 state.reviewLanguage = snapshot.language;
                 state.idempotencyKey = crypto.randomUUID();
@@ -384,28 +414,30 @@ export function createAssistant(initialLanguage = 'en') {
             if (!state.reviewToken) return;
         }
         state.reviewedProposal = proposal.value;
+        state.reviewedContact = replyContact.value;
         state.consent = false;
         state.offerFeedback = 'reviewed';
         consent.checked = false;
         consent.disabled = false;
         proposal.removeAttribute('aria-invalid');
         find('offer-preview-text').textContent = state.reviewedProposal;
+        find('offer-preview-contact').textContent = state.reviewedContact;
         find('offer-preview').hidden = false;
         renderFeedback();
     });
     find('offer-send').addEventListener('click', async () => {
-        if (!live || state.offerBusy || !state.consent || !state.reviewToken || state.deliveryState !== 'idle' || state.reviewedProposal !== proposal.value || state.reviewLanguage !== state.language) return;
+        if (!live || state.offerBusy || !state.consent || !state.reviewToken || state.deliveryState !== 'idle' || state.reviewedProposal !== proposal.value || state.reviewedContact !== replyContact.value || state.reviewLanguage !== state.language) return;
         state.offerBusy = true;
         state.deliveryState = 'sending';
         state.offerFeedback = 'sending';
         renderFeedback();
         try {
-            await api.send({ proposal: proposal.value, reviewedProposal: state.reviewedProposal, reviewToken: state.reviewToken, consent: true,
+            await api.send({ proposal: proposal.value, replyContact: replyContact.value, reviewedProposal: state.reviewedProposal, reviewedContact: state.reviewedContact, reviewToken: state.reviewToken, consent: true,
                 idempotencyKey: state.idempotencyKey, language: state.language, intent: state.intent });
             state.deliveryState = 'sent';
             state.offerFeedback = 'delivered';
         } catch (error) {
-            state.deliveryState = ['review_expired', 'review_mismatch', 'session_expired', 'rate_limited'].includes(error.code) ? 'idle' : 'uncertain';
+            state.deliveryState = ['review_expired', 'review_mismatch', 'session_expired', 'rate_limited', 'contact_required', 'contact_invalid'].includes(error.code) ? 'idle' : 'uncertain';
             state.offerFeedback = error.code || 'delivery_uncertain';
         } finally {
             state.offerBusy = false;
@@ -416,7 +448,7 @@ export function createAssistant(initialLanguage = 'en') {
         }
     });
     consent.addEventListener('change', () => {
-        if (state.reviewedProposal === null || state.reviewedProposal !== proposal.value) {
+        if (state.reviewedProposal === null || state.reviewedProposal !== proposal.value || (live && state.reviewedContact !== replyContact.value)) {
             invalidateReview();
             return;
         }

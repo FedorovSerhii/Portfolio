@@ -154,7 +154,9 @@ li { margin-bottom: 8px; }
 .assistant-layout { display: grid; grid-template-columns: minmax(0, 1fr) 190px; align-items: start; gap: 48px; margin-top: 32px; }
 .assistant-panel, .mascot-panel { min-width: 0; }
 .assistant-panel label { display: block; font-weight: 550; margin-block: 14px 8px; }
-.assistant-panel select, .assistant-panel textarea { width: 100%; max-width: 100%; min-height: 44px; padding: 12px; border: 1px solid #a79a8a; border-radius: 0; background: var(--surface); color: var(--ink); }
+.assistant-panel select, .assistant-panel textarea, .assistant-panel input[type="text"] { width: 100%; max-width: 100%; min-height: 44px; padding: 12px; border: 1px solid #a79a8a; border-radius: 0; background: var(--surface); color: var(--ink); }
+.assistant-panel input[aria-invalid="true"] { border-color: #a52a2a; }
+#offer-preview-contact { overflow-wrap: anywhere; }
 .assistant-panel textarea { display: block; resize: vertical; margin-bottom: 14px; }
 .assistant-panel [aria-invalid="true"] { border: 2px solid #a13722; }
 .assistant-panel button, .mascot-panel button { min-height: 44px; padding: 10px 16px; border: 1px solid var(--ink); border-radius: 0; background: var(--ink); color: var(--surface); font-size: 14px; line-height: 1.4; cursor: pointer; }

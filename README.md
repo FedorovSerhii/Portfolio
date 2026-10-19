@@ -97,9 +97,9 @@ Unconfirmed legacy metrics are not promoted into the new homepage. The primary r
 
 `#assistant` connects to n8n and Google Gemini, grounded in public portfolio facts. It does not accept offers, confirm unknown availability or make commitments. Chat has no sending tool. EN/UK/RU/PL notices explain processing and retention.
 
-`#assistant/job` and `#assistant/service` include a request form. Visitors review the exact text and recipient, check consent, then separately send. Editing text or changing intent/language invalidates consent. Only Telegram acknowledgement and a persisted delivery result produce success. Uncertain delivery is not retried automatically.
+`#assistant/job` and `#assistant/service` include a request form with a required email or Telegram `@username` for replies. Visitors review the exact text, contact and recipient, check consent, then separately send. Editing text/contact or changing intent/language invalidates consent. Only Telegram acknowledgement and a persisted delivery result produce success. Uncertain delivery is not retried automatically.
 
-Messages are limited to 600 characters, history to 12 entries and proposals to 1,200 characters. Text is rendered with `textContent`. Chat rejects obvious contacts; a separately reviewed request may include an optional reply address. Server byte/rate limits and token checks apply independently of the UI.
+Messages are limited to 600 characters, history to 12 entries and proposals to 1,200 characters. Text is rendered with `textContent`. Chat rejects obvious contacts; the separate request requires a syntactically valid reply contact. The server rejects legacy contactless requests and binds contact to the reviewed-text hash. Contacts are self-reported, not verified identity. Telegram shows where to reply; replies to the bot are not relayed to visitors. Server byte/rate limits and token checks apply independently of the UI.
 
 Conversation and drafts live in page memory. Language changes preserve them but reset reviewed consent. Reloading or clearing removes browser state, not Telegram messages. Only language preference uses local storage. CSS and JavaScript respect reduced-motion preferences for the optional character.
 

@@ -16,10 +16,12 @@ Then check artifact freshness and run the dependency-free tests:
 
 ```bash
 npm run check:profile
-node --test --test-isolation=none tests/profile.test.mjs tests/adapter.test.mjs tests/live-request.test.mjs
+node --test --test-isolation=none tests/profile.test.mjs tests/adapter.test.mjs tests/live-request.test.mjs tests/contact.test.mjs
 ```
 
 The tests cover preservation of identity and contacts, four-language content, availability confirmation, matching public artifacts/JSON-LD, disabled transport, input validation, same-origin endpoints, proposal review/consent and simulated relay failures. All adapter requests use injected local test doubles.
+
+Contact regressions cover empty/invalid email and Telegram handles, legacy contactless requests, canonical hash binding, changed contact after review, normalized client payloads and Telegram HTML escaping. The form must display text and contact together, reset consent on either edit, and retain accessible labels/errors at narrow widths in all four locales. Contact validation checks syntax, not ownership.
 
 ## Live UI preview
 

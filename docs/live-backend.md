@@ -36,15 +36,19 @@ Origin/CORS and session capabilities are browser protections, **not visitor auth
 
 ## Review and delivery
 
-The server issues a ten-minute review token bound to exact proposal hash, session, locale and intent. The full text and recipient appear before an initially unchecked consent checkbox. Editing text or changing intent/language invalidates review and consent. Chat instructions cannot send Telegram messages.
+Both `review` and `proposal` require `replyContact`: an email address or Telegram `@username`. The shared syntax validator normalizes the domain/username, rejects missing or invalid contacts, and returns `contact_required` or `contact_invalid` with a reload/review explanation for legacy clients. This is self-reported contact, not verified identity or ownership.
 
-Sending requires the current token, exact reviewed text, consent and an idempotency key. The server reserves `sending` before Telegram. Success requires Telegram's message ID for the fixed recipient and persistence of that result. Repeating a confirmed key returns `accepted` with `duplicate: true` without resending. Changing the key for the same reserved review is rejected. Uncertain/in-flight delivery is not retried automatically.
+The server issues a ten-minute review token bound to a SHA-256 hash of canonical JSON containing the exact proposal and normalized contact, plus session, locale and intent. The existing database function hashes this envelope; no schema migration is needed. The full text, reply contact and recipient appear before an initially unchecked consent checkbox. Editing text/contact or changing intent/language invalidates review and consent. Chat instructions cannot send Telegram messages. Reviews issued before contact binding cannot authorize the new envelope.
+
+Sending requires the current token, exact reviewed text/contact, consent and an idempotency key. The server reserves `sending` before Telegram. Success requires Telegram's message ID for the fixed recipient and persistence of that result. Repeating a confirmed key returns `accepted` with `duplicate: true` without resending. Changing the key for the same reserved review is rejected. Uncertain/in-flight delivery is not retried automatically.
+
+Telegram displays a separate localized reply-contact block, a safe `https://t.me/username` link for validated usernames, and a notice that the contact is unverified. Email is escaped readable text. All visitor text is escaped for Telegram HTML. Replies to the bot are not forwarded to the visitor; the owner replies through the supplied contact. Earlier anonymous submissions without a contact remain unreplyable unless the visitor returns and supplies one.
 
 This protects a reserved review, not universal exactly-once delivery. A new session, a deliberately new review, or network ambiguity may need human reconciliation. Do not claim success without an acknowledgement or resend an uncertain request blindly.
 
 ## Privacy
 
-Notices in every language explain that n8n and Google Gemini process chat and the owner's Telegram receives confirmed requests. A heuristic blocks obvious contacts in chat; visitors may voluntarily include a reply address in the separately reviewed request. Do not submit secrets or sensitive personal information.
+Notices in every language explain that n8n and Google Gemini process chat and the owner's Telegram receives confirmed requests. A heuristic blocks obvious contacts in chat; the separate request form requires a reply contact and explicit consent to send it with the text. Contact is not added to model history. Do not submit secrets or sensitive personal information.
 
 The workflow does not save successful, failed or manual execution payloads. Conversation lives in browser memory, with a bounded copy sent to the model per request. Postgres stores session hashes, quota counters, proposal hashes and delivery metadata, not chat/proposal text. Hourly cleanup removes session/review metadata older than 24 hours (normally within 25 hours while the scheduler operates); counters older than two days are removed. Telegram messages remain until deleted. Provider policies, infrastructure logs and backups have separate retention; this setup does not override them. Clearing the UI clears browser state, not Telegram/provider records.
 
@@ -59,7 +63,9 @@ The workflow does not save successful, failed or manual execution payloads. Conv
 - `PORTFOLIO_TELEGRAM_CHAT_ID`: verified owner chat, fixed server-side.
 - Optional `PORTFOLIO_GEMINI_MODEL`, default `models/gemini-2.5-flash-lite`.
 
-Deploy only the two exact Portfolio workflow names. Activate the authenticated `Portfolio - setup and diagnostics`, invoke once for the idempotent schema migration/model check, then deactivate it. Keep `Portfolio - guarded API` active for public requests and hourly cleanup. Temporary connection-verification workflows remain inactive.
+For initial installation only, deploy the two exact Portfolio workflow names. Activate the authenticated `Portfolio - setup and diagnostics`, invoke once for the idempotent schema migration/model check, then deactivate it. Keep `Portfolio - guarded API` active for public requests and hourly cleanup. Temporary connection-verification workflows remain inactive.
+
+For the required-contact patch, update only `Validate request`, the authorization query's payload expression, and the Telegram text expression in the existing gateway. Preserve all other nodes, connections, settings, credential references and the fixed recipient. Do not activate setup/diagnostics or migrate the database for this patch.
 
 When public facts change, regenerate/redeploy the model snapshot as well as the profile artifacts. Reuse credential IDs; never export credentials into source. To disable interaction, publish `LIVE_ASSISTANT_ENABLED = false`. For immediate server shutdown, deactivate the gateway; this also stops its cleanup scheduler. Do not drop the schema during routine rollback.
 

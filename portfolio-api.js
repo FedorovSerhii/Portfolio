@@ -1,4 +1,5 @@
 import { ASSISTANT_LIMITS } from './assistant-policy.js';
+import { parseReplyContact } from './contact-policy.js?v=contact-20261019';
 
 // Public, bounded Portfolio API. This is not an n8n administration API or secret.
 export const PORTFOLIO_API_URL = 'https://n8n.e-kontent.space/webhook/portfolio-agent-v1';
@@ -28,7 +29,7 @@ export function createPortfolioApi({ enabled = LIVE_ASSISTANT_ENABLED, fetchImpl
             let result;
             try { result = JSON.parse(raw); } catch { throw new PortfolioApiError('unavailable'); }
             if (!response.ok) {
-                const known = ['session_expired', 'rate_limited', 'busy', 'review_mismatch', 'review_expired', 'already_submitted', 'delivery_uncertain', 'invalid_input', 'unavailable'];
+                const known = ['session_expired', 'rate_limited', 'busy', 'review_mismatch', 'review_expired', 'already_submitted', 'delivery_uncertain', 'invalid_input', 'unavailable', 'contact_required', 'contact_invalid'];
                 const code = known.includes(result?.error) ? result.error : 'unavailable';
                 if (code === 'session_expired') session = null;
                 throw new PortfolioApiError(code);
@@ -48,8 +49,11 @@ export function createPortfolioApi({ enabled = LIVE_ASSISTANT_ENABLED, fetchImpl
         }).finally(() => { sessionPromise = null; });
         return sessionPromise;
     }
-    const checked = (language, proposal, intent) => {
+    const checked = (language, proposal, intent, replyContact) => {
         if (!['en', 'ru', 'uk', 'pl'].includes(language) || !['job', 'service'].includes(intent) || typeof proposal !== 'string' || !proposal.trim() || proposal.length > ASSISTANT_LIMITS.proposal) throw new PortfolioApiError('invalid_input');
+        const contact = parseReplyContact(replyContact);
+        if (contact.error) throw new PortfolioApiError(contact.error);
+        return contact.value;
     };
     return Object.freeze({
         async chat({ message, language, history = [] }) {
@@ -63,18 +67,18 @@ export function createPortfolioApi({ enabled = LIVE_ASSISTANT_ENABLED, fetchImpl
             if (typeof result?.reply !== 'string' || !result.reply.trim() || result.reply.length > 4000) throw new PortfolioApiError('unavailable');
             return result.reply;
         },
-        async review({ proposal, language, intent }) {
-            checked(language, proposal, intent);
-            const result = await post({ action: 'review', sessionToken: await getSession(), language, intent, proposal });
+        async review({ proposal, replyContact, language, intent }) {
+            replyContact = checked(language, proposal, intent, replyContact);
+            const result = await post({ action: 'review', sessionToken: await getSession(), language, intent, proposal, replyContact });
             if (!/^[0-9a-f-]{36}$/i.test(result?.reviewToken || '') || result?.recipient !== 'Sergey Fedorov (@Medoedkoi)') throw new PortfolioApiError('unavailable');
             return result;
         },
-        async send({ proposal, reviewedProposal, reviewToken, consent, idempotencyKey, language, intent }) {
-            checked(language, proposal, intent);
-            if (proposal !== reviewedProposal || consent !== true || !/^[0-9a-f-]{36}$/i.test(reviewToken || '') || !/^[A-Za-z0-9_-]{16,128}$/.test(idempotencyKey || '')) throw new PortfolioApiError('review_mismatch');
+        async send({ proposal, replyContact, reviewedProposal, reviewedContact, reviewToken, consent, idempotencyKey, language, intent }) {
+            const canonicalContact = checked(language, proposal, intent, replyContact);
+            if (proposal !== reviewedProposal || replyContact !== reviewedContact || consent !== true || !/^[0-9a-f-]{36}$/i.test(reviewToken || '') || !/^[A-Za-z0-9_-]{16,128}$/.test(idempotencyKey || '')) throw new PortfolioApiError('review_mismatch');
             let result;
             try {
-                result = await post({ action: 'proposal', sessionToken: await getSession(), proposal, reviewToken, consent: true, idempotencyKey, language, intent });
+                result = await post({ action: 'proposal', sessionToken: await getSession(), proposal, replyContact: canonicalContact, reviewToken, consent: true, idempotencyKey, language, intent });
             } catch (error) {
                 // An unreadable upstream failure may happen after Telegram accepted delivery.
                 if (error.code === 'unavailable') throw new PortfolioApiError('delivery_uncertain');

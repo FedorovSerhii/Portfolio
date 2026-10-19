@@ -1,5 +1,5 @@
-import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=live-20261019';
-import { getLiveTranslations } from './live-translations.js?v=live-20261019';
+import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=contact-20261019';
+import { getLiveTranslations } from './live-translations.js?v=contact-20261019';
 
 // Interface text only. Public profile facts live in portfolio-data.js.
 const additions = {

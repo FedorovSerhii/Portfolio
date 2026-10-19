@@ -1,3 +1,6 @@
+import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js';
+import { getLiveTranslations } from './live-translations.js';
+
 // Interface text only. Public profile facts live in portfolio-data.js.
 const additions = {
     en: {
@@ -151,5 +154,10 @@ const additions = {
 };
 
 export function getAdditions(language = 'en') {
-    return additions[language] || additions.en;
+    const base = additions[language] || additions.en;
+    if (!LIVE_ASSISTANT_ENABLED) return base;
+    const live = getLiveTranslations(language);
+    return { ...base, nav: { ...base.nav, assistant: live.title },
+        assistant: { ...base.assistant, ...live, shortcuts: { ...base.assistant.shortcuts, limits: live.limitsLabel } },
+        mascot: { ...base.mascot, description: live.characterDescription } };
 }

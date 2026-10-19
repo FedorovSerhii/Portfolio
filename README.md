@@ -10,7 +10,7 @@ Personal portfolio site for showcasing the experience of Sergey Fedorov, a syste
 - Experience, projects, education, tools and service scopes, including automation and AI tools.
 - One-time setup and monthly maintenance descriptions for backups, Grafana monitoring with messenger notifications, and Linux/Docker.
 - A visible public profile, generated JSON/Markdown/text files, and a JSON-LD `Person` record from shared factual data.
-- A multilingual local demo assistant with preset replies, a job-offer review preview and an optional animated SVG companion.
+- A multilingual Gemini-backed assistant, separately reviewed job/service requests delivered to the owner by Telegram, and an optional SVG companion.
 - Responsive layout optimised for desktop and mobile viewports.
 
 ## Getting started
@@ -38,7 +38,10 @@ Then navigate to `http://localhost:8000` and explore the interface.
 ├── portfolio-content.js      # Visible profile, services and skills from those facts
 ├── additions-translations.js # New interface strings in all four languages
 ├── landing-translations.js   # Homepage and direct-contact copy in all four languages
-├── assistant.js              # Local preset demo; no networking or persistence
+├── assistant.js              # Chat, review, consent and delivery UI
+├── portfolio-api.js          # Fixed public endpoint and bounded transport
+├── live-translations.js      # Four-language live notices and status copy
+├── integration/              # Request guards, SQL schema, workflow generator
 ├── assistant-policy.js       # Text/history limits and local topic matching
 ├── n8n-adapter.js            # Disabled future same-origin relay adapter
 ├── profile.json              # Generated public profile in all four languages
@@ -84,27 +87,27 @@ The JSON file contains a `profiles` map keyed by `en`, `ru`, `uk` and `pl`. The 
 
 ## Direct contact
 
-The main localized calls to action lead to `#contacts/job` (offer a job) and `#contacts/service` (discuss a service). Each view retains the existing public email, Telegram and LinkedIn. The email link opens a localized subject/body template in the visitor's own mail application. The visitor reviews and sends the draft there; opening the contact page or link is not a successful submission. No contact form, automatic sending or lead analytics is added. A language change preserves the selected contact intent.
+The main calls to action lead to `#contacts/job` and `#contacts/service`, preserving public email, Telegram and LinkedIn. Email opens a localized draft in the visitor's mail application. Opening these pages sends nothing. The assistant is an optional separate path for reviewed submissions. Language changes preserve contact intent but invalidate reviewed assistant consent. No lead analytics is added.
 
 The homepage introduces Sergey by name, with concise first-person copy, service scopes and links to experience/projects. The owner chose a personal page with calm colors and natural writing; the layout uses typography and open sections rather than repeated promotional cards. No real portrait or workspace photograph has been supplied. The earlier illustrations are retained as files, but are not presented as photographs of the owner or his workspace. The favicon is the local typographic `static/images/favicon.svg`.
 
 Unconfirmed legacy metrics are not promoted into the new homepage. The primary revenue goal, market and case-study evidence still need the owner's answers; see [the growth plan](docs/growth-plan.md) and [research sources](docs/research-sources.md).
 
-## Local demo assistant
+## Portfolio assistant
 
-`#assistant` is an explicitly labelled demonstration with deterministic, preset responses. It has no connected language model, n8n workflow, fetch call or external message send. It uses only facts visible in the portfolio and does not accept offers, confirm availability or make commitments.
+`#assistant` connects to n8n and Google Gemini, grounded in public portfolio facts. It does not accept offers, confirm unknown availability or make commitments. Chat has no sending tool. EN/UK/RU/PL notices explain processing and retention.
 
-The separate `#assistant/job` and `#assistant/service` links remain explicitly labelled demo exploration paths. They are optional alternatives to direct contact. The job view offers a local preview of role expectations. Reviewing text enables a consent checkbox; editing the proposal or changing its topic clears that review and consent. The Telegram forwarding button is always disabled in this demo, even with consent, and the page states that nothing has been sent.
+`#assistant/job` and `#assistant/service` include a request form. Visitors review the exact text and recipient, check consent, then separately send. Editing text or changing intent/language invalidates consent. Only Telegram acknowledgement and a persisted delivery result produce success. Uncertain delivery is not retried automatically.
 
-Messages are limited to 600 characters, history to the latest 12 messages, and proposal drafts to 1,200 characters. Visitor text is rendered with `textContent`. Empty, oversized and unsupported messages receive prepared guidance. The demo does not ask for contact information and rejects obvious email addresses, phone numbers and contact handles from conversation submissions and reviewed proposals.
+Messages are limited to 600 characters, history to 12 entries and proposals to 1,200 characters. Text is rendered with `textContent`. Chat rejects obvious contacts; a separately reviewed request may include an optional reply address. Server byte/rate limits and token checks apply independently of the UI.
 
-Conversation, drafts and consent live only in page memory. Language changes preserve them, input focus and selection; reloading clears them. The explicit clear control removes conversation and drafts. Only the existing language preference uses local storage. The SVG character has a short finite walk, a jump button and an animation toggle; CSS and JavaScript both respect reduced-motion preferences.
+Conversation and drafts live in page memory. Language changes preserve them but reset reviewed consent. Reloading or clearing removes browser state, not Telegram messages. Only language preference uses local storage. CSS and JavaScript respect reduced-motion preferences for the optional character.
 
-## Future n8n relay
+## n8n backend
 
-`n8n-adapter.js` is separate from the demo and is not imported by it. `DEFAULT_N8N_CONFIG.enabled` is `false`; disabled calls reject before validation or network access. Its future paths are `/api/assistant` and `/api/proposals` on the same origin. HTTPS is required except on localhost for development. A browser-origin override or external endpoint is rejected. No n8n URL, credentials, bot token or destination is present in the client.
+`portfolio-api.js` uses a fixed public endpoint with no administrative credentials. GitHub Pages is static; n8n holds server-only model/database/Telegram credentials. `n8n-adapter.js` remains a disabled, unused legacy same-origin proposal.
 
-The adapter has bounded `sendMessage` and `forwardOffer` methods. Forwarding requires an exact reviewed proposal, explicit consent and an idempotency key, but these client checks do not replace server controls. GitHub Pages alone cannot serve the relay. Follow [the backend integration specification](docs/backend-integration.md) before implementing or enabling a live connection, including server authentication, CSRF, rate/body/model limits, server-verified review and consent, delivery idempotency and retention rules.
+See [live backend](docs/live-backend.md) for actual quotas, anonymous-endpoint limitations, consent/idempotency, privacy, deployment and rollback; see [live validation](docs/live-integration-validation.md) for results. A production client served from localhost is rejected by the origin guard. Use `node tests/live-preview-server.mjs` for a labelled mock UI with no external sends.
 
 ## Verification
 

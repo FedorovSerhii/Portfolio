@@ -1,5 +1,7 @@
 # n8n and Telegram integration
 
+> Historical design proposal, superseded on 2026-10-19 by [the implemented live backend](live-backend.md). The sections below describe the earlier offline demo and a proposed same-origin relay, not the currently enabled n8n integration. See the new document for actual controls, limitations, privacy, deployment and rollback.
+
 ## Current implementation
 
 The portfolio is a static site. Its assistant is an explicitly labelled local demo with preset replies based on public portfolio content. It is not a connected model, n8n workflow, or Telegram bot. Conversation text and proposal previews stay in page memory; the demo does not request visitor contact details, persist conversations, or send them anywhere.

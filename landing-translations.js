@@ -1,3 +1,6 @@
+import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js';
+import { getLiveTranslations } from './live-translations.js';
+
 // Presentation and contact guidance. Public facts stay in portfolio-data.js.
 const landingTranslations = {
     "en": {
@@ -343,5 +346,9 @@ const landingTranslations = {
 };
 
 export function getLandingTranslations(language = 'en') {
-    return landingTranslations[language] || landingTranslations.en;
+    const base = landingTranslations[language] || landingTranslations.en;
+    if (!LIVE_ASSISTANT_ENABLED) return base;
+    const live = getLiveTranslations(language);
+    return { ...base, demoLink: live.title, demoNote: live.demoNote,
+        contacts: { ...base.contacts, demoJob: live.offerTitle, demoService: live.title } };
 }

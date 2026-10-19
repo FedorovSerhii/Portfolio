@@ -1,6 +1,6 @@
 # Local verification
 
-These checks exercise the static portfolio and its disabled future relay adapter. They do not connect to n8n, a language model, or Telegram, and they do not publish or push source changes.
+Dependency-free tests cover public facts, the retained disabled adapter, mocked live transport and server request guards. They do not contact n8n, a model or Telegram, or publish changes.
 
 Use Node.js 24 for the commands below. The deployed site needs no Node runtime or packages.
 
@@ -16,12 +16,18 @@ Then check artifact freshness and run the dependency-free tests:
 
 ```bash
 npm run check:profile
-node --test --test-isolation=none tests/profile.test.mjs tests/adapter.test.mjs
+node --test --test-isolation=none tests/profile.test.mjs tests/adapter.test.mjs tests/live-request.test.mjs
 ```
 
 The tests cover preservation of identity and contacts, four-language content, availability confirmation, matching public artifacts/JSON-LD, disabled transport, input validation, same-origin endpoints, proposal review/consent and simulated relay failures. All adapter requests use injected local test doubles.
 
-## Browser checks
+## Live UI preview
+
+Run `node tests/live-preview-server.mjs`; open `http://127.0.0.1:8766/#assistant/job`. `PORTFOLIO_PREVIEW_PORT` overrides the port. A visible banner identifies mocked replies and delivery; no external model or Telegram calls occur. Check chat, both request intents, initially disabled sending, consent reset after edits/language/intent changes, and delivery status in all four languages at desktop and narrow widths. Stop the owned server afterwards.
+
+## Historical browser checks
+
+The scripts below predate this integration. Offline-demo assertions in `demo-browser.cjs` require `LIVE_ASSISTANT_ENABLED = false` in a disposable copy; they are not evidence for the live transport. No Playwright dependency was added to the site.
 
 Playwright and Chromium are development-only tools. An existing Playwright installation can be selected with `PLAYWRIGHT_MODULE_PATH`. For a separate temporary installation on Linux:
 
@@ -50,4 +56,4 @@ Navigation checks validate headings and ARIA references for all four locales at 
 
 Contact-path checks cover a visible mobile first-screen heading, live contact routes for both audiences, unchanged public destinations, localized mailto draft templates, contact intent and focus across language changes, and the absence of automatic sends. They inspect destination links without sending emails or opening messaging conversations. These checks establish interface behavior, not a measured conversion or revenue improvement.
 
-These are focused regression checks, not a complete accessibility certification. Live webhook authentication, CSRF, server rate limits, model behaviour and Telegram delivery require the future server integration described in [backend-integration.md](../docs/backend-integration.md).
+These are focused checks, not a complete accessibility certification. See [live validation](../docs/live-integration-validation.md) and [backend limitations](../docs/live-backend.md). Never run real delivery tests without owner approval and clearly labelled test text.

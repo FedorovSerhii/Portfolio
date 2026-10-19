@@ -2,12 +2,15 @@ import { buildPublicProfile, getLanguage } from './portfolio-data.js';
 import { getAdditions } from './additions-translations.js';
 import { renderServiceCards } from './portfolio-content.js';
 import { ASSISTANT_LIMITS, classifyMessage, containsContactDetails } from './assistant-policy.js';
+import { createPortfolioApi, LIVE_ASSISTANT_ENABLED } from './portfolio-api.js';
 
 export { ASSISTANT_LIMITS } from './assistant-policy.js';
 
 // A persistent DOM instance keeps drafts, selection and focus across language changes.
-// No network, storage, form submission or relay adapter is used by this demo.
+// Live transport is enabled only after the bounded server workflow is verified.
 export function createAssistant(initialLanguage = 'en') {
+    const live = LIVE_ASSISTANT_ENABLED;
+    const api = createPortfolioApi();
     const state = {
         language: getLanguage(initialLanguage),
         intent: 'overview',
@@ -17,7 +20,14 @@ export function createAssistant(initialLanguage = 'en') {
         reviewedProposal: null,
         consent: false,
         motionEnabled: true,
-        hasWalked: false
+        hasWalked: false,
+        chatBusy: false,
+        offerBusy: false,
+        reviewVersion: 0,
+        reviewToken: null,
+        reviewLanguage: null,
+        idempotencyKey: null,
+        deliveryState: 'idle'
     };
     const element = document.createElement('section');
     element.id = 'assistant-section';
@@ -142,7 +152,7 @@ export function createAssistant(initialLanguage = 'en') {
             const body = document.createElement('p');
             // Visitor strings are never interpolated into HTML or parsed as markup.
             body.textContent = entry.role === 'assistant'
-                ? getReply(entry.topic)
+                ? entry.message || getReply(entry.topic)
                 : entry.topic ? text().assistant.shortcuts[entry.topic] : entry.message;
             item.append(label, body);
             fragment.append(item);
@@ -154,6 +164,20 @@ export function createAssistant(initialLanguage = 'en') {
     function renderFeedback() {
         find('assistant-feedback').textContent = text().assistant[state.feedback] || '';
         find('offer-feedback').textContent = text().assistant[state.offerFeedback] || '';
+        renderControls();
+    }
+
+    function renderControls() {
+        find('assistant-submit').disabled = state.chatBusy;
+        find('assistant-clear').disabled = state.chatBusy || state.offerBusy;
+        element.querySelectorAll('[data-topic]').forEach(button => { button.disabled = state.chatBusy; });
+        find('offer-review').disabled = state.offerBusy || state.deliveryState !== 'idle';
+        proposal.disabled = state.deliveryState === 'sending';
+        consent.disabled = state.offerBusy || state.reviewedProposal === null || state.deliveryState !== 'idle';
+        const canSend = live && !state.offerBusy && state.deliveryState === 'idle' && state.consent &&
+            state.reviewToken && state.reviewLanguage === state.language && state.reviewedProposal === proposal.value;
+        find('offer-send').disabled = !canSend;
+        find('offer-send').setAttribute('aria-disabled', String(!canSend));
     }
 
     function addExchange(userEntry, topic) {
@@ -166,6 +190,11 @@ export function createAssistant(initialLanguage = 'en') {
     }
 
     function invalidateReview(feedback = 'consentReset') {
+        state.reviewVersion++;
+        state.reviewToken = null;
+        state.reviewLanguage = null;
+        state.idempotencyKey = null;
+        if (state.deliveryState !== 'sending') state.deliveryState = 'idle';
         state.reviewedProposal = null;
         state.consent = false;
         state.offerFeedback = feedback;
@@ -178,7 +207,7 @@ export function createAssistant(initialLanguage = 'en') {
 
     function renderIntent() {
         find('assistant-intent').value = state.intent;
-        find('offer-section').hidden = state.intent !== 'job';
+        find('offer-section').hidden = live ? !['job', 'service'].includes(state.intent) : state.intent !== 'job';
         find('assistant-service-details').hidden = state.intent !== 'service';
         find('assistant-intent-note').textContent = state.intent === 'job'
             ? text().assistant.jobReply
@@ -220,6 +249,7 @@ export function createAssistant(initialLanguage = 'en') {
     }
 
     function setLanguage(language) {
+        if (live && getLanguage(language) !== state.language && state.reviewedProposal !== null) invalidateReview();
         state.language = getLanguage(language);
         const labels = text();
         const ui = labels.assistant;
@@ -261,8 +291,28 @@ export function createAssistant(initialLanguage = 'en') {
         renderMotion();
     }
 
+    async function submitLiveMessage(value, topic) {
+        if (state.chatBusy) return;
+        const language = state.language;
+        const previous = state.history.map(entry => ({ role: entry.role, content: entry.message || (entry.role === 'assistant' ? getReply(entry.topic) : text().assistant.shortcuts[entry.topic]) }));
+        state.chatBusy = true;
+        state.feedback = 'thinking';
+        state.history.push({ role: 'user', message: value });
+        state.history = state.history.slice(-ASSISTANT_LIMITS.history);
+        renderHistory(true);
+        renderFeedback();
+        try {
+            const reply = topic === 'limits' ? text().assistant.limitsReply : await api.chat({ message: value, language, history: previous });
+            state.history.push({ role: 'assistant', message: reply });
+            state.history = state.history.slice(-ASSISTANT_LIMITS.history);
+            state.feedback = '';
+        } catch (error) { state.feedback = error.code || 'unavailable'; }
+        finally { state.chatBusy = false; renderHistory(true); renderFeedback(); }
+    }
+
     find('assistant-form').addEventListener('submit', (event) => {
         event.preventDefault();
+        if (state.chatBusy) return;
         const value = message.value.trim();
         const error = !value ? 'empty'
             : message.value.length > ASSISTANT_LIMITS.message ? 'long'
@@ -273,16 +323,20 @@ export function createAssistant(initialLanguage = 'en') {
             renderFeedback();
             return;
         }
-        addExchange({ message: value }, classifyMessage(value));
+        if (live) void submitLiveMessage(value);
+        else addExchange({ message: value }, classifyMessage(value));
         message.value = '';
     });
     message.addEventListener('input', () => {
-        state.feedback = '';
+        if (!state.chatBusy) state.feedback = '';
         message.removeAttribute('aria-invalid');
         renderFeedback();
     });
     element.querySelectorAll('[data-topic]').forEach((button) => {
-        button.addEventListener('click', () => addExchange({ topic: button.dataset.topic }, button.dataset.topic));
+        button.addEventListener('click', () => {
+            if (live) void submitLiveMessage(text().assistant.shortcuts[button.dataset.topic], button.dataset.topic);
+            else addExchange({ topic: button.dataset.topic }, button.dataset.topic);
+        });
     });
     find('assistant-clear').addEventListener('click', () => {
         state.history = [];
@@ -300,15 +354,34 @@ export function createAssistant(initialLanguage = 'en') {
         proposal.removeAttribute('aria-invalid');
         invalidateReview();
     });
-    find('offer-review').addEventListener('click', () => {
+    find('offer-review').addEventListener('click', async () => {
+        if (state.offerBusy || state.deliveryState !== 'idle') return;
         const value = proposal.value.trim();
         const error = !value ? 'proposalEmpty'
             : proposal.value.length > ASSISTANT_LIMITS.proposal ? 'proposalLong'
-            : containsContactDetails(value) ? 'contact' : null;
+            : !live && containsContactDetails(value) ? 'contact' : null;
         if (error) {
             invalidateReview(error);
             proposal.setAttribute('aria-invalid', 'true');
             return;
+        }
+        if (live) {
+            invalidateReview('reviewing');
+            const version = state.reviewVersion;
+            const snapshot = { proposal: proposal.value, language: state.language, intent: state.intent };
+            state.offerBusy = true;
+            renderControls();
+            try {
+                const review = await api.review(snapshot);
+                if (version !== state.reviewVersion || snapshot.proposal !== proposal.value || snapshot.language !== state.language || snapshot.intent !== state.intent) return;
+                state.reviewToken = review.reviewToken;
+                state.reviewLanguage = snapshot.language;
+                state.idempotencyKey = crypto.randomUUID();
+            } catch (error) {
+                if (version === state.reviewVersion) state.offerFeedback = error.code || 'unavailable';
+                return;
+            } finally { state.offerBusy = false; renderFeedback(); }
+            if (!state.reviewToken) return;
         }
         state.reviewedProposal = proposal.value;
         state.consent = false;
@@ -319,6 +392,28 @@ export function createAssistant(initialLanguage = 'en') {
         find('offer-preview-text').textContent = state.reviewedProposal;
         find('offer-preview').hidden = false;
         renderFeedback();
+    });
+    find('offer-send').addEventListener('click', async () => {
+        if (!live || state.offerBusy || !state.consent || !state.reviewToken || state.deliveryState !== 'idle' || state.reviewedProposal !== proposal.value || state.reviewLanguage !== state.language) return;
+        state.offerBusy = true;
+        state.deliveryState = 'sending';
+        state.offerFeedback = 'sending';
+        renderFeedback();
+        try {
+            await api.send({ proposal: proposal.value, reviewedProposal: state.reviewedProposal, reviewToken: state.reviewToken, consent: true,
+                idempotencyKey: state.idempotencyKey, language: state.language, intent: state.intent });
+            state.deliveryState = 'sent';
+            state.offerFeedback = 'delivered';
+        } catch (error) {
+            state.deliveryState = ['review_expired', 'review_mismatch', 'session_expired', 'rate_limited'].includes(error.code) ? 'idle' : 'uncertain';
+            state.offerFeedback = error.code || 'delivery_uncertain';
+        } finally {
+            state.offerBusy = false;
+            state.consent = false;
+            consent.checked = false;
+            state.reviewToken = null;
+            renderFeedback();
+        }
     });
     consent.addEventListener('change', () => {
         if (state.reviewedProposal === null || state.reviewedProposal !== proposal.value) {

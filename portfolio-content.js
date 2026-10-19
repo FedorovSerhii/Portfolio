@@ -1,6 +1,6 @@
 import { buildPublicProfile } from './portfolio-data.js';
-import { getAdditions } from './additions-translations.js';
-import { getLandingTranslations } from './landing-translations.js';
+import { getAdditions } from './additions-translations.js?v=live-20261019';
+import { getLandingTranslations } from './landing-translations.js?v=live-20261019';
 
 export function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));

@@ -1,9 +1,9 @@
 import { getTranslations } from './translations.js';
 import { portfolioData, buildPersonJsonLd } from './portfolio-data.js';
-import { getAdditions } from './additions-translations.js';
-import { getLandingTranslations } from './landing-translations.js';
-import { renderAddedSkills, renderContacts, renderHomepage, renderProfile, renderServices } from './portfolio-content.js';
-import { createAssistant } from './assistant.js';
+import { getAdditions } from './additions-translations.js?v=live-20261019';
+import { getLandingTranslations } from './landing-translations.js?v=live-20261019';
+import { renderAddedSkills, renderContacts, renderHomepage, renderProfile, renderServices } from './portfolio-content.js?v=live-20261019';
+import { createAssistant } from './assistant.js?v=live-20261019';
 
 document.addEventListener("DOMContentLoaded", () => {
     const content = document.getElementById("main-content");

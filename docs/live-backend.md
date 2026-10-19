@@ -63,4 +63,6 @@ Deploy only the two exact Portfolio workflow names. Activate the authenticated `
 
 When public facts change, regenerate/redeploy the model snapshot as well as the profile artifacts. Reuse credential IDs; never export credentials into source. To disable interaction, publish `LIVE_ASSISTANT_ENABLED = false`. For immediate server shutdown, deactivate the gateway; this also stops its cleanup scheduler. Do not drop the schema during routine rollback.
 
+The module graph uses the release query `v=live-20261019` so returning visitors do not mix cached demo modules with the live client. On another frontend release, update this query consistently in `index.html` and its affected import graph.
+
 See [live validation](live-integration-validation.md). Unit tests use mocks. The labelled local preview never sends Telegram. Real delivery tests require owner approval and explicit test text; they are not an unsolicited recurring task.

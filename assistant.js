@@ -1,8 +1,8 @@
 import { buildPublicProfile, getLanguage } from './portfolio-data.js';
-import { getAdditions } from './additions-translations.js';
-import { renderServiceCards } from './portfolio-content.js';
+import { getAdditions } from './additions-translations.js?v=live-20261019';
+import { renderServiceCards } from './portfolio-content.js?v=live-20261019';
 import { ASSISTANT_LIMITS, classifyMessage, containsContactDetails } from './assistant-policy.js';
-import { createPortfolioApi, LIVE_ASSISTANT_ENABLED } from './portfolio-api.js';
+import { createPortfolioApi, LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=live-20261019';
 
 export { ASSISTANT_LIMITS } from './assistant-policy.js';
 

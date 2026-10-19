@@ -1,5 +1,5 @@
-import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js';
-import { getLiveTranslations } from './live-translations.js';
+import { LIVE_ASSISTANT_ENABLED } from './portfolio-api.js?v=live-20261019';
+import { getLiveTranslations } from './live-translations.js?v=live-20261019';
 
 // Presentation and contact guidance. Public facts stay in portfolio-data.js.
 const landingTranslations = {

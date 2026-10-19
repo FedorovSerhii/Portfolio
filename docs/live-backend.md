@@ -57,7 +57,7 @@ The workflow does not save successful, failed or manual execution payloads. Conv
 - `PORTFOLIO_TELEGRAM_CREDENTIAL_ID`: existing Telegram bot credential.
 - `PORTFOLIO_GEMINI_CREDENTIAL_ID`: existing `googlePalmApi` credential.
 - `PORTFOLIO_TELEGRAM_CHAT_ID`: verified owner chat, fixed server-side.
-- Optional `PORTFOLIO_GEMINI_MODEL`, default `models/gemini-2.5-flash`.
+- Optional `PORTFOLIO_GEMINI_MODEL`, default `models/gemini-2.5-flash-lite`.
 
 Deploy only the two exact Portfolio workflow names. Activate the authenticated `Portfolio - setup and diagnostics`, invoke once for the idempotent schema migration/model check, then deactivate it. Keep `Portfolio - guarded API` active for public requests and hourly cleanup. Temporary connection-verification workflows remain inactive.
 

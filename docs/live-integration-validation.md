@@ -7,6 +7,7 @@ Implemented from `origin/main` baseline `6633846` in an isolated `codex/portfoli
 - Existing n8n API access, existing database, Gemini credential and Telegram bot were verified without exporting secret values.
 - Telegram `getChat` matched the owner's public `@Medoedkoi` identity before any send.
 - Real public API responses returned HTTP 200 for chat in UK, EN, RU and PL.
+- A later full-context Flash request returned upstream `Service unavailable`. A protected synthetic test isolated this from credentials/CORS. Flash-Lite returned a complete `STOP` response with the same public profile and was selected for the final deployment; no private execution payloads were read.
 - CORS preflight: HTTP 204, exact Portfolio origin, POST, content-type.
 - Foreign Origin: 403. Client-supplied chat destination: 400. Missing consent: 400. Changed proposal after review: 409.
 - Review quota: first ten accepted; eleventh returned 429 without Telegram delivery.
